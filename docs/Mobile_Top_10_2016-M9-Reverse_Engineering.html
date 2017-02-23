@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Mobile Top 10 2016-M9-Reverse Engineering - OWASP</title>
+</head>
+<body>
+<h1>Mobile Top 10 2016-M9-リバースエンジニアリング</h1>
+<center><table style="align:center; border-collapse: collapse; text-align:center; margin: 0px 5px 0px 5px; border: 3px solid #444444; background-color: #F8FFF8; padding=2;">
+       <tr style="background-color: #4F81BD; border: 3px solid #444444; height: 2em; font-size: 130%; color: #FFFFFF; text-shadow: 2px 2px 8px #000000;">
+         <th width="16.5%" style="border: 3px solid #444444;"> 脅威エージェント</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 攻撃手法</th>
+         <th width="33%" colspan="2" style="border: 3px solid #444444;"> セキュリティ上の弱点</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 技術的影響</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> ビジネスへの影響</th></tr>
+<tr>
+    <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> 
+アプリケーション依存 </td>
+
+ <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">悪用難易度
+容易</td>
+   
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">普及度
+中</td>
+
+    <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">検出難易度
+容易</td>
+
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">影響度
+中程度</td>
+     <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> アプリケーション / ビジネス依存 </td>
+</tr>
+<tr valign="top">
+     <td style="text-align: left; border: 3px solid #444444;">攻撃者は一般的にアプリストアから対象のアプリをダウンロードしてから、ローカル環境内でさまざまなツールを使用して解析します。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">攻撃者はアプリに埋め込まれたオリジナルの文字列テーブル、ソースコード、ライブラリ、アルゴリズム、リソースを見つけ出すために、最終的なコアバイナリの解析を行う必要があります。     攻撃者は IDA Pro, Hopper, otool, strings, その他のバイナリ検査ツールなどの比較的手頃な価格のよく理解されているツールを攻撃者の環境内で使用します。
+</td>
+     <td colspan="2" style="text-align: left; border: 3px solid #444444;">概して、すべてのモバイルコードはリバースエンジニアリングに脆弱です。一部のアプリは他のアプリよりも脆弱です。実行時に動的なイントロスペクションを可能にする言語/フレームワーク (Java, .NET, Objective C, Swift) で書かれたコードは特にリバースエンジニアリングのリスクがあります。リバースエンジニアリングの脆弱性を検出することはとても簡単です。まず、(バイナリ暗号化が適用されている場合)アプリストアバージョンのアプリを復号化します。次に、このドキュメントの「攻撃手法」セクションに記載されているツールをバイナリに対して使用します。これらのコードにより生成されたアプリのコントロールフローパス、文字列テーブル、疑似コード/ソースコードを理解することが非常に容易である場合、コードは脆弱となります。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">攻撃者はリバースエンジニアリングを悪用して以下のいずれかを達成できます。
+<ul>
+<li> バックエンドサーバーに関する情報を開示する
+</li>
+<li> 暗号化定数と暗号を開示する
+</li>
+<li> 知的財産を盗む
+</li>
+<li> バックエンドシステムに対する攻撃を実行する
+</li>
+<li> 後続するコード改造を実行するために必要な情報を取得する
+</li>
+</ul>
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">リバースエンジニアリングによるビジネスへの影響は非常に多様です。以下が含まれます。
+<ul>
+<li> 知的財産の漏洩
+</li>
+<li> 風評被害
+</li>
+<li> 個人情報漏洩
+</li>
+<li> バックエンドシステムの侵害
+</li>
+</ul>
+</td>
+
+<table style="border: none; text-align: left; width: 100%; border-spacing:5px 5px;">  <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;リバースエンジニアリング&#39;の脆弱性はあるか？</div> 
+<p>概して、ほとんどのアプリケーションはコード固有の性質によりリバースエンジニアリングの対して脆弱です。今日アプリを書くために使用されるほとんどの言語はプログラマがアプリをデバッグする際に大いに役立つメタデータが豊富にあります。この同じ機能は攻撃者がアプリの仕組みを理解する際にも大いに役立ちます。
+</p><p>攻撃者が以下のいずれかを実行できる場合、アプリはリバースエンジニアリングに脆弱であるといわれています。
+</p>
+<ul>
+<li> バイナリの文字列テーブルの内容を明確に理解する
+</li>
+<li> 関数間解析を正確に実行する
+</li>
+<li> バイナリからソースコードをある程度正確に再現する
+</li>
+</ul>
+<p>ほとんどのアプリはリバースエンジニアリングに脆弱ですが、リバースエンジニアリングの潜在的なビジネスへの影響を調べるには、このリスクを軽減するかどうかを検討することが重要です。リバースエンジニアリングで何ができるかについては以下の例を参照ください。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;リバースエンジニアリング&#39;を防ぐには？</div> 
+<p>効果的にリバースエンジニアリングを防ぐには、難読化ツールを使用する必要があります。市場には多くのフリーおよび商用の難読化ツールがあります。反対に、市場には多くのさまざまな難読化解読ツールがあります。選択した難読化ツールの有効性を測定するには、IDA Pro や Hopper などのツールを使用してコードの難読化解読を試みます。
+</p><p>よい難読化ツールは以下の能力を持ちます。
+</p>
+<ul>
+<li> 難読化するメソッド/コードセグメントを絞り込む
+</li>
+<li> パフォーマンスへの影響をバランスさせるために難読化の程度を調整する
+</li>
+<li> IDA Pro や Hopper などのツールによる難読化解読に耐える
+</li>
+<li> メソッドと同様に文字列テーブルも難読化する
+</li>
+</ul>
+<p><br />
+</p>
+ </td></tr>
+              <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    攻撃シナリオの例</div> 
+<p><b>シナリオ #1:</b> 文字列テーブル解析：
+</p><p>攻撃者は暗号化されていないアプリに対して「strings」を実行します。文字列テーブル解析の結果として、攻撃者はバックエンドデータベースへの認証資格情報を含むハードコードされた接続文字列を発見します。攻撃者はこれらの資格情報を使用してデータベースにアクセスします。攻撃者はアプリのユーザーに関する膨大な量の PII データを盗みます。
+</p><p><b>シナリオ #2:</b> 関数間解析：
+</p><p>攻撃者は暗号化されていないアプリに対して IDA Pro を使用します。文字列テーブル解析と関数の相互参照を組み合わせた結果として、攻撃者は脱獄検出コードを発見します。攻撃者はこの知識を後続のコード改造攻撃に使用して、モバイルアプリ内の脱獄検出を無効にします。その後、攻撃者はメソッドスウィズリングを悪用するバージョンのアプリを展開して顧客情報を盗みます。
+</p><p><b>シナリオ #3:</b> ソースコード解析：
+</p><p>銀行 Android アプリケーションを考えます。APK ファイルは 7zip/Winrar/WinZip/Gunzip を使用して簡単に抽出できます。一旦抽出されると、攻撃者はマニフェストファイル、アセット、リソース、および最も重要な classes.dex ファイルを手に入れています。
+</p><p>それから Dex to Jar コンバータを使用すると、攻撃者は簡単に jar ファイルに変換できます。次のステップでは、(JDgui などの) Java デコンパイラがコードを提供します。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    参考資料</div> 
+<p><b>OWASP</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/OWASP_Reverse_Engineering_and_Code_Modification_Prevention_Project">OWASP Reverse Engineering and Code Modification Prevention Project</a> <a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9_%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%84%E4%B8%8D%E6%AD%A3%E3%81%AA%E3%82%B3%E3%83%BC%E3%83%89%E5%A4%89%E6%9B%B4%E3%81%AE%E6%8A%80%E8%A1%93%E7%9A%84%E3%83%AA%E3%82%B9%E3%82%AF">(和訳)</a>
+</li>
+</ul>
+<p><b>その他</b>
+</p><p><span id="ReferenceItem1">[1] Arxan Research: <a rel="nofollow" class="external text" href="https://www.arxan.com/assets/1/7/State_of_Security_in_the_App_Economy_Report_Vol._2.pdf">State of Security in the App Economy, Volume 2</a>, November 2013:
+</p>
+<dl>
+<dd><i>“Adversaries have hacked 78 percent of the top 100 paid Android and iOS apps in 2013.”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem2">[2] HP Research: <a rel="nofollow" class="external text" href="http://www8.hp.com/us/en/hp-news/press-release.html?id=1528865#.UuwZFPZvDi5">HP Research Reveals Nine out of 10 Mobile Applications Vulnerable to Attack</a>, 18 November 2013:
+</p>
+<dl>
+<dd><i>"86 percent of applications tested lacked binary hardening, leaving applications vulnerable to information disclosure, buffer overflows and poor performance. To ensure security throughout the life cycle of the application, it is essential to build in the best security practices from conception."</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem3">[3] North Carolina State University: <a rel="nofollow" class="external text" href="http://www.csc.ncsu.edu/faculty/jiang/pubs/OAKLAND12.pdf">Dissecting Android Malware: Characterization and Evolution</a>, 7 September 2011:
+</p>
+<dl>
+<dd><i>“Our results show that 86.0% of them (Android Malware) repackage legitimate apps to include malicious payloads; 36.7% contain platform-level exploits to escalate privilege; 93.0% exhibit the bot-like capability.”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem4">[4] Tech Hive: <a rel="nofollow" class="external text" href="http://www.techhive.com/article/249310/apple_pulls_ripoff_apps_from_its_walled_garden.html">Apple Pulls Ripoff Apps from its Walled Garden</a>Feb 4th, 2012:
+</p>
+<dl>
+<dd><i>“While Apple is known for screening apps before they are allowed to sprout up in its walled garden, clearly fake apps do get in. Once they do, getting them out depends on developers who raise a fuss.”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem5">[5] Tech Crunch: <a rel="nofollow" class="external text" href="http://techcrunch.com/2014/01/02/developer-spams-google-play-with-ripoffs-of-well-known-apps-again/">Developer Spams Google Play With RipOffs of Well-Known Apps… Again</a>, January 2 2014:
+</p>
+<dl>
+<dd><i>“It’s not uncommon to search the Google Play app store and find a number of knock-off or “fake” apps aiming to trick unsuspecting searchers into downloading them over the real thing.”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem6">[6] Extreme Tech: <a rel="nofollow" class="external text" href="http://www.extremetech.com/mobile/153849-chinese-app-store-offers-pirated-ios-apps-without-the-need-to-jailbreak">Chinese App Store Offers Pirated iOS Apps Without the Need To Jailbreak</a>, April 19 2013:
+</p>
+<dl>
+<dd><i>“The site offers apps for free that would otherwise cost money, including big-name titles.”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem7">[7] OWASP: <a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/Architectural_Principles_That_Prevent_Code_Modification_or_Reverse_Engineering">Architectural Principles That Prevent Code Modification or Reverse Engineering</a>, January 11th 2014.</span>
+</p><p><span id="ReferenceItem8">[8] Gartner report: Avoiding Mobile App Development Security Pitfalls, 24 May 2013:
+</p>
+<dl>
+<dd><i>"For critical applications, such as transactional ones and sensitive enterprise applications, hardening should be used."</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem9">[9] Gartner report: Emerging Technology Analysis:  Mobile Application Shielding, March 26th, 2013:
+</p>
+<dl>
+<dd><i>"As more regulated and sensitive data applications move to mobile platforms the need to increase data protection increases. Mobile application shielding presents the opportunity to security providers to offer higher data protection standards to mobile platforms that exceed mobile OS security."</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem10">[10] Gartner report: Proliferating Mobile Transaction Attack Vectors and What to Do About Them, March 1st, 2013:
+</p>
+<dl>
+<dd><i>"Use mobile application security testing services and self-defending application utilities to help prevent hacking attempts."</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem11">[11] Gartner report: Select a Secure Mobile Wallet for Proximity, March 1st, 2013:
+</p>
+<dl>
+<dd><i>"Application hardening can fortify sensitive business code against hacking attempts, such as reverse engineering”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem12">[12] Forrester paper: Choose The Right Mobile Development Solutions For Your Organization, May 6th 2013:
+</p>
+<dl>
+<dd><i>“5 Key Protections: Data Protection, App Compliance, App-Level Threat Defense, Security Policy Enforcement, App Integrity”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem13">[13] John Wiley and Sons, Inc: <a rel="nofollow" class="external text" href="http://www.amazon.com/iOS-Hackers-Handbook-Charlie-Miller/dp/1118204123">iOS Hacker's Handbook</a>, Published May 2012, <a href="/index.php/Special:BookSources/1118204123" class="internal mw-magiclink-isbn">ISBN 1118204123</a>.</span>
+</p><p><span id="ReferenceItem14">[14] McGraw Hill Education: <a rel="nofollow" class="external text" href="http://mobilehackingexposed.com/">Mobile Hacking Exposed</a>, Published July 2013, <a href="/index.php/Special:BookSources/0071817018" class="internal mw-magiclink-isbn">ISBN 0071817018</a>.</span>
+</p><p><span id="ReferenceItem15">[15] Publisher Unannounced: <a rel="nofollow" class="external text" href="http://www.amazon.com/Android-Hackers-Handbook-Joshua-Drake/dp/111860864X">Android Hacker's Handbook</a>, To Be Published April 2014.</span>
+</p><p><span id="ReferenceItem16">[16] Software Development Times: <a rel="nofollow" class="external text" href="http://sdt.bz/66393#ixzz2sHa7dFMp">More than 5,000 apps in the Google Play Store are copied APKs, or 'thief-ware'</a>, November 20 2013:
+</p>
+<dl>
+<dd><i>“In most cases, the 2,140 copycat developers that were found reassembled the apps almost identically, adding new advertising SDKs to siphon profits away from the original developers.</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem17">[17] InfoSecurity Magazine: <a rel="nofollow" class="external text" href="http://www.infosecurity-magazine.com/view/36376/two-thirds-of-personal-banking-apps-found-full-of-vulnerabilities/">Two Thirds of Personal Banking Apps Found Full of Vulnerabilities</a>, January 3 2014:
+</p>
+<dl>
+<dd><i>“But one of his more worrying findings came from disassembling the apps themselves ... what he found was hardcoded development credentials within the code. An attacker could gain access to the development infrastructure of the bank and infest the application with malware causing a massive infection for all of the application’s users.”</i></span>
+</dd>
+</dl>
+<p><span id="ReferenceItem18">[18] InfoSecurity Magazine: <a rel="nofollow" class="external text" href="http://www.infosecurity-magazine.com/view/36686/mobile-malware-infects-millions-lte-spurs-growth/">Mobile Malware Infects Millions; LTE Spurs Growth</a>, January 29 2014:
+</p>
+<dl>
+<dd><i>"Number of mobile malware samples is growing at a rapid clip, increasing by 20-fold in 2013... It is trivial for an attacker to hijack a legitimate Android application, inject malware into it and redistribute it for consumption. There are now binder kits available that will allow an attacker to automatically inject malware into an existing application"</i></span></td>
+</dd>
+</dl>
+</tr>
+</table>
+</tr>
+</table>
+</center>
+
+<div>
+<ul>
+<li>Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">a Creative Commons 3.0 License</a> unless otherwise noted.</li>
+</ul>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP:Privacy_policy" title="OWASP:Privacy policy">Privacy policy</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:About" title="OWASP:About">About OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:General_disclaimer" title="OWASP:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul>
+<li>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="https://www.owasp.org/images/f/fa/Somerights20.png" alt="a Creative Commons 3.0 License" width="88" height="31"/></a>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

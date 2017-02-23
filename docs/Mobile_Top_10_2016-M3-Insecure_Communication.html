@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Mobile Top 10 2016-M3-Insecure Communication - OWASP</title>
+</head>
+<body>
+<h1>Mobile Top 10 2016-M3-安全でない通信</h1>
+<center><table style="align:center; border-collapse: collapse; text-align:center; margin: 0px 5px 0px 5px; border: 3px solid #444444; background-color: #F8FFF8; padding=2;">
+       <tr style="background-color: #4F81BD; border: 3px solid #444444; height: 2em; font-size: 130%; color: #FFFFFF; text-shadow: 2px 2px 8px #000000;">
+         <th width="16.5%" style="border: 3px solid #444444;"> 脅威エージェント</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 攻撃手法</th>
+         <th width="33%" colspan="2" style="border: 3px solid #444444;"> セキュリティ上の弱点</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 技術的影響</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> ビジネスへの影響</th></tr>
+<tr>
+    <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> 
+アプリケーション依存 </td>
+
+ <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">悪用難易度
+容易</td>
+   
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">普及度
+中</td>
+
+    <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">検出難易度
+普通</td>
+
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">影響度
+深刻</td>
+     <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> アプリケーション / ビジネス依存 </td>
+</tr>
+<tr valign="top">
+  <td style="text-align: left; border: 3px solid #444444;">モバイルアプリケーションを設計するとき、データは一般的にクライアント－サーバー方式で交換します。そのソリューションがデータを転送するとき、モバイルデバイスのキャリアネットワークとインターネットを通過する必要があります。脅威エージェントは脆弱性を悪用してワイヤを通じて移動している機密データを傍受する可能性があります。以下の脅威エージェントが存在します。
+<ul>
+<li> (Wi-Fiに侵入もしくは監視された)ローカルネットワークを共有する攻撃者
+</li>
+<li> キャリアやネットワークデバイス(ルータ、携帯電話基地局、プロキシなど)
+</li>
+<li> モバイルデバイス上のマルウェア
+</li>
+</ul>
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">悪用可能な要因は安全でない通信範囲のネットワークを監視することです。キャリアのネットワーク上のトラフィックを監視することはローカルの喫茶店のトラフィックを監視することよりも困難です。一般的に、標的を絞った攻撃はより簡単に実行できます。
+</td>
+     <td colspan="2" style="text-align: left; border: 3px solid #444444;">モバイルアプリケーションはネットワークトラフィックを保護しないことがよくあります。認証時には SSL/TLS を使用するかもしれませんが他ではそうではありません。この一貫性のなさによりデータやセッション ID が傍受されるリスクがあります。トランスポートセキュリティの使用はアプリが正しく実装されたことを意味するものではありません。基本的な欠陥を検出するには、電話機のネットワークトラフィックを観察します。より精緻な欠陥はアプリケーションの設計やアプリケーション構成を検査する必要があります。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">この欠陥は個人ユーザーデータやアカウントの漏洩につながります。攻撃者が管理者アカウントを傍受した場合、サイト全体が公開される可能性があります。SSL設定が十分でないとフィッシングや MITM 攻撃も容易になります。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">最低でも、通信チャネルを介した機密データの傍受はプライバシー侵害となります。
+<p>ユーザーの機密を侵害すると以下のような結果となることがあります。
+</p>
+<ul>
+<li> 個人情報漏洩
+</li>
+<li> なりすまし
+</li>
+<li> 風評被害
+</li>
+</ul>
+</td>
+
+<table style="border: none; text-align: left; width: 100%; border-spacing:5px 5px;">  <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;安全でない通信&#39;の脆弱性があるか？</div> 
+<p>このリスクはポイント A からポイント B までデータを取得するすべての側面をカバーしますが、それは安全ではありません。これはモバイルからモバイルへの通信、アプリからサーバーへの通信、モバイルからその他への通信を含みます。このリスクにはモバイルデバイスが使用する可能性のあるすべての通信技術 (TCP/IP, WiFi, Bluetooth/Bluetooth-LE, NFC, 音声, 赤外線, GSM, 3G, SMS など) が含まれます。
+</p><p>すべての TLS 通信の問題はここで扱います。すべての NFC, Bluetooth, WiFi の問題はここで扱います。
+</p><p>主な特徴として、ある種の機密データをパッケージ化することと、それをデバイス内外へ送信することがあります。機密データの例には、暗号鍵、パスワード、個人ユーザー情報、アカウント詳細、セッショントークン、ドキュメント、メタデータ、バイナリがあります。機密データはサーバーからデバイスに届くことも、アプリからサーバーに届くことも、デバイスとローカルの何か他のもの (NFC 端末や NFC カード など) との間に存在することもあります。このリスクの特徴は、2つのデバイスが存在することと、それらの間に何らかのデータが流れることです。
+</p><p>データがデバイス自体にローカルに格納されている場合、それは「安全でないデータストレージ」の問題です。セッションの詳細が (例えば、強固な TLS 接続を介して) セキュアに通信されているが、セッション識別子そのものが悪い (予測可能である、低エントロピーなど) 場合、それは「安全でない認証」の問題であり、通信の問題ではありません。
+</p><p>安全でない通信の通常のリスクはデータ完全性、データ機密性、オリジン完全性に関するものです。(例えば、中間者攻撃を介して)転送中にデータを変更できる場合、変更は検出できず、このリスクの良い事例となります。通信を監視すること(盗聴など)や会話を記録して後で攻撃すること(オフライン攻撃)で機密データを開示、認識、獲得することが可能であれば、それも安全でない通信の問題です。TLS 接続を適切に設定して検証することができない場合 (例えば、証明書チェック、脆弱な暗号、その他の TLS 設定の問題) はすべてここの安全でない通信となります。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;安全でない通信&#39;を防ぐには？</div> 
+<h3><span class="mw-headline" id="General_Best_Practices">一般的なベストプラクティス</span></h3>
+<ul>
+<li> ネットワーク層はセキュアではなく盗聴されやすいと考える。
+</li>
+<li> モバイルアプリが機密情報、セッショントークン、その他の機密データをバックエンド API やウェブサービスに送信するために使用するトランスポートチャネルに SSL/TLS を適用する。
+</li>
+<li> アプリケーションがブラウザ/webkitを介してルーチンを実行するときに、サードパーティの分析企業、ソーシャルネットワーク、などの外部エンティティには、SSL バージョンを使用することを考慮する。ユーザーのセッション ID が漏洩する可能性があるため、SSL セッションの混在は避ける。
+</li>
+<li> 適切な鍵長を持つ強固な業界標準の暗号スイートを使用する。
+</li>
+<li> 信頼できる CA プロバイダが署名した証明書を使用する。
+</li>
+<li> 自己署名証明書を決して許可しない、セキュリティに配慮したアプリケーションのために証明書 pinning を検討する。
+</li>
+<li> 常に SSL チェーンの検証を必要とする。
+</li>
+<li> キーチェーン内の信頼できる証明書を使用してエンドポイントサーバーの同一性を確認した後でのみ、セキュアな接続を確立する。
+</li>
+<li> モバイルアプリが無効な証明書を検出した場合、UI を介してユーザーに警告する。
+</li>
+<li> 機密データを代替チャネル (SMS, MMS, 通知など) で送信しない。
+</li>
+<li> 可能であれば、SSL チャネルに乗せる前に機密データを別の暗号化レイヤーに適用する。将来 SSL 実装で脆弱性が発見された場合、暗号化されたデータは機密性の侵害に対する二次的な防御を提供します。
+</li>
+</ul>
+<p>より新しい脅威により、モバイルデバイスの SSL ライブラリが送信先サーバーにネットワークトラフィックを暗号化して送信する直前に、モバイルデバイスのトラフィックを傍受して、攻撃者が機密トラフィックを盗聴することが可能になります。このリスクの性質については M10 を参照ください。
+</p>
+<h3><span class="mw-headline" id="iOS_Specific_Best_Practices">iOS 固有のベストプラクティス</span></h3>
+<p>iOS の最新バージョンでのデフォルトクラスは SSL 暗号強度ネゴシエーションをうまく処理します。開発時の障害に対応するために開発者が一時的にこれらのデフォルトをバイパスするコードを追加すると問題が発生します。上記の一般的なプラクティスに以下を追加します。
+</p>
+<ul>
+<li> 証明書が有効でありフェールクローズされていることを確認する。
+</li>
+<li> CFNetwork を使用する場合は、Secure Transport API を使用して信頼できるクライアント証明書を指定することを検討する。ほとんどの場合、より高い標準暗号強度として NSStreamSocetSecurityLevelTLSv1 が使用されるべきです。
+</li>
+<li> 開発後、すべての NSURL コール (もしくは NSURL のラッパー) は自己署名された証明書や無効な証明書を NSURL クラスのメソッド setAllowsAnyHTTPSCertificate などで許可しない。
+</li>
+<li> 証明書をエクスポートし、アプリバンドルに組み込み、信頼オブジェクトにアンカーすることによる証明書 pinning の使用を検討する。NSURL メソッド connection:willSendRequestForAuthenticationChallenge: を使用することであなたの証明書を受け入れるようになります。
+</li>
+</ul>
+<h3><span class="mw-headline" id="Android_Specific_Best_Practices">Android 固有のベストプラクティス</span></h3>
+<ul>
+<li> 開発サイクル後、アプリケーションが org.apache.http.conn.ssl.AllowAllHostnameVerifier や SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER などのすべての証明書を受け入れるコードを削除する。これらはすべての証明書を信頼することと同じになります。
+</li>
+<li> SSLSocketFactory を拡張したクラスを使用する場合は、checkServerTrusted メソッドが正しく実装されていることを確認して、サーバー証明書が正しくチェックされるようにする。
+</li>
+</ul>
+ </td></tr>
+              <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    攻撃シナリオの例</div> 
+<p>ペネトレーションテスト担当者がモバイルアプリの通信セキュリティを検査するときによく見られるいくつかの一般的なシナリオがあります。
+</p><p><b>証明書検査の不足</b>
+モバイルアプリとエンドポイントは接続に成功し、セキュアなチャネルを確立するために TLS ハンドシェイクを実行します。しかし、モバイルアプリはサーバーが提供した証明書の検査に失敗し、モバイルアプリは無条件にサーバーが提供した証明書を受け入れます。これによりモバイルアプリとエンドポイント間の相互認証機能が破壊されます。モバイルアプリは TLS プロキシを介した中間者攻撃を可能にします。
+</p><p><b>脆弱なハンドシェイクネゴシエーション</b>
+モバイルアプリとエンドポイントは接続に成功し、コネクションハンドシェイクの一環として暗号スイートをネゴシエートします。クライアントは攻撃者が容易に解読できる脆弱な暗号化をもたらす脆弱な暗号スイートを使用してサーバーとのネゴシエートに成功します。これはモバイルアプリとエンドポイント間のチャネルの機密性が損なわれます。
+</p><p><b>プライバシー情報の漏洩</b>
+モバイルアプリは SSL を介する代わりにセキュアではないチャネルを介してエンドポイントに個人識別情報を送信します。これによりモバイルアプリとエンドポイント間のプライバシー関連データの機密性が損なわれます。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    参考資料</div> 
+<p><b>OWASP</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="https://www.owasp.org/">References Go Here</a>
+</li>
+</ul>
+<p><b>その他</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="http://cwe.mitre.org/">External References</a></td>
+</li>
+</ul>
+</tr>
+</table>
+</tr>
+</table>
+</center>
+
+<div>
+<ul>
+<li>Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">a Creative Commons 3.0 License</a> unless otherwise noted.</li>
+</ul>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP:Privacy_policy" title="OWASP:Privacy policy">Privacy policy</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:About" title="OWASP:About">About OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:General_disclaimer" title="OWASP:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul>
+<li>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="https://www.owasp.org/images/f/fa/Somerights20.png" alt="a Creative Commons 3.0 License" width="88" height="31"/></a>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

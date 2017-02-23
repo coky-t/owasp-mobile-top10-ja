@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Mobile Top 10 2016-M7-Poor Code Quality - OWASP</title>
+</head>
+<body>
+<h1>Mobile Top 10 2016-M7-脆弱なコード品質</h1>
+<center><table style="align:center; border-collapse: collapse; text-align:center; margin: 0px 5px 0px 5px; border: 3px solid #444444; background-color: #F8FFF8; padding=2;">
+       <tr style="background-color: #4F81BD; border: 3px solid #444444; height: 2em; font-size: 130%; color: #FFFFFF; text-shadow: 2px 2px 8px #000000;">
+         <th width="16.5%" style="border: 3px solid #444444;"> 脅威エージェント</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 攻撃手法</th>
+         <th width="33%" colspan="2" style="border: 3px solid #444444;"> セキュリティ上の弱点</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 技術的影響</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> ビジネスへの影響</th></tr>
+<tr>
+    <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> 
+アプリケーション依存 </td>
+
+ <td style="&#123;&#123;&#123;style}}}; background-color: #FFFF00; color: #000000; border: 3px solid #444444" width="16.5%">悪用難易度
+困難</td>
+   
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">普及度
+中</td>
+
+    <td style="&#123;&#123;&#123;style}}}; background-color: #FFFF00; color: #000000; border: 3px solid #444444" width="16.5%">検出難易度
+困難</td>
+
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">影響度
+中程度</td>
+     <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> アプリケーション / ビジネス依存 </td>
+</tr>
+<tr valign="top">
+     <td style="text-align: left; border: 3px solid #444444;">脅威エージェントにはモバイルコード内で行われるメソッドコールに信頼できない入力を渡すことができるエンティティがあります。これらのタイプの問題は必ずしもそれ自体のセキュリティ問題ではないのですが、セキュリティ脆弱性につながります。例えば、古いバージョンのSafariではバッファオーバフロー(脆弱なコード品質の脆弱性)が発生したため、ドライブバイジェイルブレイク攻撃のリスクが高くなりました。脆弱なコード品質の問題は一般的にマルウェアやフィッシング詐欺によって悪用されます。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">攻撃者は一般的に慎重に作り上げた入力をいけにえに与えることでこのカテゴリの脆弱性を悪用します。これらの入力は悪用が行われるモバイルデバイス内にあるコードに渡されます。よくあるタイプの攻撃ではメモリリークやバッファオーバーフローを悪用します。
+</td>
+     <td colspan="2" style="text-align: left; border: 3px solid #444444;">コード品質の問題は多くのモバイルコードのいたるところにみられます。良い知らせとしては多くのコード品質の問題はまったく無害であり不正なプログラミングプラクティスであるということです。手動でのコードレビューによりこれらのタイプの問題を検出することは一般的に困難です。代わりに、攻撃者は静的解析やファジングを実行するサードパーティツールを使用します。これらのタイプのツールは一般的にメモリリーク、バッファオーバーフロー、その他の不正なプログラミングプラクティスを引き起こす重大ではない問題を特定します。極度に低レベルの知識と技術を持つハッカーはこれらのタイプの問題を効果的に悪用します。典型的な主な目標はモバイルコードのアドレス空間内で外部コードを実行することです。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">このカテゴリに該当するほとんどの悪用は(モバイルデバイス自体ではなく)リモートサーバーエンドポイントでの外部コード実行やサービス拒否を招きます。しかし、バッファオーバーフロー/オーバーランがモバイルデバイス内に存在し、入力が外部パーティからもたらされる場合、これは技術的影響が非常に大きく、修正されるべきです。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">このカテゴリの脆弱性によるビジネスへの影響は悪用の性質によって大きく異なります。リモートコード実行をもたらす脆弱なコード品質の問題は以下のビジネスへの影響を引き起こす可能性があります。
+<ul>
+<li> 情報漏洩
+</li>
+<li> 風評被害
+</li>
+<li> 知的財産漏洩
+</li>
+</ul>
+<p>このカテゴリに該当する他の重大ではない技術的問題には、パフォーマンス、メモリ使用量、脆弱なフロントエンドアーキテクチャの悪化を招く可能性があります。
+</p>
+</td>
+
+<table style="border: none; text-align: left; width: 100%; border-spacing:5px 5px;">  <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;脆弱なコード品質&#39;の脆弱性があるか？</div> 
+<p>これはモバイルクライアントにおけるコードレベルの実装の問題に対するあらゆるものに対応します。これはサーバー側のコーディングミスとは異なります。モバイルデバイス上で実行しているコードを書き換えるソリューションであるバッファオーバーフロー脆弱性、フォーマット文字列脆弱性、その他のさまざまなコードレベルの間違いによるリスクを捕捉します。
+</p><p>これはたいてい(Java, Swift, Objective C, JavaScript などの)プログラミング言語そのものに言及するため、不適切なプラットフォームの利用とは異なります。C でのバッファオーバーフローや WebView モバイルアプリでの DOM ベースの XSS はコード品質の問題です。
+</p><p>このリスクの重要な特徴は、コードがモバイルデバイス上で実行されること、およびコードが非常に限定された方法で変更する必要があることです。ほとんどのリスクを改善するにはコードを変更する必要がありますが、コード品質の場合、リスクには間違った API を使用すること、安全でない方法で API を使用すること、安全でない言語構造を使用すること、そのほかのコードレベルの問題があります。重要：これはサーバー上で実行されているコードではありません。これはモバイルデバイス自体で実行される不正なコードを捕捉するリスクです。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;脆弱なコード品質&#39;を防ぐには？</div> 
+<p>一般的に、コード品質の問題は以下を行うことで回避できます。
+</p>
+<ul>
+<li> 組織内の全員が同意する一貫したコーディングパターンを維持する。
+</li>
+<li> 読みやすく文書化されたコードを書く。
+</li>
+<li> バッファを使用する場合、常に受信バッファデータの長さがターゲットバッファの長さを越えないことを確認する。
+</li>
+<li> 自動化により、サードパーティの静的解析ツールを使用してバッファオーバーフローとメモリリークを特定する。
+</li>
+<li> 他の「コード品質」問題よりもバッファオーバーフローとメモリリークを優先して解決する。
+</li>
+</ul>
+ </td></tr>
+              <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    攻撃シナリオの例</div> 
+<p><b>シナリオ #1:</b> バッファオーバーフローの例：
+</p>
+<div style="border: 2px dashed #444444; background-color: #D0D0D0; font-family: courier; padding: 4px;margin-left: +20px; margin-right: +20px;"><span style="color:red;">
+<p>include &lt;stdio.h&gt;
+</p>
+<pre> int main(int argc, char **argv)
+    {
+    char buf[8]; // buffer for eight characters
+    gets(buf); // read from stdio (sensitive function!)
+    printf("%s\n", buf); // print out data stored in buf
+    return 0; // 0 as return value
+    }
+ </span>
+</pre>
+</div>
+<p><a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/Buffer_overflow_attack">この</a>ページから取得したこの例では、バッファオーバーフローを避けるために <i>gets</i> 関数の利用を避けるべきです。これは多くの静的解析ツールがコード品質の問題として報告するものの一例です。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    参考資料</div> 
+<p><b>OWASP</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/Buffer_overflow_attack">Buffer Overflow Examples</a>
+</li>
+</ul>
+<p><b>その他</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="http://cwe.mitre.org/">External References</a></td>
+</li>
+</ul>
+</tr>
+</table>
+</tr>
+</table>
+</center>
+
+<div>
+<ul>
+<li>Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">a Creative Commons 3.0 License</a> unless otherwise noted.</li>
+</ul>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP:Privacy_policy" title="OWASP:Privacy policy">Privacy policy</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:About" title="OWASP:About">About OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:General_disclaimer" title="OWASP:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul>
+<li>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="https://www.owasp.org/images/f/fa/Somerights20.png" alt="a Creative Commons 3.0 License" width="88" height="31"/></a>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Mobile Top 10 2016-M4-Insecure Authentication - OWASP</title>
+</head>
+<body>
+<h1>Mobile Top 10 2016-M4-安全でない認証</h1>
+<center><table style="align:center; border-collapse: collapse; text-align:center; margin: 0px 5px 0px 5px; border: 3px solid #444444; background-color: #F8FFF8; padding=2;">
+       <tr style="background-color: #4F81BD; border: 3px solid #444444; height: 2em; font-size: 130%; color: #FFFFFF; text-shadow: 2px 2px 8px #000000;">
+         <th width="16.5%" style="border: 3px solid #444444;"> 脅威エージェント</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 攻撃手法</th>
+         <th width="33%" colspan="2" style="border: 3px solid #444444;"> セキュリティ上の弱点</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 技術的影響</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> ビジネスへの影響</th></tr>
+<tr>
+    <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> 
+アプリケーション依存 </td>
+
+ <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">悪用難易度
+容易</td>
+   
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">普及度
+中</td>
+
+    <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">検出難易度
+普通</td>
+
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">影響度
+深刻</td>
+     <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> アプリケーション / ビジネス依存 </td>
+</tr>
+<tr valign="top">
+     <td style="text-align: left; border: 3px solid #444444;">認証の脆弱性を悪用する脅威エージェントは一般的に利用可能なツールやカスタムツールを使用して自動化された攻撃を行います。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">攻撃者は認証スキームが脆弱であることを理解すると、モバイルアプリのバックエンドサーバーにサービスリクエストを送信することで認証を偽装もしくはバイパスし、モバイルアプリとの直接的なやり取りをバイパスします。このサブミッションプロセスは一般的にデバイス内のモバイルマルウェアや攻撃者が所有するボットネットを介して行われます。
+</td>
+     <td colspan="2" style="text-align: left; border: 3px solid #444444;">脆弱な認証スキームの場合や認証スキームがない場合、攻撃者はモバイルアプリやモバイルアプリで使用されるバックエンドサーバー内の機能を匿名で実行できます。モバイルデバイスの入力フォーム因子により、モバイルアプリの認証はより脆弱になります。フォーム因子は多くの場合純粋に4桁の PIN に基づく短いパスワードを高く推奨しています。
+<p>モバイルアプリの認証要件は可用性要件によって従来のウェブ認証スキームとはかなり異なる場合があります。
+</p><p>従来のウェブアプリでは、ユーザーはオンラインでありバックエンドサーバーとリアルタイムに認証されることが期待されています。セッションを通して、インターネットへの継続的なアクセスを持つことが合理的に期待されます。
+</p><p>モバイルアプリでは、ユーザーはセッション中に常にオンラインであるとは限りません。モバイルインターネット接続は従来のウェブ接続よりもはるかに信頼性が低く予測できません。したがって、モバイルアプリはオフライン認証を必要とするアップタイム要件を持つ可能性があります。このオフライン要件はモバイル認証を実装する際に開発者が考慮する必要がある事項に深刻な影響を与える可能性があります。
+</p><p>脆弱な認証スキームを検出するために、テスト担当者はモバイルアプリが「オフライン」モードである間にバイナリ攻撃を行うことができます。この攻撃を通じて、テスト担当者はアプリを強制的にオフライン認証からバイパスし、オフライン認証が必要とされる機能を実行します(バイナリ攻撃の詳細については M10 を参照ください)。同様に、テスト担当者はモバイルアプリ機能の POST/GET リクエストからセッショントークンを削除することで、バックエンドサーバーの機能を匿名で実行しようと試みる必要があります。
+</p>
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">脆弱な認証の技術的影響はソリューションがアクションリクエストを実行しているユーザーを特定できないことです。速やかに、ユーザーの同一性を確認することができないため、ソリューションはユーザーの活動を記録や監査することができません。これは攻撃元、根底にある攻撃の性質、将来の攻撃を防ぐ方法を検出できないことにつながります。
+<p>認証に失敗すると根底にある認可の失敗も明らかになる可能性があります。認証コントロールが失敗すると、ソリューションはユーザー情報を確認できません。この情報はユーザーのロールや関連するパーミッションにリンクしています。攻撃者が機密性の高い機能を匿名で実行できる場合は、根底にあるコードがアクションのリクエストを発行したユーザーのパーミッションを検証していないことを強調しています。したがって、コードの匿名実行は認証および認可コントロールの両方の失敗を強調します。
+</p>
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">脆弱な認証のビジネスへの影響は一般的に最低でも以下の結果をもたらします。
+<ul>
+<li> 風評被害
+</li>
+<li> 情報漏洩
+</li>
+<li> データへの不正アクセス
+</li>
+</ul>
+</td>
+
+<table style="border: none; text-align: left; width: 100%; border-spacing:5px 5px;">  <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;安全でない認証&#39;の脆弱性があるか？</div> 
+<p>モバイルアプリが安全でない認証となるさまざまな方法があります。
+</p>
+<ul>
+<li> モバイルアプリがアクセストークンを提供せずにバックエンド API サービスリクエストを匿名で実行できる場合、このアプリケーションは安全でない認証になります。
+</li>
+<li> モバイルアプリがパスワードや共有秘密情報をデバイス上のローカルに格納している場合、安全でない認証となる可能性が高くなります。
+</li>
+<li> モバイルアプリがパスワード入力を簡単にするために脆弱なパスワードポリシーを使用すると、安全でない認証になります。
+</li>
+<li> モバイルデバイスが TouchID などの機能を使用している場合、安全でない認証になります。
+</li>
+</ul>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;安全でない認証&#39;を防ぐには？</div> 
+<h3><span class="mw-headline" id="Avoid_Weak_Patterns">脆弱なパターンを避ける</span></h3>
+<p>以下の安全でないモバイルアプリケーション認証設計パターンを避けること。
+</p>
+<ul>
+<li> ウェブアプリケーションをモバイル相当に移植する場合、モバイルアプリケーションの認証要件はウェブアプリケーションコンポーネントの認証要件と一致すべきです。したがって、ウェブブラウザより少ない認証因子で認証できてはいけません。
+</li>
+</ul>
+<ul>
+<li> ローカルでユーザーを認証するとクライアント側バイパスの脆弱性が発生する可能性があります。アプリケーションがローカルにデータを格納する場合、脱獄されたデバイスでのランタイム操作やバイナリの改造によって認証ルーチンをパイパスできます。オフライン認証のためのビジネス要件がある場合、モバイルアプリに対するバイナリ攻撃を防ぐための追加のガイダンスについては M10 を参照ください。
+</li>
+</ul>
+<ul>
+<li> 可能であれば、すべての認証リクエストがサーバー側で実行されていることを確認します。認証に成功すると、アプリケーションデータがモバイルデバイスにロードされます。これにより認証が成功した後にのみアプリケーションデータが利用できるようになります。
+</li>
+</ul>
+<p><br />
+</p>
+<ul>
+<li> クライアント側のデータストレージが必要である場合、ユーザーのログイン資格情報からセキュアに取得された暗号化鍵を使用してデータを暗号化する必要があります。これにより正しい資格情報の入力に成功した場合にのみ格納されたアプリケーションデータにアクセスできるようになります。バイナリ攻撃によりデータが復号化されるという追加のリスクがあります。ローカルデータ漏洩につながるバイナリ攻撃を防ぐための追加のガイダンスについては M9 を参照ください。
+</li>
+</ul>
+<ul>
+<li> モバイルアプリケーション内に実装される永続的な認証 (Remember Me) 機能はデバイス内にユーザーのパスワードを格納してはいけません。
+</li>
+</ul>
+<ul>
+<li> 理想的には、モバイルアプリケーションはモバイルアプリケーション内でユーザーが取り消すことができるデバイス固有の認証トークンを利用すべきです。これによりアプリが盗難/紛失したデバイスからの不正アクセスを軽減できるようになります。
+</li>
+</ul>
+<ul>
+<li> ユーザーの認証にスプーフィング可能な値を使用してはいけません。これにはデバイス識別子や地理位置情報が含まれます。
+</li>
+</ul>
+<ul>
+<li> モバイルアプリケーション内での永続的な認証はオプトインとして実装すべきであり、デフォルトで有効にしてはいけません。
+</li>
+</ul>
+<ul>
+<li> 可能であれば、ユーザーが認証パスワードに4桁の PIN 番号を設定することを許可しないこと。
+</li>
+</ul>
+<h3><span class="mw-headline" id="Reinforce_Authentication">認証を強化する</span></h3>
+<ul>
+<li> 開発者はクライアント側のすべての認証と認可のコントロールを悪意のあるユーザーがバイパスできると想定すべきです。可能であれば、認証と認可のコントロールはサーバー側で再適用する必要があります。
+</li>
+</ul>
+<ul>
+<li> オフラインでの使用要件のため、モバイルアプリではモバイルアプリのコード内でローカル認証や認可のチェックを行う必要があるかもしれません。この場合、開発者はコード内でローカルの整合性チェックを行い、不正なコードの変更を検出する必要があります。バイナリ攻撃の検出と対応についての詳細は M9 を参照ください。
+</li>
+</ul>
+ </td></tr>
+              <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    攻撃シナリオの例</div> 
+<p>以下のシナリオではモバイルアプリでの脆弱な認証や認可のコントロールを紹介しています。
+</p><p><b>シナリオ #1:</b> 非表示のサービスリクエスト：
+開発者は認証されたユーザーだけがモバイルアプリが処理のためにバックエンドに送信するサービスリクエストを生成することができると想定しています。リクエストの処理中、サーバーコードは受信リクエストが既知のユーザーに関連付けられていることを確認しません。したがって、攻撃者はバックエンドサービスにサービスリクエストを送信し、ソリューションの正規のユーザーに影響を与える機能を匿名で実行します。
+</p><p><b>シナリオ #2:</b> インターフェイス依存：
+開発者は認証されたユーザーだけがモバイルアプリでの特定の機能の存在を確認できると想定しています。したがって、正規に認証されたユーザーだけがモバイルデバイスからサービスのリクエストを発行できることを期待しています。リクエストを処理するバックエンドコードはリクエストに関連付けられた ID がサービスを実行する資格があることを検証することはありません。したがって、攻撃者はかなり低い権限のユーザーアカウントを使用してリモート管理機能を実行することができます。
+</p><p><b>シナリオ #3:</b> ユーザビリティ要件：
+ユーザビリティの要件から、モバイルアプリでは4桁のパスワードを使用できます。サーバーコードはハッシュされたバージョンのパスワードを正しく格納します。しかし、パスワードの長さが極端に短いため、攻撃者はレインボーハッシュテーブルを使用して元のパスワードを早々に推測することができます。サーバー上のパスワードファイル(またはデータストア)が侵害された場合、攻撃者はユーザーのパスワードを早々に推測することができます。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    参考資料</div> 
+<p><b>OWASP</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="https://www.owasp.org/">OWASP References Go Here</a>
+</li>
+</ul>
+<p><b>その他</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="http://cwe.mitre.org/">External References</a></td>
+</li>
+</ul>
+</tr>
+</table>
+</tr>
+</table>
+</center>
+
+<div>
+<ul>
+<li>Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">a Creative Commons 3.0 License</a> unless otherwise noted.</li>
+</ul>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP:Privacy_policy" title="OWASP:Privacy policy">Privacy policy</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:About" title="OWASP:About">About OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:General_disclaimer" title="OWASP:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul>
+<li>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="https://www.owasp.org/images/f/fa/Somerights20.png" alt="a Creative Commons 3.0 License" width="88" height="31"/></a>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

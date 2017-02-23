@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Mobile Top 10 2016-M10-Extraneous Functionality - OWASP</title>
+</head>
+<body>
+<h1>Mobile Top 10 2016-M10-余計な機能</h1>
+<center><table style="align:center; border-collapse: collapse; text-align:center; margin: 0px 5px 0px 5px; border: 3px solid #444444; background-color: #F8FFF8; padding=2;">
+       <tr style="background-color: #4F81BD; border: 3px solid #444444; height: 2em; font-size: 130%; color: #FFFFFF; text-shadow: 2px 2px 8px #000000;">
+         <th width="16.5%" style="border: 3px solid #444444;"> 脅威エージェント</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 攻撃手法</th>
+         <th width="33%" colspan="2" style="border: 3px solid #444444;"> セキュリティ上の弱点</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 技術的影響</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> ビジネスへの影響</th></tr>
+<tr>
+    <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> 
+アプリケーション依存 </td>
+
+ <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">悪用難易度
+容易</td>
+   
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">普及度
+中</td>
+
+    <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">検出難易度
+普通</td>
+
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">影響度
+深刻</td>
+     <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> アプリケーション / ビジネス依存 </td>
+</tr>
+<tr valign="top">
+     <td style="text-align: left; border: 3px solid #444444;">一般的に、攻撃者はバックエンドシステムの隠し機能を発見するためにモバイルアプリ内の余計な機能を理解しようとします。攻撃者は一般的にエンドユーザーが関与することなくシステムから余計な機能を直接的に悪用します。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">攻撃者は自分のローカル環境内でモバイルアプリをダウンロードして調べます。ログファイル、設定ファイル、おそらくバイナリ自体も調べて、開発者が残した隠しスイッチやテストコードを発見します。これらのスイッチやバックエンドシステムの隠し機能を悪用して攻撃を実行します。
+</td>
+     <td colspan="2" style="text-align: left; border: 3px solid #444444;">モバイルアプリにインタフェース経由でユーザーに直接公開されていない余計な機能が組み込まれている可能性が高くなります。この追加コードの大半は本質的に無害であり、攻撃者にバックエンドの機能に関する補足的な洞察を与えるものではありません。但し、一部の余計な機能は攻撃者に非常に役に立ちます。バックエンドテスト、デモ、ステージング、UAT 環境に関連する情報を公開する機能は製品ビルドに組み込んではいけません。さらに、管理 API エンドポイントや非公式のエンドポイントは最終製品ビルドに組み込んではいけません。余計な機能を検出することは困難である可能性があります。自動化された静的解析ツールや動的解析ツールは低い位置にぶら下がる果物(ログステートメント)を拾うことができます。しかし、一部のバックドアは自動化された手段では検出が困難です。したがって、手動のコードレビューによりこれらを検出することが常に最善となります。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">余計な機能による技術的影響には以下があります。
+<ul>
+<li> バックエンドシステムの仕組みを開示する
+</li>
+<li> 不正な高特権アクションが実行される
+</li>
+</ul>
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">余計な機能によるビジネスへの影響には以下があります。
+<ul>
+<li> 機密性の高い機能への不正アクセス
+</li>
+<li> 風評被害
+</li>
+<li> 知的財産漏洩
+</li>
+</ul>
+</td>
+
+<table style="border: none; text-align: left; width: 100%; border-spacing:5px 5px;">  <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;余計な機能&#39;の脆弱性はあるか？</div> 
+<p>開発者は製品環境にリリースされることを意図しない隠しバックドア機能やその他の内部開発セキュリティコントロールを組み込むことがよくあります。例えば、開発者はハイブリッドアプリのコメントにパスワードをうっかり入れてしまうことがあります。他にはテスト中の2要素認証の無効化があります。
+</p><p>このリスクの特徴は、アプリで有効でありリリースすることを意図していない機能が残存しているということです。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;余計な機能&#39;を防ぐには？</div> 
+<p>この脆弱性を防ぐ最善の方法はこのコードで最も知識のあるセキュリティ担当者や対象分野の専門家により手動でセキュアコードレビューを行うことです。以下を行うべきです。
+</p>
+<ol>
+<li> 隠しスイッチを発見するためにアプリの設定を調べる
+</li>
+<li> すべてのテストコードがアプリの最終製品ビルドに含まれていないことを確認する
+</li>
+<li> モバイルアプリがアクセスするすべての API エンドポイントを調べて、これらのエンドポイントが十分に文書化されており公開されていることを確認する
+</li>
+<li> すべてのログステートメントを調べて、バックエンドについて過度に説明的なものがログに書き込まれていないことを確認する
+</li>
+</ol>
+ </td></tr>
+              <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    攻撃シナリオの例</div> 
+<p><b>シナリオ #1:</b> 管理エンドポイントの開示：
+</p><p>モバイルエンドポイントのテストの一環として、開発者はモバイルアプリに管理ダッシュボードを表示する隠しインタフェースを組み込みました。このダッシュボードはバックエンド API サーバー経由で管理情報にアクセスします。製品版のコードには、開発者はいつでもダッシュボードを表示するコードを組み込みませんでした。ただし、バックエンド管理 API にアクセスできる基となるコードが組み込まれていました。攻撃者はバイナリの文字列テーブル解析を実行して、管理 REST エンドポイントへのハードコードされた URL を発見しました。その後、攻撃者は「curl」を使用してバックエンド管理機能を実行しました。
+</p><p>開発者はネイティブインタフェースから直接アクセスできないコードを含む、余計なコードをすべて削除しておく必要があります。
+</p><p><b>シナリオ #2:</b> 設定ファイルのデバッグフラグ：
+</p><p>攻撃者はローカルアプリの .properties ファイルに手動で追加した「debug=true」を試みます。アプリケーションは起動時に過度に説明的であり攻撃者がバックエンドシステムを理解するのに役立つログファイルを出力しています。その後、攻撃者はログによりバックエンドシステムの脆弱性を発見します。
+</p><p>開発者はモバイルアプリの製品ビルド内では「デバックモード」を有効にさせないようにする必要があります。
+</p>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    参考資料</div> 
+<p><b>OWASP</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="https://www.owasp.org">OWASP References Go Here</a>
+</li>
+</ul>
+<p><b>その他</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="http://cwe.mitre.org">External References Go Here</a></td>
+</li>
+</ul>
+</tr>
+</table>
+</tr>
+</table>
+</center>
+
+<div>
+<ul>
+<li>Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">a Creative Commons 3.0 License</a> unless otherwise noted.</li>
+</ul>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP:Privacy_policy" title="OWASP:Privacy policy">Privacy policy</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:About" title="OWASP:About">About OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:General_disclaimer" title="OWASP:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul>
+<li>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="https://www.owasp.org/images/f/fa/Somerights20.png" alt="a Creative Commons 3.0 License" width="88" height="31"/></a>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

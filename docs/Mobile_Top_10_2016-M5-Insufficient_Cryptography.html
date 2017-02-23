@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Mobile Top 10 2016-M5-Insufficient Cryptography - OWASP</title>
+</head>
+<body>
+<h1>Mobile Top 10 2016-M5-不十分な暗号化</h1>
+<center><table style="align:center; border-collapse: collapse; text-align:center; margin: 0px 5px 0px 5px; border: 3px solid #444444; background-color: #F8FFF8; padding=2;">
+       <tr style="background-color: #4F81BD; border: 3px solid #444444; height: 2em; font-size: 130%; color: #FFFFFF; text-shadow: 2px 2px 8px #000000;">
+         <th width="16.5%" style="border: 3px solid #444444;"> 脅威エージェント</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 攻撃手法</th>
+         <th width="33%" colspan="2" style="border: 3px solid #444444;"> セキュリティ上の弱点</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> 技術的影響</th>
+         <th width="16.5%" style="border: 3px solid #444444;"> ビジネスへの影響</th></tr>
+<tr>
+    <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> 
+アプリケーション依存 </td>
+
+ <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">悪用難易度
+容易</td>
+   
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">普及度
+中</td>
+
+    <td style="&#123;&#123;&#123;style}}}; background-color: #FFB200; color: #000000; border: 3px solid #444444" width="16.5%">検出難易度
+普通</td>
+
+     <td style="&#123;&#123;&#123;style}}}; background-color: #FF0000; color: #000000; border: 3px solid #444444" width="16.5%">影響度
+深刻</td>
+     <td style="font-size: 100%; font-weight: bold; background-color: #D9D9D9; color: #000000; border: 3px solid #444444"> アプリケーション / ビジネス依存 </td>
+</tr>
+<tr valign="top">
+     <td style="text-align: left; border: 3px solid #444444;">脅威エージェントには、不適当に暗号化されたデータへの物理的アクセスを行う者や、攻撃者に代わって動作するモバイルマルウェアがあります。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">攻撃手法には、デバイスへの物理的アクセスやネットワークトラフィックキャプチャを介したデータの復号や、暗号化されたデータにアクセスするデバイス上の悪意のあるアプリがあります。
+</td>
+     <td colspan="2" style="text-align: left; border: 3px solid #444444;">この脆弱性を悪用するには、攻撃者は暗号化プロセス内の脆弱な暗号化アルゴリズムや欠陥により、暗号化されたコードや機密データを元の暗号化されていない形式に正常に戻す必要があります。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">この脆弱性により、モバイルデバイスから機密情報を不正に取得される可能性があります。
+</td>
+     <td style="text-align: left; border: 3px solid #444444;">この脆弱性にはさまざまなビジネスへの影響があります。通常、不完全な暗号化は以下をもたらします。
+<ul>
+<li> プライバシー侵害
+</li>
+<li> 情報漏洩
+</li>
+<li> コード漏洩
+</li>
+<li> 知的財産漏洩
+</li>
+<li> 風評被害
+</li>
+</ul>
+</td>
+
+<table style="border: none; text-align: left; width: 100%; border-spacing:5px 5px;">  <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;不十分な暗号化&#39;の脆弱性があるか？</div> 
+<p>暗号化を利用するモバイルアプリでは暗号化の安全でない利用が一般的です。モバイルアプリ内での不完全な暗号化には基本的に2つの現れ方があります。1つ目は、モバイルアプリは根本的に欠陥がある暗号化/復号化を元にした処理をしており、攻撃者により機密データの復号に悪用されてしまうというものです。2つ目は、モバイルアプリは本質的に脆弱である暗号化/復号化アルゴリズムを実装または利用しており、攻撃者により直接解読されてしまうというものです。以下のサブセクションではこれらのシナリオの両方をさらに詳しく説明します。
+</p>
+<h2><span class="mw-headline" id="Reliance_Upon_Built-In_Code_Encryption_Processes">ビルトインコード暗号化プロセスへの依存</span></h2>
+<p>デフォルトでは、iOS アプリケーションはコード暗号化により(理論上は)リバースエンジニアリングから保護されています。iOS セキュリティモデルでは非脱獄環境で実行するために、アプリは信頼できるソースにより暗号化および署名される必要があります。起動時に、iOS により署名が検証された後に、iOS アプリローダーはメモリ内にアプリを復号化してコードを実行します。この機能は、理論上、攻撃者が iOS モバイルアプリに対してバイナリ攻撃を行うことを防ぎます。
+</p><p>ClutchMod や GBD などの自由に利用できるツールを使用して、攻撃者は暗号化されたアプリを脱獄されたデバイス上にダウンロードし、iOS ローダーがメモリにロードし復号化したアプリのスナップショットを(ローダーが実行を開始する直前で)取得します。攻撃者はスナップショットを取得してディスクに格納すると、IDA Pro や Hopper などのツールを使用してアプリの静的/動的分析を簡単に実行し、さらにバイナリ攻撃を行うことができます。
+</p><p>ビルトインコード暗号化アルゴリズムをバイパスすることはとても簡単なことです。常に攻撃者は根底にあるモバイル OS により提供されるビルトインコード暗号化をバイパスできると想定します。
+リバースエンジニアリング防止の追加レイヤーを提供するための追加のステップについては M9 を参照のこと。
+</p>
+<h3><span class="mw-headline" id="Poor_Key_Management_Processes">脆弱な鍵管理プロセス</span></h3>
+<p>あなたが鍵を誤って扱うのであれば、最高のアルゴリズムは関係ありません。正しい暗号化アルゴリズムですが、それを使用する独自のプロトコルを実装するという間違いを犯すことが多くあります。ここでの問題の例をいくつか挙げます。
+</p>
+<ul>
+<li> 暗号化されたコンテンツとして攻撃者が読み取り可能な同じディレクトリに鍵を置くこと
+</li>
+<li> 鍵を作成したが攻撃者に利用可能であること
+</li>
+<li> バイナリ内にハードコードされた鍵を使用すること
+</li>
+<li> 鍵はバイナリ攻撃により傍受される可能性があります。バイナリ攻撃を防ぐ方法の詳細については M10 を参照ください。
+</li>
+</ul>
+<h3><span class="mw-headline" id="Creation_and_Use_of_Custom_Encryption_Protocols">カスタム暗号化プロトコルの作成と利用</span></h3>
+<p>モバイルなどで暗号化を誤って扱う以上に、独自の暗号化アルゴリズムやプロトコルの作成および使用を試みることは簡単に誤って処理してしまいます。
+</p><p>セキュリティコミュニティにより強固であるとして受け入れられている最新のアルゴリズムを常に使用し、可能な限りモバイルプラットフォーム内の最先端の暗号化 API を活用してください。バイナリ攻撃によりバイナリ内にハードコードされた鍵とともに利用する共通ライブラリを攻撃者に特定される可能性があります。暗号化に対するセキュリティ要件が非常に高い場合は、ホワイトボックス暗号の利用を積極的に検討すべきです。共通ライブラリの悪用につながるバイナリ攻撃を防止する方法については M10 を参照してください。
+</p>
+<h3><span class="mw-headline" id="Use_of_Insecure_and.2For_Deprecated_Algorithms">安全でない/廃止されたアルゴリズムの利用</span></h3>
+<p>多くの暗号化アルゴリズムやプロトコルは重大な脆弱性があることが示されていたり、現代のセキュリティ要件には不十分であるため、使用してはいけません。これらには以下があります。
+</p>
+<ul>
+<li> RC2
+</li>
+<li> MD4
+</li>
+<li> MD5
+</li>
+<li> SHA1
+</li>
+</ul>
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    &#39;不十分な暗号化&#39;を防ぐには？</div> 
+<p>機密データを扱う場合、以下のようにすることが最善です。
+</p>
+<ul>
+<li> 可能であればモバイルデバイス上での機密データの格納を避けること。
+</li>
+<li> 今後10年以上のテストに耐えられる暗号規格を適用すること。
+</li>
+<li> 推奨アルゴリズムに関する NIST ガイドラインに準拠すること。(参考資料のその他を参照ください)
+</li>
+</ul>
+ </td></tr>
+              <tr>
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    攻撃シナリオの例</div> 
+ </td> 
+              <td style="vertical-align: top; padding:5px; width: 50%; border: 3px solid #4F81BD; background-color: #F8FFF8;">
+    <div style="font-style: bold; color: #000000; border-bottom: #999999 solid 1px; margin-bottom: 3px; padding-bottom: 3px;; font-size: 150%;">
+    参考資料</div> 
+<p><b>OWASP</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/Cryptographic_Storage_Cheat_Sheet">OWASP Cryptographic Storage Cheat Sheet</a> <a rel="nofollow" class="external text" href="https://jpcertcc.github.io/OWASPdocuments/CheatSheets/CryptographicStorage.html">(和訳)</a>
+</li>
+<li> <a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/Key_Management_Cheat_Sheet">OWASP Key Management Cheat Sheet</a> <a rel="nofollow" class="external text" href="https://jpcertcc.github.io/OWASPdocuments/CheatSheets/KeyManagement.html">(和訳)</a>
+</li>
+</ul>
+<p><b>その他</b>
+</p>
+<ul>
+<li> <a rel="nofollow" class="external text" href="http://csrc.nist.gov/publications/drafts/800-175/sp800-175b_draft.pdf">NIST Encryption Guidelines</a></td>
+</li>
+</ul>
+</tr>
+</table>
+</tr>
+</table>
+</center>
+
+<div>
+<ul>
+<li>Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">a Creative Commons 3.0 License</a> unless otherwise noted.</li>
+</ul>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP:Privacy_policy" title="OWASP:Privacy policy">Privacy policy</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:About" title="OWASP:About">About OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP:General_disclaimer" title="OWASP:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul>
+<li>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="https://www.owasp.org/images/f/fa/Somerights20.png" alt="a Creative Commons 3.0 License" width="88" height="31"/></a>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

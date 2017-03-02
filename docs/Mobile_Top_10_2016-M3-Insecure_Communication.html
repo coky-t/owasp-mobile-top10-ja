@@ -86,7 +86,7 @@
 </li>
 <li> 信頼できる CA プロバイダが署名した証明書を使用する。
 </li>
-<li> 自己署名証明書を決して許可しない、セキュリティに配慮したアプリケーションのために証明書 pinning を検討する。
+<li> 自己署名証明書を決して許可しない、セキュリティに配慮したアプリケーションのために証明書ピンニングを検討する。
 </li>
 <li> 常に SSL チェーンの検証を必要とする。
 </li>
@@ -111,7 +111,7 @@
 </li>
 <li> 開発後、すべての NSURL コール (もしくは NSURL のラッパー) は自己署名された証明書や無効な証明書を NSURL クラスのメソッド setAllowsAnyHTTPSCertificate などで許可しない。
 </li>
-<li> 証明書をエクスポートし、アプリバンドルに組み込み、信頼オブジェクトにアンカーすることによる証明書 pinning の使用を検討する。NSURL メソッド connection:willSendRequestForAuthenticationChallenge: を使用することであなたの証明書を受け入れるようになります。
+<li> 証明書をエクスポートし、アプリバンドルに組み込み、信頼オブジェクトにアンカーすることによる証明書ピンニングの使用を検討する。NSURL メソッド connection:willSendRequestForAuthenticationChallenge: を使用することであなたの証明書を受け入れるようになります。
 </li>
 </ul>
 <h3><span class="mw-headline" id="Android_Specific_Best_Practices">Android 固有のベストプラクティス</span></h3>

@@ -1,6 +1,11 @@
 # OWASP Mobile Top 10 2016 ja
 
-This is the unofficial Japanese translation of the [OWASP Mobile Top 10 2016](https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10).
+This is the unofficial Japanese translation of the [OWASP Mobile Top 10 2016](https://owasp.org/www-project-mobile-top-10).
+
+### Originator
+
+- Project Site - <https://owasp.org/www-project-embedded-application-security>
+- Project Repository - <https://github.com/OWASP/www-project-mobile-top-10>
 
 # OWASP モバイル Top 10 2016 日本語版
 

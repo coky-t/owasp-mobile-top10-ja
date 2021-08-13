@@ -20,3 +20,11 @@ This is the unofficial Japanese translation of the [OWASP Mobile Top 10 2016](ht
 * [M8 - コード改竄](Document/Mobile_Top_10_2016-M8-Code_Tampering.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-M8-Code_Tampering.html)
 * [M9 - リバースエンジニアリング](Document/Mobile_Top_10_2016-M9-Reverse_Engineering.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-M9-Reverse_Engineering.html)
 * [M10 - 余計な機能](Document/Mobile_Top_10_2016-M10-Extraneous_Functionality.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-M10-Extraneous_Functionality.html)
+
+## License
+
+[Creative Commons Attribution-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/)
+
+## Author (日本語訳)
+
+[Koki Takeyama](https://github.com/coky-t)

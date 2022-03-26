@@ -9,7 +9,7 @@ This is the unofficial Japanese translation of the [OWASP Mobile Top 10 2016](ht
 
 # OWASP モバイル Top 10 2016 日本語版
 
-* [Mobile Top 10 2016-Top 10](risks/index.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-Top_10.html)
+* [Mobile Top 10 2016-Top 10](2016-risks/index.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-Top_10.html)
 * [M1 - 不適切なプラットフォームの利用](2016-risks/m1-improper-platform-usage.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-M1-Improper_Platform_Usage.html)
 * [M2 - 安全でないデータストレージ](2016-risks/m2-insecure-data-storage.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-M2-Insecure_Data_Storage.html)
 * [M3 - 安全でない通信](2016-risks/m3-insecure-communication.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-M3-Insecure_Communication.html)

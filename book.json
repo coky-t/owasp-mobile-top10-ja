@@ -1,0 +1,9 @@
+{
+  "root" : "./2016-risks",
+  "plugins" : [ "anchors" ],
+
+  "structure": {
+    "readme": "index.md"
+  }
+
+}

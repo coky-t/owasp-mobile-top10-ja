@@ -7,7 +7,7 @@ title: "Top 10 Mobile Risks - OWASP Draft List 2023- Beta 3"
 - [M2: 安全でない通信 (Insecure Communication)](m2-insecure-communication.md)
 - [M3: 不適切なサプライチェーンセキュリティ (Inadequate Supply Chain Security)](m3-inadequate-supply-chain-security.md)
 - [M4: 不適切なプライバシーコントロール (Inadequate Privacy Controls)](m4-inadequate-privacy-controls.md)
-- [M5: 不適切なクレデンシャルの使用(Improper Credential Usage)](m5-improper-credential-usage.md)
+- [M5: 不適切なクレデンシャルの使用 (Improper Credential Usage)](m5-improper-credential-usage.md)
 - [M6: 不十分な入出力バリデーション (Insufficient Input/Output Validation)](m6-insufficient-input-output-validation.md)
 - [M7: セキュリティの設定ミス (Security Misconfiguration)](m7-security-misconfiguration.md)
 - [M8: 不十分な暗号化 (Insufficient Cryptography)](m8-insufficient-cryptography.md)

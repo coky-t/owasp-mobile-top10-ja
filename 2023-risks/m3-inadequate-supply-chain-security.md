@@ -16,7 +16,7 @@ This can lead to unauthorized data access or manipulation, denial of service, or
 
 # 攻撃手法
 
-**悪用難易度 中**
+**悪用難易度 普通**
 
 There are multiple ways to exploit Inadequate Supply Chain vulnerability for example- an insider threat agent or an attacker can inject malicious code during the development phase of the app, then they can compromise the app signing keys or certificates to sign malicious code as trusted. 
 
@@ -33,6 +33,7 @@ Inadequate Supply Chain vulnerability occurs due to a lack of secure coding prac
 Other causes for inadequate supply chain vulnerabilities include insufficient or insecure app signing and distribution process, weakness in third-party software components or libraries, insufficient security controls for data, encryption, storage, or exposing sensitive data to unauthorized access.
 
 # 技術的影響
+
 **影響度 深刻**
 
 If an attacker successfully exploits inadequate supply chain security, the technical impact can be severe. The specific technical impact depends on the nature of the exploit, but it can include:
@@ -47,7 +48,7 @@ If an attacker successfully exploits inadequate supply chain security, the techn
 
 # ビジネスへの影響
 
-**アプリケーション / ビジネス依存**
+**影響度 深刻**
 
 If an attacker successfully exploits inadequate supply chain security, the business impact can be significant. The specific business impact depends on the nature of the exploit and the organization's size, industry, and overall security posture, but it can include:
 
@@ -73,15 +74,11 @@ It is possible that you are vulnerable to inadequate supply chain vulnerability,
 
 # 「不適切なサプライチェーンセキュリティ」を防ぐには？
 
-- Implement secure coding practices, code review, and testing throughout the mobile app development lifecycle to identify and mitigate vulnerabilities.
-
-- Ensure secure app signing and distribution processes to prevent attackers from signing and distributing malicious code.
-
-- Use only trusted and validated third-party libraries or components to reduce the risk of vulnerabilities.
-
-- Establish security controls for app updates, patches, and releases to prevent attackers from exploiting vulnerabilities in the app.
-
-- Monitor and detect supply chain security incidents through security testing, scanning, or other techniques to detect and respond to incidents in a timely manner.
+* Implement secure coding practices, code review, and testing throughout the mobile app development lifecycle to identify and mitigate vulnerabilities.
+* Ensure secure app signing and distribution processes to prevent attackers from signing and distributing malicious code.
+* Use only trusted and validated third-party libraries or components to reduce the risk of vulnerabilities.
+* Establish security controls for app updates, patches, and releases to prevent attackers from exploiting vulnerabilities in the app.
+* Monitor and detect supply chain security incidents through security testing, scanning, or other techniques to detect and respond to incidents in a timely manner.
 
 # 攻撃シナリオの例
 

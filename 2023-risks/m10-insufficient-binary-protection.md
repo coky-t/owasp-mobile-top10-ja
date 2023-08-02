@@ -28,7 +28,8 @@ An app binary could be subject to two types of attacks:
 
 # セキュリティ上の弱点
 
-**普及度 普通** <br />
+**普及度 普通**
+
 **検出難易度 容易**
 
 All apps are vulnerable to binary attacks and many will end up the subject of some form of an attack at some time. Those apps that *have* sensitive data or algorithms hardcoded into their binary are particularly vulnerable to binary attacks. These apps should employ countermeasures to fend off potential attackers long enough so that an attacker will give up because the cost of successfully breaking the protection would be more expensive than the gain from that success. Oftentimes, e.g., in case of copy protection, it is sufficient to prolongate the cracking process until the targeted revenue from app sales has been reached. 
@@ -53,7 +54,7 @@ Yet, manipulation has even more impact on the technical soundness of a system. B
 
 # ビジネスへの影響
 	
-**アプリケーション / ビジネス依存** 
+**影響度 中**
 
 Leakage of API keys for commercial APIs or similar can cause significant costs if they are misused on a large scale. Even more, if intellectual property, like algorithms or AI models that have been developed with great effort, becomes public, the business model of the app developers may be threatened. 
 

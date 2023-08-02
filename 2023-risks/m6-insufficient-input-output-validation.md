@@ -16,14 +16,15 @@ Inadequate output validation can result in data corruption or presentation vulne
 
 # 攻撃手法
 
-**悪用難易度 高**
+**悪用難易度 困難**
 
 Insufficient input/output validation exposes our application to critical attack vectors, including SQL injection, XSS, command injection and path traversal. These vulnerabilities can lead to unauthorized access, data manipulation, code execution, and compromise of the entire backend system. 
 
 # セキュリティ上の弱点
 
-**普及度 普通** <br />
-**検出難易度 容易Y**
+**普及度 普通**
+
+**検出難易度 容易**
 
 Insufficient input/output validation vulnerability occurs when an application fails to properly check and sanitize user input or validate and sanitize output data. This vulnerability can be exploited in the following ways:
 
@@ -39,7 +40,8 @@ These vulnerabilities often arise from errors in application logic, incomplete i
 
 # 技術的影響
 
-**影響度 深刻** <br />
+**影響度 深刻**
+
 
 Insufficient input/output validation vulnerability can have several technical impacts on the affected application:
 
@@ -58,7 +60,7 @@ Insufficient input/output validation vulnerability can have several technical im
 
 # ビジネスへの影響
 	
-**アプリケーション / ビジネス依存** 
+**影響度 深刻**
 
 Insufficient input/output validation vulnerability has significant technical and business implications. From an application standpoint, the impacts include:
 

@@ -14,6 +14,9 @@ title: "Top 10 Mobile Risks - OWASP Draft List 2023- Beta 3"
 - [M9: 安全でないデータストレージ (Insecure Data Storage)](m9-insecure-data-storage.md)
 - [M10: 不十分なバイナリ保護 (Insufficient Binary Protections)](m10-insufficient-binary-protection.md)
 
+## 2016 と 2023 の比較
+![image description](https://github.com/OWASP/www-project-mobile-top-10/blob/master/2023-risks/assets/images/comparison-owasp-10.png)
+
 ## Beta 3 Draft リストには掲載されていないが、将来的に検討される可能性がある脆弱性
 
 * データ漏洩 (Data Leakage)

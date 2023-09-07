@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: "M5: 不適切なクレデンシャルの使用 (Improper Credential Usage)"
+title: "M1: 不適切なクレデンシャルの使用 (Improper Credential Usage)"
 ---
 
 # 脅威エージェント

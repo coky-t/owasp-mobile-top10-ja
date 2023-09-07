@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: "M10: 不十分なバイナリ保護 (Insufficient Binary Protection)"
+title: "M7: 不十分なバイナリ保護 (Insufficient Binary Protection)"
 ---
 
 # 脅威エージェント

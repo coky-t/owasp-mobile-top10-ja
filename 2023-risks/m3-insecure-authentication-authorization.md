@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: "M1: 安全でない認証と認可 (Insecure Authentication/Authorization)"
+title: "M3: 安全でない認証と認可 (Insecure Authentication/Authorization)"
 ---
 
 # 脅威エージェント

@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: "M3: 不適切なサプライチェーンセキュリティ (Inadequate Supply Chain Security)"
+title: "M2: 不適切なサプライチェーンセキュリティ (Inadequate Supply Chain Security)"
 ---
 
 # 脅威エージェント

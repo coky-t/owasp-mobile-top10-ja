@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: "M6: 不十分な入出力バリデーション (Insufficient Input/Output Validation)"
+title: "M4: 不十分な入出力バリデーション (Insufficient Input/Output Validation)"
 ---
 
 # 脅威エージェント

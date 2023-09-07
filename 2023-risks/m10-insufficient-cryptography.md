@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: "M8: 不十分な暗号化 (Insufficient Cryptography)"
+title: "M10: 不十分な暗号化 (Insufficient Cryptography)"
 ---
 
 # 脅威エージェント

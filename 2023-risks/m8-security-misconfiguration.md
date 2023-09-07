@@ -1,6 +1,6 @@
 ---
 layout: col-sidebar
-title: "M7: セキュリティの設定ミス (Security Misconfiguration)"
+title: "M8: セキュリティの設定ミス (Security Misconfiguration)"
 ---
 
 # 脅威エージェント

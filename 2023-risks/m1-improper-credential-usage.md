@@ -8,13 +8,13 @@ title: "M1: 不適切なクレデンシャルの使用 (Improper Credential Usag
 
 **アプリケーション依存**
 
-Threat agents exploiting hardcoded credentials and improper credential usage in mobile applications can include automated attacks using publicly available or custom-built tools. Such agents could potentially locate and exploit hardcoded credentials or exploit weaknesses due to improper credential usage.
+モバイルアプリにおけるハードコードされたクレデンシャルや不適切なクレデンシャル使用を悪用する脅威エージェントには、一般に利用可能なツールやカスタム構築されたツールを使用した自動化された攻撃が含まれる可能性があります。そのようなエージェントはハードコードされたクレデンシャルを見つけて悪用したり、不適切なクレデンシャル使用による弱点を悪用する可能性があります。
 
 # 攻撃手法
 
 **悪用難易度 容易**
 
-Adversaries can exploit vulnerabilities in both hardcoded credentials and improper credential usage. Once these vulnerabilities are identified, an attacker can use hardcoded credentials to gain unauthorized access to sensitive functionalities of the mobile app. They can also misuse credentials, for instance by gaining access through improperly validated or stored credentials, thereby bypassing the need for legitimate access.
+攻撃者はハードコードされたクレデンシャルと不適切なクレデンシャル使用の両方の脆弱性を悪用できます。これらの脆弱性が特定されると、攻撃者はハードコードされたクレデンシャルを使用して、モバイルアプリの機密機能への認可されていないアクセスを取得できます。また、たとえば不適切に検証されたり保存されたクレデンシャルを通じてアクセスを取得して、それによって正当なアクセスの必要性を回避するなど、クレデンシャルを悪用できます。
 
 # セキュリティ上の弱点
 
@@ -22,60 +22,60 @@ Adversaries can exploit vulnerabilities in both hardcoded credentials and improp
 
 **検出難易度 容易**
 
-Poor implementation of credential management, such as using hardcoded credentials and improper handling, can lead to severe security weaknesses. A comprehensive security testing process should aim to identify these issues. For instance, security testers should attempt to identify hardcoded credentials within the mobile app's source code or within any configuration files.
+ハードコードされたクレデンシャルの使用や不適切な処理など、クレデンシャル管理の実装が不適切であると、深刻なセキュリティ上の弱点につながる可能性があります。包括的なセキュリティテストプロセスはこのような問題を特定することを目指すべきです。たとえば、セキュリティテスト担当者はモバイルアプリのソースコード内や設定ファイル内にハードコードされたクレデンシャルを特定することを試みてみるべきです。
 
 # 技術的影響
 
 **影響度 深刻**
 
-Poor credential management can lead to several significant technical impacts. Unauthorized users might gain access to sensitive information or functionality within the mobile app or its backend systems. This can lead to data breaches, loss of user privacy, fraudulent activity, and potential access to administrative functionality.
+クレデンシャル管理が不適切であると、いくつかの深刻な技術的影響につながる可能性があります。認可されていないユーザーがモバイルアプリやそのバックエンドシステム内の機密情報や機能にアクセスする可能性があります。これによりデータ侵害、ユーザープライバシーの損失、詐欺行為、管理機能への潜在的なアクセスにつながる可能性があります。
 
 # ビジネスへの影響
 
 **影響度 深刻**
 
-The business impact of poor credential management, including hardcoded credentials and improper credential usage, can be substantial:
+ハードコードされたクレデンシャルや不適切なクレデンシャルの使用など、クレデンシャル管理が不適切であると、ビジネスへの影響が重大になる可能性があります。
 
-* Reputation Damage;
-* Information Theft;
-* Fraud;
-* Unauthorized Access to Data.
+* 風評被害
+* 情報窃取
+* 詐欺
+* データへの認可されていないアクセス
 
 # 「不適切なクレデンシャルの使用」の脆弱性があるか？
 
-Insecure credential management can occur when mobile apps use hardcoded credentials or when credentials are misused. Here are some indicators that your mobile app may be vulnerable:
+モバイルアプリがハードコードされたクレデンシャルを使用する場合やクレデンシャルが悪用される場合、安全でないクレデンシャル管理が発生する可能性があります。モバイルアプリが脆弱である可能性を示すいくつかの指標を示します。
 
-* **Hardcoded Credentials** - If the mobile app contains hardcoded credentials within the app's source code or any configuration files, this is a clear indicator of vulnerability.
-* **Insecure Credential Transmission** - If credentials are transmitted without encryption or through insecure channels, this could indicate a vulnerability.
-* **Insecure Credential Storage** - If the mobile app stores user credentials on the device in an insecure manner, this could represent a vulnerability.
-* **Weak User Authentication** - If user authentication relies on weak protocols or allows for easy bypassing, this could be a sign of vulnerability.
+* **ハードコードされたクレデンシャル** - モバイルアプリがそのアプリのソースコードや設定ファイル内にハードコードされたクレデンシャルを含んでいる場合、これは脆弱性を示す明確な指標です。
+* **安全でないクレデンシャルの転送** - クレデンシャルが暗号化なしや安全でないチャネルを通じて転送される場合、これは脆弱性を示している可能性があります。
+* **安全でないクレデンシャルの保存** - モバイルアプリが安全でない方法でユーザークレデンシャルをデバイスに保存している場合、これは脆弱性が存在する可能性があります。
+* **脆弱なユーザー認証** - ユーザー認証が脆弱なプロトコルに依存していたり、簡単にバイパスできる場合、これは脆弱性の兆候である可能性があります。
 
 # 「不適切なクレデンシャルの使用」を防ぐには？
 
-Avoiding insecure credential management involves not using hardcoded credentials and properly handling user credentials.
+安全でないクレデンシャル管理を避けるには、ハードコードされたクレデンシャルを使用せず、ユーザークレデンシャルを適切に処理する必要があります。
 
-**Avoid Using Hardcoded Credentials**
+**ハードコードされたクレデンシャルの使用を避ける**
 
-Hardcoded credentials can be easily discovered by attackers and provide an easy access point for unauthorized users. Always avoid using hardcoded credentials in your mobile app's code or configuration files.
+ハードコードされたクレデンシャルは攻撃者によって簡単に発見され、認可されていないユーザーにとって簡単なアクセスポイントとなる可能性があります。モバイルアプリのコードや設定ファイルでハードコードされたクレデンシャルを使用することは常に避けてください。
 
-**Properly Handle User Credentials**
+**ユーザークレデンシャルを適切に処理する**
 
-User credentials should always be stored, transmitted, and authenticated securely:
+ユーザークレデンシャルは常に安全に保存、転送、認証される必要があります。
 
-* Encrypt credentials during transmission.
-* Do not store user credentials on the device. Instead, consider using secure, revocable access tokens.
-* Implement strong user authentication protocols.
-* Regularly update and rotate any used API keys or tokens.
+* 転送時にはクレデンシャルを暗号化します。
+* デバイスにユーザークレデンシャルを保存してはいけません。代わりに、安全で取り消し可能なアクセストークンの使用を検討してください。
+* 強力なユーザー認証プロトコルを実装します。
+* 使用されている API キーやトークンを定期的に更新して入れ替えます。
 
 # 攻撃シナリオの例
 
-The following scenarios showcase improper credentials usage in mobile apps:
+以下のシナリオはモバイルアプリでの不適切なクレデンシャルの使用を示しています。
 
-**シナリオ #1:** Hardcoded Credentials: An attacker discovers hardcoded credentials within the mobile app's source code. They use these credentials to gain unauthorized access to sensitive functionality within the app or backend systems.
+**シナリオ #1:** ハードコードされたクレデンシャル: 攻撃者はモバイルアプリのソースコード内にハードコードされたクレデンシャルを発見します。攻撃者はこれらのクレデンシャルを使用して、そのアプリやバックエンドシステム内の機密機能に認可されていないアクセスを得ます。
 
-**シナリオ #2:** Insecure Credential Transmission: An attacker intercepts insecurely transmitted credentials between the mobile app and its backend systems. They use these intercepted credentials to impersonate a legitimate user and gain unauthorized access.
+**シナリオ #2:** 安全でないクレデンシャルの転送: 攻撃者はモバイルアプリとそのバックエンドシステム間で安全に転送されていないクレデンシャルを傍受します。攻撃者は傍受したこれらのクレデンシャルを使用して、正規のユーザーになりすまし、認可されていないアクセスを得ます。
 
-**シナリオ #3:** Insecure Credential Storage: An attacker gains physical access to a user's device and extracts stored credentials from the mobile app. The attacker uses these credentials to gain unauthorized access to the user's account.
+**シナリオ #3:** 安全でないクレデンシャルの保存: 攻撃者はユーザーのデバイスに物理的にアクセスを得て、モバイルアプリから保存されているクレデンシャルを抽出します。攻撃者はこれらのクレデンシャルを使用して、ユーザーのアカウントに認可されていないアクセスを得ます。
 
 # 参考資料
 

@@ -8,19 +8,19 @@ title: "M2: 不適切なサプライチェーンセキュリティ (Inadequate S
 
 **アプリケーション依存**
 
-An attacker can manipulate application functionality by exploiting vulnerabilities in the mobile app supply chain. For example, an attacker can insert malicious code into the mobile app's codebase or modify the code during the build process to introduce backdoors, spyware, or other malicious code.
+攻撃者はモバイルアプリのサプライチェーンの脆弱性を悪用して、アプリケーションの機能を操作する可能性があります。たとえば、攻撃者はモバイルアプリのコードベースに悪意のあるコードを挿入したり、ビルドプロセスの間にコードを改変してバックドア、スパイウェア、その他の悪意のあるコードを導入する可能性があります。
 
-This can allow the attacker to steal data, spy on users, or take control of the mobile device. Moreover, an attacker can exploit vulnerabilities in third-party software libraries, SDKs, vendors, or hardcoded credentials to gain access to the mobile app or the backend servers. 
+これにより、攻撃者はデータを盗んだり、ユーザーをスパイしたり、モバイルデバイスを制御できる可能性があります。さらに、攻撃者はサードパーティソフトウェアライブラリ、SDK、ベンダー、ハードコードされたクレデンシャルの脆弱性を悪用して、モバイルアプリやバックエンドサーバーにアクセスを得る可能性があります。
 
-This can lead to unauthorized data access or manipulation, denial of service, or complete takeover of the mobile app or device.
+これは認可されていないデータアクセスや操作、サービス拒否、モバイルアプリやデバイスの完全な乗っ取りにつながる可能性があります。
 
 # 攻撃手法
 
 **悪用難易度 普通**
 
-There are multiple ways to exploit Inadequate Supply Chain vulnerability for example- an insider threat agent or an attacker can inject malicious code during the development phase of the app, then they can compromise the app signing keys or certificates to sign malicious code as trusted. 
+不適切なサプライチェーンセキュリティの脆弱性を悪用する方法は複数あります。たとえば、内部脅威エージェントや攻撃者がアプリの開発フェーズで悪意のあるコードを注入し、アプリの署名鍵や証明書を侵害することで、悪意のあるコードを信頼できるものとして署名できます。
 
-Another way, a threat agent can exploit vulnerabilities in third-party libraries or components used in the app.
+別の方法として、脅威エージェントはアプリで使用されているサードパーティライブラリやコンポーネントの脆弱性を悪用する可能性があります。
 
 # セキュリティ上の弱点
 
@@ -28,64 +28,64 @@ Another way, a threat agent can exploit vulnerabilities in third-party libraries
 
 **検出難易度 困難**
 
-Inadequate Supply Chain vulnerability occurs due to a lack of secure coding practices, insufficient code reviews and testing leading to the inclusion of vulnerabilities in the app. 
+不適切なサプライチェーンの脆弱性は安全なコーディングプラクティスの欠如、不十分なコードレビューとテストがアプリの脆弱性を含めることにつながるために発生します。
 
-Other causes for inadequate supply chain vulnerabilities include insufficient or insecure app signing and distribution process, weakness in third-party software components or libraries, insufficient security controls for data, encryption, storage, or exposing sensitive data to unauthorized access.
+不適切なサプライチェーンの脆弱性のその他の原因としては、アプリの署名および配布プロセスが不十分または安全でないこと、サードパーティソフトウェアコンポーネントやライブラリの脆弱性、データ、暗号化、保管に関するセキュリティコントロールが不十分であること、機密データが認可されていないアクセスにさらされていることなどが挙げられます。
 
 # 技術的影響
 
 **影響度 深刻**
 
-If an attacker successfully exploits inadequate supply chain security, the technical impact can be severe. The specific technical impact depends on the nature of the exploit, but it can include:
+攻撃者が不適切なサプライチェーンセキュリティを悪用することに成功した場合、技術的影響は深刻なものとなります。具体的な技術的影響はエクスプロイトの性質によって異なりますが、以下のようなものがあります。
 
-**Data Breach:** The attacker can steal sensitive data, such as login credentials, personal data, or financial information. The data breach can have long-term consequences for the affected individuals, such as identity theft or financial fraud.
+**データ侵害:** 攻撃者はログインクレデンシャル、個人データ、経済的情報などの機密データを窃取できます。データ侵害は個人情報の窃取や経済的詐欺など、影響を受ける個人に長期的な影響を与える可能性があります。
 
-**Malware Infection:** The attacker can introduce malware into the mobile application, which can infect the user's device and steal data or perform malicious activities. The malware can be difficult to detect and remove, and it can cause significant damage to the user's device and data.
+**マルウェア感染:** 攻撃者はモバイルアプリケーションにマルウェアを仕込んで、ユーザーのデバイスに感染してデータを窃取したり悪意のある行動を実行できます。このマルウェアは検出や削除が難しく、ユーザーのデバイスやデータに重大な損害をもたらす可能性があります。
 
-**Unauthorized Access:** The attacker can gain access to the mobile application's server or the user's device and perform unauthorized activities, such as modifying or deleting data. This can result in data loss, service disruption, or other technical issues.
+**認可されていないアクセス:** 攻撃者はモバイルアプリケーションのサーバーやユーザーのデバイスにアクセスして、データの改変や削除などの認可されていないアクティビティを実行できます。その結果、データ損失、サービス中断、その他の技術的な問題が発生する可能性があります。
 
-**System Compromise:** The attacker can compromise the entire system of the mobile application, which can lead to a complete loss of control over the system. This can result in the shutdown of the application, significant data loss, and long-term damage to the reputation of the mobile application developer.
+**システム侵害:** 攻撃者はモバイルアプリケーションのシステム全体を侵害し、これによりシステムの制御を完全に失うことにつながります。その結果、アプリケーションの停止、重大なデータ損失、モバイルアプリケーション開発者の長期的な風評被害が発生する可能性があります。
 
 # ビジネスへの影響
 
 **影響度 深刻**
 
-If an attacker successfully exploits inadequate supply chain security, the business impact can be significant. The specific business impact depends on the nature of the exploit and the organization's size, industry, and overall security posture, but it can include:
+攻撃者が不適切なサプライチェーンセキュリティの悪用に成功した場合、ビジネスへの影響は甚大となる可能性があります。具体的なビジネスへの影響はエクスプロイトの性質、組織の規模、全体的なセキュリティ態勢によって異なりますが、以下のようなものが考えられます。
 
-**Financial Losses:** The organization can suffer financial losses as a result of the attack, such as the cost of investigating the breach, the cost of notifying affected individuals, or the cost of legal settlements. The organization can also lose revenue if customers lose trust in the mobile application and stop using it.
+**経済的損失:** 攻撃の結果として組織は侵害調査のコスト、影響を受けた個人への通知コスト、法的解決のコストなどの経済的損失を被る可能性があります。また、顧客がモバイルアプリケーションの信頼を失い、使用を中止した場合、組織は収益を失う可能性があります。
 
-**Reputational Damage:** The organization can suffer reputational damage as a result of the attack, which can lead to long-term damage to the organization's brand and customer trust. This can result in reduced revenue and difficulty in attracting new customers.
+**風評被害:** 攻撃の結果として組織は風評被害を被る可能性があり、組織のブランドや顧客の信頼への長期的な損害につながる可能性があります。その結果、収益が減少し、新規顧客の獲得が困難になる可能性があります。
 
-**Legal and Regulatory Consequences:** The organization can face legal and regulatory consequences as a result of the attack, such as fines, lawsuits, or government investigations. These consequences can result in significant financial and reputational damage to the organization.
+**法的および規制上の影響:** 攻撃の結果として、組織は罰金、訴訟、政府調査などの法的および規制上の影響に直面する可能性があります。これらの影響として組織に重大な経済的損害や風評被害をもたらす可能性があります。
 
-**Supply Chain Disruption:** The attack can disrupt the organization's supply chain and lead to delays or interruptions in the delivery of goods or services. This can result in financial losses and reputational damage to the organization.
+**サプライチェーンの混乱:** 攻撃により組織のサプライチェーンが混乱し、商品やサービスの配送の遅延や中止となる可能性があります。その結果、組織の経済的損失や風評被害につながる可能性があります。
 
 # 「不適切なサプライチェーンセキュリティ」の脆弱性があるか？
 
-It is possible that you are vulnerable to inadequate supply chain vulnerability, particularly if you use mobile applications that are developed by third-party developers or rely on third-party libraries and components. The vulnerability can arise due to a variety of reasons, such as:
+特にサードパーティ開発者によって開発されたモバイルアプリケーションを使用していたり、サードパーティライブラリやコンポーネントに依存している場合、不適切なサプライチェーンの脆弱性にたいして脆弱になる可能性があります。この脆弱性は以下のような様々な理由で発生する可能性があります。
 
-**Lack of Security in Third-Party Components:** Third-party components, such as libraries or frameworks, can contain vulnerabilities that can be exploited by attackers. If the mobile application developer does not vet the third-party components properly or keep them updated, the application can be vulnerable to attacks.
+**サードパーティコンポーネントのセキュリティの欠如:** ライブラリやフレームワークなどのサードパーティコンポーネントには攻撃者によって悪用される可能性のある脆弱性が含まれている可能性があります。モバイルアプリケーション開発者がサードパーティコンポーネントを適切に精査しない場合や常に最新の状態に維持しない場合、アプリケーションは攻撃に対して脆弱になる可能性があります。
 
-**Malicious Insider Threats:** Malicious insiders, such as a rogue developer or a supplier, can introduce vulnerabilities into the mobile application intentionally. This can occur if the developer does not implement adequate security controls and monitoring of the supply chain process.
+**悪意のある内部関係者の脅威:** 不正な開発者やサプライヤーなどの悪意のある内部関係者はモバイルアプリケーションに意図的に脆弱性を盛り込む可能性があります。これは開発者が適切なセキュリティコントロールとサプライチェーンプロセスの監視を実装していない場合に発生する可能性があります。
 
-**Inadequate Testing and Validation:** If the mobile application developer does not test the application thoroughly, it can be vulnerable to attacks. The developer may also fail to validate the security of the supply chain process, leading to vulnerabilities in the application.
+**不適切なテストと検証:** モバイルアプリケーション開発者がアプリケーションを徹底的にテストしないと、攻撃に対して脆弱になる可能性があります。また、開発者がサプライチェーンプロセスのセキュリティを検証できず、アプリケーションが脆弱になるかもしれません。
 
-**Lack of Security Awareness:** If the mobile application developer does not have adequate security awareness, they may not implement the necessary security controls to prevent supply chain attacks.
+**セキュリティ意識の欠如:** モバイルアプリケーション開発者が適切なセキュリティ意識を持っていない場合、サプライチェーン攻撃を防ぐために必要なセキュリティコントロールを実装できないかもしれません。
 
 # 「不適切なサプライチェーンセキュリティ」を防ぐには？
 
-* Implement secure coding practices, code review, and testing throughout the mobile app development lifecycle to identify and mitigate vulnerabilities.
-* Ensure secure app signing and distribution processes to prevent attackers from signing and distributing malicious code.
-* Use only trusted and validated third-party libraries or components to reduce the risk of vulnerabilities.
-* Establish security controls for app updates, patches, and releases to prevent attackers from exploiting vulnerabilities in the app.
-* Monitor and detect supply chain security incidents through security testing, scanning, or other techniques to detect and respond to incidents in a timely manner.
+* モバイルアプリ開発ライフサイクル全体を通じてセキュアコーディングプラクティス、コードレビュー、テストを実装して、脆弱性を特定して軽減します。
+* 安全なアプリ署名と配布プロセスを確保し、攻撃者が悪意のあるコードを署名して配布することを防ぎます。
+* 信頼され検証済みのサードパーティライブラリやコンポーネントのみを使用して、脆弱性のリスクを軽減します。
+* アプリの更新、パッチ、リリースに対するセキュリティコントロールを確立し、攻撃者がアプリの脆弱性を悪用することを防ぎます。
+* セキュリティテスト、スキャン、その他の技法を通じてサプライチェーンのセキュリティインシデントを監視および検出して、タイムリーにインシデントを検出して対応します。
 
 # 攻撃シナリオの例
 
-**シナリオ #1** Malware Injection
+**シナリオ #1** マルウェアインジェクション
 
-An attacker injects malware into a popular mobile app during the development phase. The attacker then signs the app with a valid certificate and distributes it to the app store, bypassing the app store's security checks.
-Users download and install the infected app, which steals their login credentials and other sensitive data. The attacker then uses the stolen data to commit fraud or identity theft, causing significant financial harm to the victims and reputational damage to the app provider.
+攻撃者は人気のモバイルアプリに開発フェーズでマルウェアを注入します。次に、攻撃者は有効な証明書でアプリに署名し、アプリストアのセキュリティをバイパスしてアプリストアに配布します。
+ユーザーは感染したアプリをダウンロードしてインストールし、アプリはログインクレデンシャルやその他の機密データを窃取します。その後、攻撃者は窃取したデータを使用して詐欺や個人情報窃取を行い、被害者に重大な経済的損害を与え、アプリプロバイダーに風評被害を与えます。
 
 # 参考資料
 - OWASP

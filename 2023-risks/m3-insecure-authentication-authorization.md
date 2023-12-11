@@ -8,13 +8,13 @@ title: "M3: 安全でない認証と認可 (Insecure Authentication/Authorizatio
 
 **アプリケーション依存**
 
-Threat agents that exploit authentication and authorization vulnerabilities typically do so through automated attacks that use available or custom-built tools.
+認証と認可の脆弱性を悪用する脅威エージェントは一般的に利用可能なツールやカスタム構築されたツールを使用した自動化された攻撃を通じてそれを行います。
 
 # 攻撃手法
 
 **悪用難易度 容易**
 
-Once the adversary understands the vulnerabilities in either the authentication or authorization scheme, they can exploit these weaknesses in one of two ways. They may either fake or bypass the authentication by directly submitting service requests to the mobile app's backend server, circumventing any direct interaction with the mobile app, or they can log into the application as a legitimate user after successfully passing the authentication control and then force-browse to a vulnerable endpoint to execute administrative functionality. Both exploitation methods are typically accomplished via mobile malware within the device or botnets owned by the attacker.
+攻撃者が認証スキームや認可スキームの脆弱性を理解すると、二つの方法のいずれかでこれらの弱点を悪用できます。モバイルアプリのバックエンドサーバーにサービスリクエストを直接送信して認証を偽装またはバイパスして、モバイルアプリとの直接のやり取りを回避するか、正当なユーザーとしてアプリケーションにログインして認証制御を正常に通過した後に脆弱なエンドポイントを強制ブラウズして管理機能を実行します。どちらの悪用手法でも、デバイス内のモバイルマルウェアまたは攻撃者が所有するボットネットを介して実行されるのが一般的です。
 
 # セキュリティ上の弱点
 
@@ -22,101 +22,101 @@ Once the adversary understands the vulnerabilities in either the authentication 
 
 **検出難易度 普通**
 
-In order to test for poor authorization and authentication schemes in mobile apps, a number of strategies can be employed by testers. For authorization, testers can perform binary attacks against the mobile app and try to execute  privileged functionality that should only be executable with a user of higher privilege, particularly while the mobile app is in 'offline' mode. Testers should also attempt to execute any privileged functionality using a low-privilege session token within the corresponding POST/GET requests for the sensitive functionality to the backend server.
+モバイルアプリの認可スキームと認証スキームが不十分かどうかをテストするために、テスト担当者は多くの戦略を採用できます。認可に関しては、テスト担当者はモバイルアプリに対してバイナリ攻撃を実行し、特にモバイルアプリが「オフライン」モードであるときに、より高い特権を持つユーザーのみが実行可能であるべき特権機能の実行を試みることができます。また、テスト担当者はバックエンドサーバーへの機密機能に対して対応する POST/GET リクエスト内で、低い権限セッショントークンを使用して特権機能の実行を試みるべきです。
 
-Poor or missing authorization schemes can potentially allow an adversary to execute functionality they should not be entitled to using an authenticated but lower-privilege user of the mobile app. This risk of privilege escalation attack is heightened when authorization decisions are made within the mobile device instead of through a remote server, a scenario that can often arise due to the mobile requirements of offline usability.
+認可スキームが不十分であったり、欠落していると、攻撃者はモバイルアプリの認証済みであるが低い権限のユーザーを使用して、権限を与えられるべきではない機能を実行できる可能性があります。この権限昇格攻撃のリスクは認可の決定がリモートサーバー経由ではなくモバイルデバイス内で行われる場合に高まります。これはモバイルのオフラインユーザビリティ要件により発生することがよくあるシナリオです。
 
-In terms of poor authentication schemes, testers can undertake binary attacks against the mobile app while it's in 'offline' mode, aiming to bypass offline authentication and then execute functionality that should require offline authentication. Testers should also try to execute any backend server functionality anonymously by removing any session tokens from any POST/GET requests for the mobile app functionality.
+認証スキームが不十分であることについては、テスト担当者はモバイルアプリが「オフライン」モードであるときにバイナリ攻撃を行うことができます。これはオフライン認証をバイパスして、オフライン認証を必要とすべき機能を実行することを目的としています。また、テスト担当者はモバイルアプリ機能に対する POST/GET リクエストからセッショントークンを削除して、バックエンドサーバー機能を匿名で実行することを試みてみるべきです。
 
-Poor or missing authentication schemes can allow an adversary to anonymously execute functionality within the mobile app or the backend server used by the mobile app. These weaknesses in mobile app authentication are fairly common due to the mobile device's input form factor, which often encourages short passwords or 4-digit PINs.
+認証スキームが不十分であったり、欠落していると、攻撃者はモバイルアプリ内の機能やモバイルアプリで使用されるバックエンドサーバー内の機能を匿名で実行できる可能性があります。モバイルデバイスの入力フォームファクタが短いパスワードや 4 桁の PIN を推奨することがよくあるために、モバイルアプリ認証におけるこのような弱点はかなり一般的です。
 
-Mobile apps face unique authentication requirements that can diverge from traditional web authentication schemes, largely due to their varying availability requirements. Unlike traditional web apps where users are expected to be online and authenticate in real-time with a backend server, mobile apps may need to fulfill uptime requirements that necessitate offline authentication due to the unreliability or unpredictability of mobile internet connections. This requirement can significantly impact the factors developers must consider when implementing mobile authentication.
+モバイルアプリは、主に可用性要件が異なるために、従来のウェブ認証スキームとは異なる独自の認証要件に直面します。ユーザーがオンラインにいて、バックエンドサーバーでリアルタイムに認証することが期待される従来のウェブアプリとは異なり、モバイルアプリはモバイルインターネット接続の信頼性の低さや予測不可能性により、オフライン認証を必要とするアップタイム要件を満たす必要があるかもしれません。この要件は開発者がモバイル認証を実装する際に考慮しなければならない要素に大きな影響を与える可能性があります。
 
 # 技術的影響
 
 **影響度 深刻**
 
-The technical impact of poor authorization and authentication in a system can be wide-ranging, significant, and similar, largely depending on the type of over-privileged functionality that is executed. When it comes to poor authorization, for instance, over-privileged execution of remote or local administration functionality may destroy systems or access to sensitive information.
+システムにおける不十分な認可と認証の技術的影響は実行される過剰な権限機能の種類に大きく依存し、広範囲かつ重大で、類似したものになる可能性があります。たとえば、認可が不十分である場合、リモートまたはローカルの管理機能の過剰な特権的な実行は、システムを破壊したり、機密情報へのアクセスとなる可能性があります。
 
-The technical repercussions of poor authentication occur when the solution is unable to identify the user performing an action request. This can immediately result in the inability to log or audit user activity since the user's identity cannot be established. This lack of identity verification contributes to an inability to detect the source of an attack, understand the nature of any underlying exploits, or devise strategies to prevent future attacks.
+不十分な認証の技術的な影響は、ソリューションがアクションリクエストを実行しているユーザーを識別できないときに発生します。ユーザーの ID を確立できないため、ただちにユーザーアクティビティをログ記録や監査できなくなる可能性があります。この ID 検証の欠如により、攻撃のソースを検出したり、根底となるエクスプロイトの性質を理解したり、将来の攻撃を防止するための戦略を考案することができなくなります。
 
-Moreover, failures in authentication can also expose underlying authorization failures. When authentication controls fail, the solution is unable to verify the user's identity, which is closely tied to a user's role and associated permissions. If an attacker can anonymously execute sensitive functionality, it indicates that the underlying code is not verifying the permissions of the user issuing the request for the action. Consequently, the anonymous execution of code underscores failures in both authentication and authorization controls.
+さらに、認証の失敗により根底となる認可の失敗が露呈する可能性があります。認証制御が失敗すると、ソリューションはユーザーの役割と関連する権限に密接に結びつくユーザーの ID を検証できなくなります。攻撃者が機密機能を匿名で実行できる場合、アクションのリクエストを発行したユーザーの権限を基盤となるコードが検証していないことを示します。その結果、コードの匿名実行は認証と認可の両方の制御の失敗を強調します。
 
 # ビジネスへの影響
 
 **影響度 深刻**
 
-The business impact of poor authentication and authorization will typically result in the following at a minimum:
+不十分な認証と認可によるビジネスへの影響は一般的に少なくとも以下のようなものになります。
 
-- Reputation Damage;
-- Information Theft;
-- Fraud;
-- Unauthorized Access to Data.
+- 風評被害
+- 情報窃取
+- 詐欺
+- データへの認可されていないアクセス
 
 # 「安全でない認証と認可」の脆弱性があるか？
 
-Understanding the difference between authentication and authorization is paramount in evaluating mobile application security. Authentication identifies an individual, while authorization verifies if the identified individual has the necessary permissions for a particular action. These two aspects are closely related, as authorization checks should immediately follow mobile device request authentication.
+認証と認可の違いを理解することは、モバイルアプリケーションセキュリティを評価するうえで最も重要です。認証は個人を識別し、認可は識別された個人が特定のアクションに必要な権限を持っているかどうかを検証します。この二つの要素は密接に関連しており、認可チェックはモバイルデバイスリクエスト認証の直後に行う必要があります。
 
-Insecure authorization can occur when an organization fails to authenticate an individual before executing a requested API endpoint from a mobile device, as it is virtually impossible to conduct authorization checks on an incoming request without an established caller's identity.
+呼び出し側の ID が確立していない場合、受信リクエストの認可チェックを実行することは事実上不可能であるため、組織がモバイルデバイスからリクエストされた API エンドポイントを実行する前に個人の認証に失敗すると、安全でない認可が発生する可能性があります。
 
-Here are some straightforward indicators of insecure authorization:
+安全でない認可を示すいくつかの簡単な指標を以下に示します。
 
-* **Presence of Insecure Direct Object Reference (IDOR) vulnerabilities** - Noticing an IDOR vulnerability may suggest that the code isn't conducting a proper authorization check.
-* **Hidden Endpoints** - Developers might neglect authorization checks on backend hidden functionality, assuming that the hidden functionality will only be accessed by a user with the appropriate role.
-* **User Role or Permission Transmissions** - Should the mobile app transmit the user's roles or permissions to a backend system as part of a request, this could signal insecure authorization.
+* **安全でない直接オブジェクト参照 (IDOR) 脆弱性の存在** - IDOR 脆弱性に気付いた場合、コードが適切な認可チェックを実行していないことを示唆している可能性があります。
+* **隠しエンドポイント** - 隠し機能には適切なロールを持つユーザーのみがアクセスできると想定し、開発者はバックエンドの隠し機能に対する認可チェックを怠る可能性があります。
+* **ユーザーのロールまたは権限の転送** - モバイルアプリがユーザーのロールや権限をリクエストの一部としてバックエンドシステムに送信する場合、これは安全でない認可を示す可能性があります。
 
-Similarly, mobile apps can exhibit various signs of insecure authentication:
+同様に、モバイルアプリは安全でない認証のさまざまな兆候を示すことがあります。
 
-* **Anonymous Backend API Execution** - The ability of the app to execute a backend API service request without providing an access token may point to insecure authentication.
-* **Local Storage of Passwords or Shared Secrets** - If the app stores any passwords or shared secrets locally on the device, this could be a sign of insecure authentication.
-* **Weak Password Policy** - The use of a simplified password-entering process may imply insecure authentication.
-* **Usage of Features like FaceID and TouchID** - Employing features like FaceID or TouchID could be indicative of insecure authentication.
+* **匿名のバックエンド API 実行** - アクセストークンを提供せずにバックエンド API サービスリクエストを実行するアプリの機能は安全でない認証を示している可能性があります。
+* **パスワードや共有シークレットのローカル保存** - アプリがパスワードや共有シークレットをデバイス上でローカルに保存する場合、これは安全でない認証を示す可能性があります。
+* **弱いパスワードポリシー** - 簡略なパスワード入力プロセスを使用している場合、安全でない認証を意味する可能性があります。
+* **FaceID や TouchID などの機能の使用** - FaceID や TouchID などの機能を採用すると、安全でない認証を示す可能性があります。
 
 # 「安全でない認証と認可」を防ぐには？
 
-To prevent both insecure authentication and authorization, it's crucial to avoid weak patterns and reinforce secure measures.
+安全でない認証と認可の両方を防ぐには、弱いパターンを避け、安全な対策を強化することが極めて重要です。
 
-**Avoid Weak Patterns**
+**弱いパターンを避ける**
 
-Insecure Mobile Application Authentication Design Patterns should be avoided:
+安全でないモバイルアプリケーション認証デザインパターンは避けるべきです。
 
-* If you are porting a web application to a mobile equivalent, ensure the authentication requirements of mobile applications match that of the web application component. It should not be possible to authenticate with fewer factors than the web browser.
-* Local user authentication can lead to client-side bypass vulnerabilities. If the application stores data locally, the authentication routine can be bypassed on jailbroken devices through runtime manipulation or binary modification. If offline authentication is a compelling business requirement, consult additional guidance on preventing binary attacks against the mobile app.
-* Perform all authentication requests server-side, where possible. Upon successful authentication, application data will be loaded onto the mobile device, ensuring application data availability only after successful authentication.
-* If client-side data storage is necessary, encrypt the data using an encryption key securely derived from the user’s login credentials. However, there are additional risks that the data will be decrypted via binary attacks.
-* The "Remember Me" functionality should never store a user’s password on the device.
-* Mobile applications should ideally use a device-specific authentication token that can be revoked within the mobile application by the user, mitigating unauthorized access risks from a stolen/lost device.
-* Avoid using spoof-able values for user authentication, including device identifiers or geo-location.
-* Persistent authentication within mobile applications should be implemented as an opt-in and not enabled by default.
-* Where possible, refrain from allowing users to provide 4-digit PIN numbers for authentication passwords.
+* ウェブアプリケーションはモバイルに移植する場合、モバイルアプリケーションの認証要件がウェブアプリケーションコンポーネントのものと一致していることを確認します。ウェブブラウザよりも少ない要素で認証すべきではありません。
+* ローカルユーザー認証はクライアントサイドバイパスの脆弱性につながる可能性があります。アプリケーションがデータをローカルに保存する場合、脱獄済みデバイスではランタイム操作やバイナリ改変によって認証ルーチンがバイパスされる可能性があります。オフライン認証がやむを得ないビジネス要件である場合、モバイルアプリに対するバイナリ攻撃を防ぐために別のガイダンスを参照してください。
+* 可能であれば、すべての認証リクエストをサーバーサイドで実行します。認証に成功すると、アプリケーションデータがモバイルデバイスにロードされ、認証が成功した後にのみアプリケーションデータが利用可能になることを確保します。
+* クライアントサイドデータストレージが必要な場合には、ユーザーのログイン認証情報から安全に導出された暗号鍵を使用してデータを暗号化します。ただし、バイナリ攻撃によってデータが復号される別のリスクもあります。
+* "Remember Me" 機能ではユーザーのパスワードをデバイスに保存してはいけません。
+* モバイルアプリケーションでは、理想的にはユーザーがモバイルアプリケーション内で失効できるデバイス固有の認証トークンを使用し、デバイスの盗難や紛失による認可されていないアクセスのリスクを軽減すべきです。
+* デバイス識別子や位置情報など、ユーザー認証になりすまし可能な値を使用することを避けます。
+* モバイルアプリケーション内の永続的な認証はオプトインとして実装すべきであり、デフォルトでは有効にしてはいけません。
+* 可能であれば、ユーザーに認証パスワードとして 4 桁の PIN 番号を提供できないようにします。
 
-**Reinforce Authentication**
+**認証を強化する**
 
-* Developers should assume that all client-side authorization and authentication controls can be bypassed by malicious users. Server-side reinforcement of these controls is critical.
-* Due to offline usage requirements, mobile apps might need to perform local authentication or authorization checks. In such cases, developers should instrument local integrity checks to detect any unauthorized code changes. Consult additional guidance on detecting and reacting to binary attacks.
-* Use FaceID and TouchID to unlock biometrically locked secrets and securely protect sensitive authentication materials, like session tokens.
+* 開発者はすべてのクライアントサイドの認可および認証制御が悪意のあるユーザーによってバイパスされる可能性があることを想定すべきです。このような制御をサーバーサイドで強化することが重要です。
+* オフラインでの使用要件により、モバイルアプリはローカル認証や認可チェックを実行する必要があるかもしれません。そのような場合、開発者はローカルの完全性チェックを実装して認可されていないコード変更を検出する必要があります。バイナリ攻撃の検出と対応に関する別のガイダンスを参照してください。
+* FaceID や TouchID を使用して、生体認証によってロックされたシークレットをロック解除し、セッショントークなどの機密性の高い認証マテリアルを安全に保護します。
 
-**Insecure Authorization Prevention**
+**安全でない認可を防止する**
 
-To avoid insecure authorization:
+安全でない認可を避けるには:
 
-* Backend systems should independently verify the roles and permissions of the authenticated user. Do not rely on any roles or permission information that comes from the mobile device.
-* Assume that all client-side authorization can be bypassed, hence reinforcing server-side authorization controls whenever possible.
-* If offline authorization checks are necessary within the mobile app's code, developers should perform local integrity checks to detect unauthorized code changes.
+* バックエンドシステムは認証されたユーザーのロールとパーミッションを独立して検証する必要があります。モバイルデバイスから取得するロールやパーミッション情報に依存してはいけません。
+* すべてのクライアントサイド認可はバイパスできると想定して、可能な限りサーバーサイド認可制御を強化します。
+* モバイルアプリのコード内でオフライン認可チェックが必要な場合、開発者はローカルの完全性チェックを実行して、認可されていないコード変更を検出する必要があります。
 
 # 攻撃シナリオの例
 
-The following scenarios showcase weak authentication or authorization controls in mobile apps:
+以下のシナリオはモバイルアプリの脆弱な認証または認可制御を示しています。
 
-**シナリオ #1:** Hidden Service Requests: Developers assume that only authenticated users will be able to generate a service request that the mobile app submits to its backend for processing. During the processing of the request, the server code does not verify that the incoming request is associated with a known user. Hence, adversaries submit service requests to the back-end service and anonymously execute functionality that affects legitimate users of the solution.
+**シナリオ #1:** 隠しサービスリクエスト: 開発者はモバイルアプリが処理のためにバックエンドに送信するサービスリクエストを、認証されたユーザーのみが生成できると想定しています。リクエストの処理の際、サーバーコードは受信するリクエストが既知のユーザーに関連付けられているかどうかを検証しません。そのため、攻撃者はサービスリクエストをバックエンドサービスに送信して、ソリューションの正規ユーザーに影響を与える機能を匿名で実行します。
 
-**シナリオ #2:** Interface Reliance: Developers assume that only authorized users will be able to see the existence of a particular function on their mobile app. Hence, they expect that only legitimately authorized users will be able to issue the request for the service from their mobile devices. The back-end code that processes the request does not bother to verify that the identity associated with the request is entitled to execute the service. Hence, adversaries are able to perform remote administrative functionality using fairly low-privilege user accounts.
+**シナリオ #2:** インタフェースの信用: 開発者は認可されたユーザーのみがモバイルアプリ上の特定の機能の存在を確認できると想定しています。したがって、正当に認可されたユーザーのみがモバイルデバイスからサービスのリクエストを発行できると想定しています。リクエストを処理するバックエンドコードはリクエストに関連した ID にサービスを実行する権利があるかどうかをわざわざ検証しません。そのため、攻撃者はかなり低い権限のユーザーアカウントを使用して、リモート管理機能を実行できます。
 
-**シナリオ #3:** Usability Requirements: Due to usability requirements, mobile apps allow for passwords that are 4 digits long. The server code correctly stores a hashed version of the password. However, due to the severely short length of the password, an adversary will be able to quickly deduce the original passwords using rainbow hash tables. If the password file (or data store) on the server is compromised, an adversary will be able to quickly deduce users' passwords.
+**シナリオ #3:** ユーザビリティ要件: ユーザビリティ要件により、モバイルアプリは 4 桁の長さのパスワードを許可します。サーバーコードはパスワードのハッシュ化バージョンを正しく保存します。しかし、パスワードの長さがとても短いので、攻撃者はレインボーハッシュテーブルを使用して元のパスワードをすぐに推測できます。サーバー上のパスワードファイル (やデータストア) が侵害されると、攻撃者はユーザーのパスワードをすぐに推測できます。
 
-**シナリオ #4:** Insecure Direct Object Reference: A user makes an API endpoint request to a backend REST API that includes an actor ID and an OAuth bearer token. The user includes their actor ID as part of the incoming URL and includes the access token as a standard header in the request.  The backend verifies the presence of the bearer token but fails to validate the actor ID associated with the bearer token. As a result, the user can tweak the actor ID and attain the account information of other users as part of the REST API request.
+**シナリオ #4:** 安全でない直接オブジェクト参照: ユーザーはアクター ID と OAuth ベアラトークンを含む API エンドポイントリクエストをバックエンド REST API に送信します。ユーザーは受信 URL の一部としてアクター ID を含め、リクエストの標準ヘッダーとしてアクセストークンを含めます。バックエンドはベアラトークンの存在を検証しますが、ベアラトークンに関連付けられたアクター ID の検証には失敗します。その結果、ユーザーはアクター ID を調整して、REST API リクエストの一部として他のユーザーのアカウント情報を取得できます。
 
-**シナリオ #5:** Transmission of LDAP roles: A user makes an API endpoint request to a backend REST API that includes a standard oAuth bearer token along with a header that includes a list of LDAP groups that the user belongs to. The backend request validates the bearer token and then inspects the incoming LDAP groups for the right group membership before continuing on to the sensitive functionality. However, the backend system does not perform an independent validation of LDAP group membership and instead relies upon the incoming LDAP information coming from the user. The user can tweak the incoming header and report to be a member of any LDAP group arbitrarily and perform administrative functionality.
+**シナリオ #5:** LDAP ロールの転送: ユーザーは標準の OAuth ベアラトークンと、そのユーザーが属する LDAP グループのリストを含むヘッダーを含む API エンドポイントリクエストをバックエンド REST API に送信します。バックエンドリクエストはベアラトークンを検証し、受信 LDAP グループが正しいグループメンバーシップであることを検査して、機密機能に進みます。しかし、バックエンドシステムは LDAP グループメンバーシップの独立した検証を行わず、代わりにユーザーから来た受信 LDAP 情報に依存します。ユーザーは受信ヘッダーを調整して、任意の LDAP グループのメンバーであるように報告し、管理機能を実行できます。
 
 # 参考資料
 

@@ -8,17 +8,17 @@ title: "M4: 不十分な入出力バリデーション (Insufficient Input/Outpu
 
 **アプリケーション依存**
 
-Insufficient validation and sanitization of data from external sources, such as user inputs or network data, in a mobile application can introduce severe security vulnerabilities. Mobile apps that fail to properly validate and sanitize such data are at risk of being exploited through attacks specific to mobile environments, including SQL injection, Command Injection, and cross-site scripting (XSS) attacks.
+モバイルアプリケーションでユーザー入力やネットワークデータなどの外部ソースからのデータのバリデーションとサニタイゼーションが不十分である場合、重大なセキュリティ脆弱性をもたらす可能性があります。このようなデータを適切にバリデートおよびサニタイズできないモバイルアプリは SQL インジェクション、コマンドインジェクション、クロスサイトスクリプティング (XSS) 攻撃など、モバイル環境に特有の攻撃を通じて悪用されるリスクがあります。
 
-These vulnerabilities can have detrimental consequences, including unauthorized access to sensitive data, manipulation of app functionality, and potential compromise of the entire mobile system.
+これらの脆弱性は機密データへの認可されていないアクセス、アプリ機能の操作、モバイルシステム全体の潜在的な侵害など、有害な結果をもたらす可能性があります。
 
-Inadequate output validation can result in data corruption or presentation vulnerabilities, allowing malicious actors to inject malicious code or manipulate sensitive information displayed to users.
+出力バリデーションが不十分であると、データ破損やデータ開示の脆弱性を引き起こし、悪意のあるアクターが悪意のあるコードを注入したり、ユーザーに表示される機密情報を操作する可能性があります。
 
 # 攻撃手法
 
 **悪用難易度 困難**
 
-Insufficient input/output validation exposes our application to critical attack vectors, including SQL injection, XSS, command injection and path traversal. These vulnerabilities can lead to unauthorized access, data manipulation, code execution, and compromise of the entire backend system. 
+不十分な入出力バリデーションはアプリケーションを SQL インジェクション、XSS、コマンドインジェクション、パストラバーサルなどの重大な攻撃ベクトルにさらします。これらの脆弱性は認可されていないアクセス、データ操作、コード実行、バックエンドシステム全体の侵害につながる可能性があります。
 
 # セキュリティ上の弱点
 

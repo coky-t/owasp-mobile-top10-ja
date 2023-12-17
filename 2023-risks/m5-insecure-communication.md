@@ -7,21 +7,21 @@ title: "M5: 安全でない通信 (Insecure Communication)"
 
 **アプリケーション依存**
 
-Most modern mobile applications exchange data with one or more remote servers. When the data transmission takes place, it typically goes through the mobile device's carrier network and the internet, a threat agent listening on the wire can intercept and modify the data if it transmitted in plaintext or using a deprecated encryption protocol. Threat agents might have different motives such as stealing sensitive information, conducting espionage, identity theft and more. The following threat agents exist:
+最近のモバイルアプリケーションのほとんどは一つ以上のリモートサーバーとデータをやり取りします。データ伝送が行われる際、一般的にモバイルデバイスのキャリアネットワークとインターネットを経由しますが、平文や非推奨の暗号プロトコルを使用して送信した場合、回線上で盗聴する脅威エージェントがそのデータを傍受して変更する可能性があります。脅威エージェントは機密情報の窃取、諜報行為、なりすましなどのさまざまな動機を持っているかもしれません。以下のような脅威エージェントが存在します。
 
-- An adversary that shares your local network (compromised or monitored Wi-Fi);
-- Rogue carrier or network devices (routers, cell towers, proxy's, etc); or
-- Malware on your mobile device.
+- ローカルネットワーク (侵害された Wi-Fi や監視された Wi-Fi) を共有する敵対者
+- 不正な通信業者やネットワークデバイス (ルーター、携帯電話基地局、プロキシなど)
+- モバイルデバイス上のマルウェア
 
 # 攻撃手法
 
 **悪用難易度 容易**
 
-While modern applications do reply on cryptographic protocols such as SSL/TLS, they can sometimes have flaws in their implementations like: 
+最近のアプリケーションは SSL/TLS などの暗号プロトコルで応答しますが、その実装には以下のような欠陥が時折みられます。
 
-* Using deprecated protocols and/or bad configuration settings;
-* Accepting bad ssl certificates (self-signed, revoked, expired, wrong host...); or
-* Inconsistency (having SSL/TLS only on select workflows such as authentication).
+* 非推奨なプロトコルや不適切なコンフィグレーション設定の使用
+* 不正な SSL 証明書 (自己署名、失効、期限切れ、正しくないホストなど) の受け入れ
+* 非一貫性 (認証などの特定のワークフローでのみの SSL/TLS の使用)
 
 
 # セキュリティ上の弱点

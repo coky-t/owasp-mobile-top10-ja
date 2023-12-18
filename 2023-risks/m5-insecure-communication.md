@@ -30,37 +30,37 @@ title: "M5: 安全でない通信 (Insecure Communication)"
 
 **検出難易度 普通**
 
-While modern mobile applications aim to protect network traffic, they often have inconsistencies in their implementation. These inconsistencies can lead to vulnerabilities that expose data and session IDs to interception. Just because an app uses transport security protocols doesn't mean it's implemented correctly. To identify basic flaws, you can observe the network traffic on the phone. However, detecting more subtle flaws requires a closer look at the application's design and configuration.
+最近のモバイルアプリケーションはネットワークトラフィックの保護を目的としていますが、その実装には一貫性がないことがよくあります。このような非一貫性はデータやセッション ID を傍受にさらす脆弱性につながる可能性があります。アプリがトランスポートセキュリティプロトコルを使用しているからといって、それが正しく実装されているとは限りません。基本的な欠陥を特定するには、携帯電話のネットワークトラフィックを観察します。しかし、より微細な欠陥を検出するには、アプリケーションの設計と構成を詳しく調べる必要があります。
 
 # 技術的影響
 
 **影響度 深刻**
 
-This flaw can expose user data which might lead to account takeover, user impersonation, PII data leaks and more, for instance an attacker might intercept user credentials, session, 2FA tokens which can open the door for more elaborate attacks.   
+この欠陥によりユーザーデータがさらされ、アカウント乗っ取り、ユーザーなりすまし、個人情報データ漏洩などにつながる可能性があります。たとえば、攻撃者はユーザー認証情報、セッション、二要素認証トークンを傍受して、より手の込んだ攻撃の扉を開く可能性があります。
 
 # ビジネスへの影響
-	
-**影響度 中** 
 
-At a minimum, interception of sensitive data through a communication channel will result in a privacy violation.
+**影響度 中**
 
-The violation of a user's confidentiality may result in:
+少なくとも、通信チャネルを介した機密データの傍受はプライバシーの侵害につながります。
 
-* Identity theft;
-* Fraud, or
-* Reputational Damage.
+ユーザーの機密性を侵害すると以下のような結果を招く可能性があります。
+
+* なりすまし
+* 詐欺
+* 風評被害
 
 # 「安全でない通信」の脆弱性があるか？
 
-This risk covers all aspects of getting data from point A to point B, but doing it insecurely. It encompasses mobile-to-mobile communications, app-to-server communications, or mobile-to-something-else communications. This risk includes all communications technologies that a mobile device might use: TCP/IP, WiFi, Bluetooth/Bluetooth-LE, NFC, audio, infrared, GSM, 3G, SMS, etc.
+このリスクはポイント A からポイント B へのデータ転送のあらゆる側面をカバーしますが、それを安全に行うことはありません。これにはモバイル間通信、アプリからサーバーへの通信、モバイルから他のものへの通信が含まれます。このリスクにはモバイルデバイスが使用する可能性のあるすべての通信テクノロジ (TCP/IP, Wi-Fi, Bluetooth/Bluetooth-LE, NFC, オーディオ, 赤外線, GSM, 3G, SMS など) が含まれます。
 
-All the TLS communications issues go here. All the NFC, Bluetooth, and WiFi issues go here.
+TLS 通信の問題はすべてここにあります。NFC, Bluetooth, Wi-Fi に関する問題はすべてここにあります。
 
-The prominent characteristics include packaging up some kind of sensitive data and transmitting it into or out of the device. Some examples of sensitive data include encryption keys, passwords, private user information, account details, session tokens, documents, metadata, and binaries. The sensitive data can be coming to the device from a server, it can be coming from an app out to a server, or it might be going between the device and something else local (e.g., an NFC terminal or NFC card). The defining characteristic of this risk is the existence of two devices and some data passing between them.
+顕著な特徴としては、ある種の機密データをパッケージ化してデバイスの内外に送信することが挙げられます。機密データの例としては、暗号鍵、パスワード、個人ユーザー情報、アカウント情報、セッショントークン、ドキュメント、メタデータ、バイナリなどがあります。機密データはサーバーからデバイスに送信されることや、アプリからサーバーに送信されることや、デバイスと他のローカルなもの (NFC 端末や NFC カードなど) の間で送信されることがあります。このリスクを定義付ける特徴は二つのデバイスが存在し、その間を何らかのデータがやり取りされることです。
 
-If the data is being stored locally in the device itself, that's #Insecure Data. If the session details are communicated securely (e.g., via a strong TLS connection) but the session identifer itself is bad (perhaps it is predictable, low entropy, etc.), then that's an #Insecure Authentication problem, not a communication problem.
+データがデバイス自体のローカルに保存される場合、それは #Insecure Data です。セッション情報が安全に (強力な TLS 接続を介するなどで) 通信されているが、セッション識別子自体が不適切 (予測可能であったり、エントロピーが低いなど) である場合、それは #Insecure Authentication の問題であり、通信の問題ではありません。
 
-The usual risks of insecure communication are around data integrity, data confidentiality, and origin integrity. If the data can be changed while in transit, without the change being detectable (e.g., via a man-in-the-middle attack) then that is a good example of this risk. If confidential data can be exposed, learned, or derived by observing the communications as it happens (i.e., eavesdropping) or by recording the conversation as it happens and attacking it later (offline attack), that's also an insecure communication problem. Failing to properly setup and validate a TLS connection (e.g., certificate checking, weak ciphers, other TLS configuration problems) are all here in insecure communication.
+安全でない通信の通常のリスクはデータ完全性、データ機密性、オリジン完全性に関するものです。転送中に (中間者攻撃を介するなどで) データが変更される可能性があり、その変更が検出できない場合、それがこのリスクの良い例です。通信の様子を観察 (すなわち盗聴) したり、会話の様子を記録し後から攻撃 (オフライン攻撃) することによって、機密データが開示、学習、導出される可能性がある場合、それも安全でない通信の問題です。TLS 接続の適切な設定とバリデートの失敗 (証明書チェック、弱い暗号、その他の TLS 構成の問題など) もすべてこの安全でない通信となります。
 
 # 「安全でない通信」を防ぐには？
 

@@ -7,24 +7,24 @@ title: "M6: 不適切なプライバシーコントロール (Inadequate Privacy
 
 **アプリケーション依存**
 
-Privacy controls are concerned with protecting Personally Identifiable Information (PII), e.g., names and addresses, credit card information, e-mail and IP addresses, information about health, religion, sexuality and political opinions. 
+プライバシーコントロールは、氏名と住所、クレジットカード情報、電子メールと IP アドレス、健康、宗教、性的志向、政治的意見などの個人を識別できる情報 (PII) を保護することに関係します。
 
-This information is valuable to attackers for several reasons. For example, an attacker could 
-- Impersonate the victim to commit a fraud, 
-- Misuse the victim's payment data, 
-- Blackmail the victim with sensitive information or 
-- Harm the victim by destroying or manipulating the victim's critical data. 
+この情報は攻撃者にとっていくつかの理由で価値があります。たとえば、攻撃者は以下のようなことができる可能性があります。
+- 被害者になりすまして詐欺を行います。
+- 被害者の支払いデータを悪用します。
+- 機密情報で被害者を脅迫します。
+- 被害者の重要なデータを破壊または操作して、被害者に損害を与えます。
 
-In general, PII could either be leaked (i.e., a violation of confidentiality), manipulated (violation of integrity) or destroyed/blocked (violation of availability). 
+一般的に、PII は漏洩 (機密性の侵害)、操作 (完全性の侵害)、破壊/遮断 (可用性の侵害) のいずれかの可能性があります。
 
 
 # 攻撃手法
 
 **悪用難易度 普通**
 
-Typical sources for PII are well protected, e.g., the sandbox of the app, the network communication with the server, the app's logs and backups. Some have less protection but are still hard to access, like URL query parameters and clipboard content. 
+PII の一般的なソースは、アプリのサンドボックス、サーバーとのネットワーク通信、アプリのログやバックアップなど、十分に保護されています。URL クエリパラメータやクリップボードコンテンツなど、保護が十分でないものもありますが、依然としてアクセスは困難です。
 
-Obtaining PII thus requires the attacker to first breach security on another level. Attackers could eavesdrop on the network communication, access file system, clipboard, or logs with a trojan or get their hands on the mobile device and create a backup to analyze. Since PII is just data that can be stored, processed, and transmitted by all means available on mobile devices, the possibilities to extract or manipulate it are manifold.
+そのため、PII を取得するには、攻撃者はまず別のレベルでセキュリティを突破する必要があります。攻撃者はネットワーク通信を盗聴したり、トロイの木馬でファイルシステム、クリップボード、ログにアクセスしたり、モバイルデバイスを手に入れて解析用のバックアップを作成する可能性があります。PII はモバイルデバイスで利用可能なあらゆる手段で保存、処理、転送可能なデータに過ぎないため、それを抽出または操作する可能性は多岐にわたります。
 
 
 # セキュリティ上の弱点
@@ -33,35 +33,35 @@ Obtaining PII thus requires the attacker to first breach security on another lev
 
 **検出難易度 容易**
 
-Almost all apps process some kind of PII. Many even collect and process more than they need to fulfill their purpose, which makes them more attractive as a target without business needs. 
+ほぼすべてのアプリは何らかの PII を処理します。多くの場合、その目的を果たすために必要以上に収集および処理するため、ビジネス上にニーズがなくてもターゲットとしてより魅力的になります。
 
-Risks of privacy violations increase due to careless handling of PII by developers. PII should always be processed with the possibility in mind that an attacker could access communication and storage media. 
+開発者による PII の不注意な取扱いにより、プライバシー侵害のリスクは増大します。PII は攻撃者が通信や記憶メディアにアクセスできる可能性を常に念頭に置いて処理すべきです。
 
-Hence, an app is vulnerable to privacy infringements if some personal data it collects motivates an attacker to manipulate or abuse that data through a storage or transmission medium that is insufficiently secured.
+したがって、アプリが収集する個人データの一部が、不十分に保護されたストレージや伝送メディアを介して、攻撃者にそのようなデータを操作したり悪用する動機を与えるのであれば、アプリはプライバシー侵害に対して脆弱になります。
 
 
 # 技術的影響
 
 **影響度 低**
 
-Privacy violations usually have little technical impact on the system as a whole. Only if the PII includes information like authentication data, it can affect certain global security properties, e.g., traceability. 
+通常、プライバシー侵害はシステム全体に技術的影響はほとんど与えません。PII に認証データなどの情報が含まれている場合にのみ、追跡可能性などの特定のグローバルセキュリティプロパティに影響を与える可能性があります。
 
-If user data is manipulated it might render the system unusable for that user. Through ill-formed data, also the backend may be disturbed if it is missing proper sanitization and exception handling.
+ユーザーデータが操作されると、そのユーザーはシステムを使用できなくなる可能性があります。適切なサニタイゼーションや例外処理が行われていない場合、不正なデータによりバックエンドが妨害される可能性もあります。
 
 
 # ビジネスへの影響
 
 **影響度 深刻**
 
-The extent and severity of the business impact, which a privacy violation has, strongly depends on the number of affected users, the criticality of the affected data, and the data protection regulations that apply where the violation happened. The business impact of privacy violations will typically result in the following at a minimum: 
+プライバシー侵害がビジネスに与える影響の程度と深刻度は、影響を受けるユーザー数、影響を受けるデータの重要性、侵害が発生した場所で適用されるデータ保護規制によって大きく異なります。プライバシー侵害によるビジネスへの影響は一般的に少なくとも以下のような結果をもたらします。
 
-**Violation of legal regulations:** Regulations are the biggest issue regarding privacy controls. GDPR (Europe), CCPA (California, US), PDPA (Singapore), PIPEDA (Canada), LGPD (Brazil), Data Protection Act 2018 (UK), POPIA (South Africa), PDPL (China) are examples of relevant regulations with known sanctions against companies for not protecting their users' data. 
+**法的規制の違反:** 規制がプライバシーコントロールに関する最大の問題です。関連法規の例としては GDPR (欧州), CCPA (カリフォルニア, 米国), PDPA (シンガポール), PIPEDA (カナダ), LGPD (ブラジル), Data Protection Act 2018 (米国), POPIA (南アフリカ), PDPL (中国) があり、ユーザーのデータを保護しない企業に対する制裁措置が知られています。
 
-**Financial damage due to victims' lawsuits:** Whoever is personally affected by a privacy violation might sue the app provider that let the violation happen. These lawsuits might be successful, depending on the legal regulations that apply and the ability of the provider to show that they hat adequate and up to date protection mechanisms in place.
+**被害者の訴訟による経済的損害:** プライバシー侵害によって個人的な影響を受けた人は、侵害が起きたアプリプロバイダを訴える可能性があります。このような訴訟は適用される法的規制と、適切かつ最新の保護メカニズムを導入していること示すプロバイダの能力によっては勝訴する可能性があります。
 
-**Reputational damage:** If a privacy violation affects users on a large scale, it is likely published in media, thus, generating negative publicity for the provider of the app. As a consequence, sales and usage for the app and even other, unrelated products of the same provider might drop.
+**風評被害:** プライバリー侵害が大規模にユーザーに影響を与える場合、おそらくメディアに掲載され、アプリのプロバイダに否定的な評判がもたらされます。その結果、そのアプリや同じプロバイダの他の無関係な製品の売上や利用が減少するかもしれません。
 
-**Loss or theft of PII:** Actual information stolen might be misused, even for attacks on the provider of the app. For example, specific user data could be used to employ a social engineering attack on the provider by impersonating a victim.
+**PII の紛失や窃取:** 実際に盗まれた情報はアプリのプロバイダへの攻撃にも悪用されるかもしれません。たとえば、特定のユーザーデータを使用して、被害者になりすましてプロバイダに対してソーシャルエンジニアリング攻撃を行う可能性があります。
 
 
 # 「不適切なプライバシーコントロール」の脆弱性があるか？

@@ -66,27 +66,27 @@ PII の一般的なソースは、アプリのサンドボックス、サーバ�
 
 # 「不適切なプライバシーコントロール」の脆弱性があるか？
 
-An app can only be vulnerable to Inadequate Privacy Controls if it processes some form of personally identifiable information. This is almost always the case: Client apps' IP addresses visible to a server, logs of the apps' usage, and metadata sent with crash reports or analytics are PII that apply to most apps. Usually, an app will collect and process additional, more sensitive PII from its users, like accounts, payment data, locations and more. 
+アプリが不適切なプライバシーコントロールに対して脆弱になる可能性があるのは、何らかの形で個人を識別できる情報を処理する場合のみです。これはほとんどの場合に当てはまります。サーバーから見えるクライアントアプリの IP アドレス、アプリの使用状況のログ、クラッシュレポートやアナリティクスで送信されるメタデータはほとんどのアプリに適用される PII です。通常、アプリはユーザーからアカウント、支払いデータ、位置情報など、さらに機密性の高い PII を収集して処理します。
 
-Given an app that uses PII, it might expose it like any other sensitive data. This most notably happens through 
+PII を使用するアプリでは、他の機密データと同様に公開するかもしれません。これは特に以下のようなものを通じて起こります。
 
-- Insecure data storage and communication (cf. [M5](m5-insecure-communication), [M9](m9-insecure-data-storage)),
-- Data access with insecure authentification and authorization (cf. [M3](m3-insecure-authentication-authorization), [M1](m1-improper-credential-usage)), and
-- Insider attacks on the app's sandbox (cf. [M2](m2-inadequate-supply-chain-security), [M4](m4-insufficient-input-output-validation), [M8](m8-security-misconfiguration)).
+- 安全でないデータストレージと通信 (参照 [M5](m5-insecure-communication.md), [M9](m9-insecure-data-storage.md))
+- 安全でない認証と認可でのデータアクセス (参照 [M3](m3-insecure-authentication-authorization.md), [M1](m1-improper-credential-usage.md))
+- アプリのサンドボックスに対するインサイダー攻撃 (参照 [M2](m2-inadequate-supply-chain-security.md), [M4](m4-insufficient-input-output-validation.md), [M8](m8-security-misconfiguration.md)).
 
-The other OWASP Mobile Top 10 risks provide deeper insights on how an app might be vulnerable to the different attack vectors.
+他の OWASP モバイル Top 10 リスクはアプリがさまざまな攻撃ベクトルに対してどのように脆弱になるかについてより深い洞察を提供します。
 
 
 # 「不適切なプライバシーコントロール」を防ぐには？
 
-Something that does not exist cannot be attacked, so the safest approach to prevent privacy violations is to minimize the amount and variety of PII that is processed. This requires full awareness of all PII assets in a given app. With that awareness, the following questions should be assessed: 
+存在しないものは攻撃できないため、プライバシー侵害を防ぐための最も安全なアプローチは、処理される PII の量と種類を最小限に抑えることです。これには特定のアプリ内のすべての PII 資産を完全に認識する必要があります。その認識の上で、以下の質問を評価する必要があります。
 
-- Is all PII processed really necessary, e.g., name and address, gender, age?
-- Can some of the PII be replaced by less critical information, e.g., fine-grained location by coarse-grained location?
-- Can some of the PII be reduced, e.g., location updates every hour instead of every minute?
-- Can some of the PII be anonymized or blurred, e.g., by hashing, bucketing, or adding noise?
-- Can some of the PII be deleted after some expiration period, e.g., only keep health data of the last week?
-- Can users consent to optional PII usage, e.g., to receive a better service but also be aware of the additional risk?
+- 処理されるすべての PII は本当に必要ですか？ (たとえば名前と住所、性別、年齢など)
+- PII の一部を重要度の低い情報に置き換えることはできますか？ (たとえば詳細な位置情報を粗い位置情報に) 
+- PII の一部を削減することはできますか？ (たとえば位置情報の更新を毎分ではなく毎時に)
+- PII の一部を匿名化や不鮮明化することはできますか？ (たとえばハッシュ化、バケット化、ノイズ付加により)
+- PII の一部を一定の有効期限後に削除できますか？  (たとえば先週の健康データのみ保持するなど)
+- ユーザーはオプションの PII の使用に同意できますか？ (たとえばより良いサービスを受けたいが追加のリスクも承知して)
 
 The remaining PII should not be stored or transferred unless absolutely necessary. If it must be stored or transferred, access must be protected with proper authentication and possibly authorization. Also defense in depth should be considered for particularly critical data. For example, health data may be encrypted with a key sealed in the device's TPM in addition to its storage in the app's sandbox. So, if an attacker manages to circumvent the sandbox restrictions, the data is still not readable. The other OWASP Mobile Top 10 risks suggest measures to securely store, transfer, access and otherwise handle sensitive data. 
 

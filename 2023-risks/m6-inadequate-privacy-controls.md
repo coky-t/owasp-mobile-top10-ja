@@ -74,7 +74,7 @@ PII を使用するアプリでは、他の機密データと同様に公開す�
 - 安全でない認証と認可でのデータアクセス (参照 [M3](m3-insecure-authentication-authorization.md), [M1](m1-improper-credential-usage.md))
 - アプリのサンドボックスに対するインサイダー攻撃 (参照 [M2](m2-inadequate-supply-chain-security.md), [M4](m4-insufficient-input-output-validation.md), [M8](m8-security-misconfiguration.md)).
 
-他の OWASP モバイル Top 10 リスクはアプリがさまざまな攻撃ベクトルに対してどのように脆弱になるかについてより深い洞察を提供します。
+他の OWASP モバイル Top 10 リスクではアプリがさまざまな攻撃ベクトルに対してどのように脆弱になるかについてより深い洞察を提供します。
 
 
 # 「不適切なプライバシーコントロール」を防ぐには？
@@ -88,32 +88,32 @@ PII を使用するアプリでは、他の機密データと同様に公開す�
 - PII の一部を一定の有効期限後に削除できますか？  (たとえば先週の健康データのみ保持するなど)
 - ユーザーはオプションの PII の使用に同意できますか？ (たとえばより良いサービスを受けたいが追加のリスクも承知して)
 
-The remaining PII should not be stored or transferred unless absolutely necessary. If it must be stored or transferred, access must be protected with proper authentication and possibly authorization. Also defense in depth should be considered for particularly critical data. For example, health data may be encrypted with a key sealed in the device's TPM in addition to its storage in the app's sandbox. So, if an attacker manages to circumvent the sandbox restrictions, the data is still not readable. The other OWASP Mobile Top 10 risks suggest measures to securely store, transfer, access and otherwise handle sensitive data. 
+残りの PII は絶対に必要な場合を除き、保存や転送すべきではありません。保存や転送しなければならない場合、アクセスは適切な認証と場合によっては認可で保護しなければなりません。また、特に重要なデータについては多層防御を考慮すべきです。たとえば、健康データはアプリのサンドボックスへの保存に加えて、デバイスの TPM に封印された鍵で暗号化できます。その場合、攻撃者がサンドボックスの制限を回避できたとしても、データは依然として読み取れません。他の OWASP モバイル Top 10 リスクでは機密データを安全に保存、転送、アクセス、その他の処理を行うための対策を提案します。
 
-Threat modeling can be used to determine the most likely ways that privacy violations may occur in a given app. The effort of securing PII could then be focused on these. 
+脅威モデリングを使用して、特定のアプリでプライバシー侵害が発生する可能性が最も高い方法を判断できます。PII を保護する取り組みはこれらに集中できます。
 
-Static and dynamic security checking tools might reveal common pitfalls, like logging of sensitive data or leakage to clipboard or URL query parameters.
+静的および動的セキュリティチェックツールでは、機密データのログ記録や、クリップボードや URL クエリパラメータへの漏洩などのよくある落とし穴が明らかになるかもしれません。
 
 
 # 攻撃シナリオの例
 
-The following scenarios showcase inadequate privacy controls in mobile apps: 
+以下のシナリオはモバイルアプリでの不適切なプライバシーコントロールを示しています。
 
-**シナリオ #1:** Inadequate sanitization of logs and error messages. 
+**シナリオ #1:** ログやエラーメッセージの不適切なサニタイゼーション
 
-Reporting of logs and exceptions is essential for quality assurance of a productive app. Crash reports and other usage data helps developers to fix bugs and learn about how their app is used. However, logs and error messages might contain PII if the developers chose to include this data in log or error messages. Also, third party libraries might include PII in their error messages and logs as well. An example of a frequent issue are database exceptions that reveal part of the query or result. This will most likely be visible to any platform provider used for collecting and evaluating crash reports. It might also become visible to the user if the error is displayed on screen or to attackers who can read device logs. Developers should be especially careful in what they log and ensure that exception messages are sanitized before displaying them to the user or reporting them to a server. 
+ログや例外の報告は生産的なアプリの品質保証に不可欠です。クラッシュレポートや他の使用状況データは開発者がバグを修正したり、アプリがどのように使用されているかを知るのに役立ちます。しかし、開発者がログやエラーメッセージに PII データを含めることを選択した場合、ログやエラーメッセージには PII が含まれるかもしれません。また、サードパーティライブラリも同様にエラーメッセージやログに PII がふくまれるかもしれません。よくある問題の例としてクエリや結果の一部が明らかになるデータベース例外があります。これはクラッシュレポートの収集と評価に使用されるプラットフォームプロバイダに見える可能性が高くなります。エラーが画面に表示される場合はユーザーにも見えるかもしれませんし、デバイスログを読むことができる攻撃者にも見えてしまうかもしれません。開発者はログ記録する内容に特に注意し、例外メッセージをユーザーに表示したりサーバーに報告する前に、必ずサニタイズすべきです。
 
-**シナリオ #2:** Using PII in URL query parameters. 
+**シナリオ #2:** URL クエリパラメータ内での PII の使用
 
-URL query parameters are often used to transmit request arguments to a server. However, URL query parameters are visible at least in the server logs, but often also in website analytics and possibly in the local browser history. So sensitive information should never be transmitted as query parameters. Instead, they should be sent as a header or part of the body. 
+URL クエリパラメータはリクエスト引数をサーバーに送信するためによく使用されます。しかし、URL クエリパラメータは少なくともサーバーログに表示されるだけでなく、多くの場合、ウェブサイト分析や場合によってはローカルブラウザの履歴にも表示されます。そのため、機密情報はクエリパラメータとして決して送信すべきではありません。代わりに、ヘッダやボディの一部として送信すべきです。
 
-**シナリオ #3:** Exclusion of personal data in backups/not setting hasFragileUserData. 
+**シナリオ #3:** バックアップ内の個人データの除外 (hasFragileUserData 設定不可)
 
-Most PII processed by an app is stored in its sandbox. The app should explicitly configure what data to include in device backups. An attacker might obtain a device and create a backup or get a backup from another source, from which the sandbox content could be extracted. 
+アプリによって処理される PII のほとんどはそのサンドボックスに保存されます。アプリはどのデータをデバイスバックアップに含めるかを明示的に設定すべきです。攻撃者はデバイスを入手してバックアップを作成したり、別のソースからバックアップを取得し、そこからサンドボックスのコンテンツが抽出される可能性があります。
 
-Alternatively, by setting hasFragileUserData to 'true' in Android, an app may preserve its data upon uninstallation. An attacker who manages to install a malicious app with the same package id later can access this data. 
+あるいは、Android で hasFragileUserData を 'true' に設定すると、アプリはアンインストール時にデータを保持できます。後に、攻撃者が同じパッケージ ID で悪意のあるアプリをインストールすることに成功すると、このデータにアクセスできます。
 
-Hence, both settings should be explicitly set for apps to make the developers' intent transparent and to control the information flow through backups or between subsequent installations of an app. 
+したがって、開発者の意図を透明にし、バックアップやアプリのその後のインストール間の情報フローを制御するために、両方の設定をアプリに対して明示的に設定すべきです。
 
 
 # 参考資料

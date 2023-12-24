@@ -8,23 +8,23 @@ title: "M7: 不十分なバイナリ保護 (Insufficient Binary Protection)"
 
 **アプリケーション依存**
 
-Attackers who target app binaries are motivated by various reasons. 
+アプリバイナリを狙う攻撃者の動機はさまざまです。
 
-The binary could contain valuable secrets, such as commercial API keys or hardcoded cryptographic secrets that an attacker could misuse. In addition, the code in the binary could be valuable on its own, for example, because it contains critical business logic or pre-trained AI models. Some attackers might also not target the app itself but use it to explore potential weaknesses of the corresponding backend to prepare for an attack. 
+バイナリには商用 API 鍵やハードコードされた暗号シークレットなど、攻撃者が悪用できる貴重なシークレットが含まれる可能性があります。さらに、バイナリ内のコードには重要なビジネスロジックや事前訓練された AI モデルが含まれているなど、それ自体に価値がある可能性があります。また、攻撃者の中にはアプリ自体を狙うのではなく、アプリを使用して対応するバックエンドの潜在的な弱点を探り、攻撃に備えているかもしれません。
 
-Besides collecting information, attackers could also manipulate app binaries to access paid features for free or to bypass other security checks. In the worst case, popular apps could be modified to contain malicious code and be distributed via third-party app stores or under a new name to exploit unsuspecting users. One common attack example is reconfiguring the payment identifiers in an app, repackaging it, and distributing it via app stores. Then, when users download this unauthorized copy from the app store, the attacker receives the payments instead of the original provider. 
+攻撃者は情報収集だけでなく、アプリバイナリを操作して有料機能に無料でアクセスしたり、他のセキュリティチェックを回避する可能性もあります。最悪の場合、人気のあるアプリが悪意のあるコードを含むように改変されて、サードパーティのアプリストア経由で配布されたり、新しい名前で配布されて、疑いを持たないユーザーを搾取します。よくある攻撃例としては、アプリ内の決済識別子を再構成し、再パッケージ化し、アプリストア経由で配布するものがあります。それから、ユーザーがこの不正コピーをアプリストアからダウンロードすると、元のプロバイダではなく攻撃者が支払いを受け取ります。
 
 
 # 攻撃手法
 
 **悪用難易度 容易**
 
-App binaries usually can be downloaded from the app stores or copied from mobile devices, so binary attacks are easy to set up. 
+通常、アプリバイナリはアプリストアからダウンロードしたり、モバイルデバイスからコピーできるため、バイナリ攻撃を仕組むのは簡単です。
 
-An app binary could be subject to two types of attacks: 
+アプリバイナリは以下の二種類の攻撃を受ける可能性があります。
 
-- Reverse engineering: The app binary is decompiled and scanned for valuable information, like secret keys, algorithms, or vulnerabilities. 
-- Code tampering: The app binary is manipulated, e.g., to remove license checks, circumvent paywalls or obtain other benefits as a user. Alternatively, the app can be manipulated to contain malicious code. 
+- リバースエンジニアリング: アプリバイナリを逆コンパイルし、秘密鍵、アルゴリズム、脆弱性などの貴重な情報をスキャンします。
+- コード改竄: アプリバイナリを操作して、ライセンスチェックを削除したり、ペイウォールを回避したり、ユーザーとして他の利益を得るなどします。あるいは、アプリを操作して、悪意のあるコードを含めることもできます。
 
 # セキュリティ上の弱点
 
@@ -32,28 +32,28 @@ An app binary could be subject to two types of attacks:
 
 **検出難易度 容易**
 
-All apps are vulnerable to binary attacks and many will end up the subject of some form of an attack at some time. Those apps that *have* sensitive data or algorithms hardcoded into their binary are particularly vulnerable to binary attacks. These apps should employ countermeasures to fend off potential attackers long enough so that an attacker will give up because the cost of successfully breaking the protection would be more expensive than the gain from that success. Oftentimes, e.g., in case of copy protection, it is sufficient to prolongate the cracking process until the targeted revenue from app sales has been reached. 
+すべてのアプリはバイナリ攻撃に対して脆弱であり、多くはいつかは何らかの形で攻撃の対象になるでしょう。機密データやアルゴリズムがバイナリにハードコードされているアプリは、バイナリ攻撃に対して特に脆弱です。このようなアプリには、保護を突破することに成功した場合のコストのほうがその成功による利益よりも高くつくように、攻撃者が諦めるのに十分長い時間、潜在的な攻撃者を防御するための対策を採用する必要があります。多くの場合、たとえばコピープロテストの場合など、アプリ販売による目標収益に達するまでクラッキングプロセスを長引かせるだけで十分です。
 
-In general, fully compiled apps like iOS apps are less susceptible to reverse engineering and code tampering than higher-level bytecode found in Android apps (note that this might not hold for apps developed with cross-platform technologies, like PWA or Flutter). 
+一般的に、iOS アプリのような完全にコンパイルされたアプリは Android アプリにみられる高レベルのバイトコードよりもリバースエンジニアリングやコード改竄の影響を受けにくくなります (これは PWA や Flutter などのクロスプラットフォームテクノロジで開発されたアプリには当てはまらないかもしれないことに注意してください) 。
 
-Especially popular apps are likely to be manipulated and redistributed through app stores. Detecting and removing these manipulated copies is offered by specialized companies but is also possible with certain detection and reporting mechanisms within the apps themselves. 
+特に人気のあるアプリは操作され、アプリストアを通じて再配布されやすくなります。このような操作されたコピーの検出と削除は専門会社によって提供されていますが、アプリ自体内での特定の検出および報告メカニズムでも可能です。
 
-Note that there are no fully reliable mechanisms to prevent binary attacks. Defending against them is an arms race between the developers investing in countermeasures and attackers who break these measures. So, the question to be answered for each app is: How much effort should be put into measures against binary attacks? 
+バイナリ攻撃を防ぐ完全に信頼できるメカニズムは存在しないことに注意してください。それらに対する防御は、対策に投資する開発者と、このような対策を破る攻撃者との激しい競争になります。そのため、それぞれのアプリで答えるべき質問が次のようになります。バイナリ攻撃対策にどの程度の労力を注ぐべきですか？
 
 
 # 技術的影響
 
 **影響度 中**
 
-As stated before, a binary attack could either happen as reverse engineering and leak information from the app binary or as code tampering and alter how the app works. 
+前述したように、バイナリ攻撃はリバースエンジニアリングでアプリバイナリから情報を漏洩するか、コード改竄でアプリの動作を改変するかのいずれかで発生する可能性があります。
 
-If secrets leak, they must be replaced quickly throughout the system, which is difficult if the secrets are hardcoded in the app. Information leakage from the binary also has the potential to reveal security vulnerabilities in the backend.  
+シークレットが漏洩した場合は、システム全体で迅速に置き換える必要がありますが、アプリにシークレットがハードコードされている場合は困難です。バイナリからの情報漏洩によってバックエンドのセキュリティ脆弱性が明らかになる可能性もあります。
 
-Yet, manipulation has even more impact on the technical soundness of a system. By manipulation of the binaries, attackers could change how apps work arbitrarily, for example to their own benefit or to disturb the backends, if they are insufficiently hardened against such malicious requests. 
+しかし、操作はシステムの技術的な健全性にさらに影響をあたえます。攻撃者はバイナリを操作することで、たとえば、悪意のあるリクエストに対して十分に堅牢化されていない場合、自分たちの利益を得たりバックエンドを妨害するなど、アプリの動作を任意に変更できます。
 
 
 # ビジネスへの影響
-	
+
 **影響度 中**
 
 Leakage of API keys for commercial APIs or similar can cause significant costs if they are misused on a large scale. The same holds for apps that are tampered with to remove license checks or to publish their functionality with a competing app. In both cases, individuals cracking an app or stealing an API key for personal use will likely go unnoticed. However at scale, for example when API keys or even functionality is systematically used with other apps, malicious competitors might get a significant advantage because they have significantly lower costs.

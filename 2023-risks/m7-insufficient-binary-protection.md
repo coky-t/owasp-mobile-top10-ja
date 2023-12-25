@@ -56,27 +56,27 @@ title: "M7: 不十分なバイナリ保護 (Insufficient Binary Protection)"
 
 **影響度 中**
 
-Leakage of API keys for commercial APIs or similar can cause significant costs if they are misused on a large scale. The same holds for apps that are tampered with to remove license checks or to publish their functionality with a competing app. In both cases, individuals cracking an app or stealing an API key for personal use will likely go unnoticed. However at scale, for example when API keys or even functionality is systematically used with other apps, malicious competitors might get a significant advantage because they have significantly lower costs.
+商用 API などの API キーの漏洩は、大規模に悪用されると多大なコストが発生する可能性があります。改竄されてライセンスチェックを削除されたり競合アプリで機能を公開されたアプリも同様です。いずれの場合も、個人使用のために個人がアプリをクラックしたり API キーを盗んでもおそらく気付かれないでしょう。しかし規模が大きくなると、たとえば API キーや機能が他のアプリで組織的に使用される場合、悪意のある競合のほうがコストが大幅に低いために大きな優位性を得る可能性があります。
 
-The business model of the app developers may be threatened even more if intellectual property, like algorithms or AI models that have been developed with great effort, becomes public or is stolen by a malicious competitor.
+多大な労力を払って開発されたアルゴリズムや AI モデルなどの知的財産が公になったり悪意のある競合に盗まれると、アプリ開発者のビジネスモデルはさらに脅かされるかもしれません。
 
-Great reputational damage could arise in particular for popular apps that get redistributed with malicious code. Even though the app provider can hardly prevent redistribution of a tampered copy of its app, the negative publicity will likely be directed at the original provider. Hence, redistribution of unauthorized copies should be made as difficult as possible for an attacker to reduce the probability of this risk.
+特に人気のあるアプリが悪意のあるコードとともに再配布されると、大きな風評被害が生じる可能性があります。アプリプロバイダが改竄されたアプリのコピーの再配布を防ぐことはほとんどできませんが、ネガティブな評判はおそらくオリジナルのプロバイダに向けられるでしょう。したがって、不正コピーの再配布は攻撃者にとって可能な限り困難にして、このリスクの可能性を減らすべきです。
 
 
 # 「不十分なバイナリ保護」の脆弱性があるか？
 
-All apps are vulnerable to binary attacks. Binary attacks can become particularly harmful if the app has sensitive data or algorithms hardcoded in its binary or if it is very popular. If there are additional protective measures, like obfuscation, encoding of secrets in native code (for Android) or similar, successful attacks become harder to achieve but never impossible. 
+すべてのアプリはバイナリ攻撃に対して脆弱です。アプリがそのバイナリに機密データやアルゴリズムをハードコードしている場合やアプリが非常に人気がある場合、バイナリ攻撃は特に害を及ぼす可能性があります。難読化や、ネイティブコードでのシークレットのエンコード (Android の場合) など、追加の保護手段があれば、攻撃の成功はより困難になりますが、決して不可能ではありません。
 
-Whether the app is sufficiently secure depends on the business impact that different binary attacks could have. The more motivating it is for attackers and the greater the impact would be, the more effort should be put into protection. Hence, "vulnerability" to binary attacks is highly specific to the given app. 
+アプリが十分に安全かどうかはさまざまなバイナリ攻撃が与える可能性があるビジネスへの影響によって異なります。攻撃者の動機付けが大きくなり、影響が大きくなるほど、保護に一層の労力を注ぐべきです。したがって、バイナリ攻撃への「脆弱性」は特定のアプリに非常に固有なものとなります。
 
-For a quick check, developers can inspect their own app binaries using similar tools as attackers would use. There are many free or affordable tools, like MobSF, otool, apktool and Ghidra that are also quite easy to use and well documented. 
+簡単なチェックとして、開発者は攻撃者が使用するのと同じツールを使用して自分のアプリバイナリを検査できます。MobSF, otool, apktool, Ghidra などの無料または手頃な価格のツールは多数あり、非常に使いやすく、ドキュメントも充実しています。
 
 
 # 「不十分なバイナリ保護」を防ぐには？
 
-For each app, it should be assessed whether any critical content is contained in the binary or whether its popularity mandates binary protection. If yes, a threat modeling analysis helps to identify the highest risks and their expected financial impact in case they occur. For the most relevant risks, countermeasures should be taken. 
+アプリごとに、バイナリに重要なコンテンツが含まれているかどうかや、その人気によりバイナリ保護を義務付けられているかどうかを評価すべきです。もしそうであれば、脅威モデリング分析は最も高いリスクと、そのリスクが発生した場合に予想される経済的影響を特定するのに役立ちます。最も関連性の高いリスクについては、対策を講じるべきです。
 
-Apps always run in untrusted execution environments and should only get the least necessary information they need to work, as this information is always at risk of being leaked or manipulated. But assuming that certain secrets, algorithms, security checks, and similar must be within the app's binary, different attacks can be fended off by different means: 
+アプリは常に信頼できない環境で動作し、情報は常に漏洩や操作されるリスクにさらされるため、動作に必要となる最小限の情報のみを取得すべきです。しかし、特定のシークレット、アルゴリズム、セキュリティチェックなどがアプリのバイナリ内になければならないとすると、さまざまな攻撃をさまざまな手段で回避できます。
 
 **Reverse engineering:** To prevent reverse engineering, the app binary should be made incomprehensible. This is supported by many free and commercial obfuscation tools. Compiling part of apps natively (iOS and Android) or using interpreters or nested virtual machines makes reverse engineering even harder, as many decompiling tools only support one language and binary format. This kind of obfuscation is a tradeoff between the complexity of the code and robustness against reverse engineering, as many libraries that rely on certain strings or symbols in the code will not work with full obfuscation. Developers could check the quality of their obfuscation by using the tools from the previous section.
 

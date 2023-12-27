@@ -7,21 +7,21 @@ title: "M8: セキュリティの設定ミス (Security Misconfiguration)"
 
 **アプリケーション依存**
 
-Security misconfiguration in mobile apps refers to the improper configuration of security settings, permissions, and controls that can lead to vulnerabilities and unauthorized access. Threat agents who can exploit security misconfigurations are attackers aiming to gain unauthorized access to sensitive data or perform malicious actions. Threat agents can be an attacker with physical access to the device, a malicious app on the device that exploits security misconfiguration to execute unauthorized actions on the target vulnerable application context.
+モバイルアプリにおけるセキュリティの設定ミスは脆弱性や認可されていないアクセスにつながる可能性のあるセキュリティ設定、権限、制御の不適切な設定を指します。セキュリティの設定ミスを悪用できる脅威エージェントは、機密データへの認可されていないアクセスや悪意のあるアクションの実行を目的とする攻撃者です。脅威エージェントはデバイスに物理的にアクセスできる攻撃者、デバイス上の悪意のあるアプリであり、セキュリティの設定ミスを悪用してターゲットの脆弱なアプリケーションコンテキスト上で認可されていないアクションを実行します。
 
 # 攻撃手法
 
 **悪用難易度 困難**
 
-Security misconfigurations in mobile apps can be exploited through various attack vectors, including:
+モバイルアプリにおけるセキュリティの設定ミスは以下のようなさまざまな攻撃ベクトルを通じて悪用される可能性があります。
 
-- Insecure default settings: Mobile apps often come with default configurations that may have weak security settings or unnecessary permissions enabled, making them vulnerable to attacks.
-- Improper access controls: Misconfigured access controls can allow unauthorized users to access sensitive data or perform privileged actions.
-- Weak encryption or hashing: Improperly implemented or weak encryption and hashing algorithms can be exploited to gain access to sensitive information.
-- Lack of secure communication: Failure to use secure communication protocols, such as SSL/TLS, can expose sensitive data to eavesdropping and man-in-the-middle attacks.
-- Unprotected storage: Storing sensitive data, such as passwords or API keys, in an insecure manner, such as plain text or weakly encrypted, can lead to unauthorized access.
-- Insecure file permissions: Storing application files with world-readable and/or world-writable permissions.
-- Misconfigured session management: Improper session management can result in session hijacking, allowing attackers to impersonate legitimate users.
+- 安全でないデフォルト設定: モバイルアプリは脆弱なセキュリティ設定や不要な権限が有効になっていることがあるデフォルト設定が組み込まれていて、攻撃に対して脆弱になっていることがよくあります。
+- 不適切なアクセス制御: アクセス制御の設定ミスにより、認可されていないユーザーが機密データにアクセスしたり、特権的なアクションを実行できる可能性があります。
+- 脆弱な暗号化やハッシュ化: 不適切に実装されていたり、脆弱である暗号化およびハッシュ化アルゴリズムが悪用されて、機密情報にアクセスできる可能性があります。
+- 安全な通信の欠如: SSL/TLS などの安全な通信プロトコルを使用しないと、機密データが盗聴や中間者攻撃にさらされる可能性があります。
+- 保護されていないストレージ: パスワードや API キーなどの機密データを、プレーンテキストや脆弱な暗号化などの安全でない方法で保存すると、認可されていないアクセスにつながる可能性があります。
+- 安全でないファイル権限: 誰でも読み取れたり、誰でも書き込める権限でアプリケーションファイルを保存します。
+- セッション管理の設定ミス: 不適切なセッション管理により、セッションハイジャックを引き起こし、攻撃者が正規ユーザーになりすます可能性があります。
 
 # セキュリティ上の弱点
 

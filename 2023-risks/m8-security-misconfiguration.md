@@ -29,14 +29,14 @@ title: "M8: セキュリティの設定ミス (Security Misconfiguration)"
 
 **検出難易度 容易**
 
-Security misconfigurations are common in mobile apps due to factors such as time constraints, lack of awareness, or human error during development. Detecting security misconfigurations is relatively easy through manual code review, security testing, or automated scanning tools.
+セキュリティの設定ミスは、時間の制約、認識不足、開発の中での人的エラーなどの要因により、モバイルアプリでよく発生します。セキュリティの設定ミスは、手動のコードレビュー、セキュリティテスト、自動スキャンツールを通じて比較的簡単に検出できます。
 
-Examples of security misconfigurations include:
+セキュリティの設定ミスの例としては以下のようなものがあります。
 
-- Failure to disable debugging features in release builds, which can expose sensitive information.
-- Allowing insecure communication protocols, such as HTTP, instead of enforcing secure communication over HTTPS.
-- Leaving default usernames and passwords unchanged, providing easy access to attackers.
-- Inadequate access controls that allow unauthorized users to perform privileged actions.
+- リリースビルドでデバッグ機能を無効にしないと、機密情報が漏洩する可能性があります。
+- HTTPS での安全な通信を強制するのではなく、HTTP などの安全でない通信プロトコルを許可します。
+- デフォルトのユーザー名とパスワードを変更しないままにすると、攻撃者が簡単にアクセスできるようになります。
+- 不適切なアクセス制御により認可されていないユーザーが特権的なアクションを実行できるようになります。
 
 # 技術的影響
 

@@ -7,7 +7,7 @@ title: "M8: セキュリティの設定ミス (Security Misconfiguration)"
 
 **アプリケーション依存**
 
-モバイルアプリにおけるセキュリティの設定ミスは脆弱性や認可されていないアクセスにつながる可能性のあるセキュリティ設定、権限、制御の不適切な設定を指します。セキュリティの設定ミスを悪用できる脅威エージェントは、機密データへの認可されていないアクセスや悪意のあるアクションの実行を目的とする攻撃者です。脅威エージェントはデバイスに物理的にアクセスできる攻撃者、デバイス上の悪意のあるアプリであり、セキュリティの設定ミスを悪用してターゲットの脆弱なアプリケーションコンテキスト上で認可されていないアクションを実行します。
+モバイルアプリにおけるセキュリティの設定ミスは脆弱性や認可されていないアクセスにつながる可能性のあるセキュリティ設定、パーミッション、制御の不適切な設定を指します。セキュリティの設定ミスを悪用できる脅威エージェントは、機密データへの認可されていないアクセスや悪意のあるアクションの実行を目的とする攻撃者です。脅威エージェントはデバイスに物理的にアクセスできる攻撃者、デバイス上の悪意のあるアプリであり、セキュリティの設定ミスを悪用してターゲットの脆弱なアプリケーションコンテキスト上で認可されていないアクションを実行します。
 
 # 攻撃手法
 
@@ -15,12 +15,12 @@ title: "M8: セキュリティの設定ミス (Security Misconfiguration)"
 
 モバイルアプリにおけるセキュリティの設定ミスは以下のようなさまざまな攻撃ベクトルを通じて悪用される可能性があります。
 
-- 安全でないデフォルト設定: モバイルアプリは脆弱なセキュリティ設定や不要な権限が有効になっていることがあるデフォルト設定が組み込まれていて、攻撃に対して脆弱になっていることがよくあります。
+- 安全でないデフォルト設定: モバイルアプリは脆弱なセキュリティ設定や不要なパーミッションが有効になっていることがあるデフォルト設定が組み込まれていて、攻撃に対して脆弱になっていることがよくあります。
 - 不適切なアクセス制御: アクセス制御の設定ミスにより、認可されていないユーザーが機密データにアクセスしたり、特権的なアクションを実行できる可能性があります。
 - 脆弱な暗号化やハッシュ化: 不適切に実装されていたり、脆弱である暗号化およびハッシュ化アルゴリズムが悪用されて、機密情報にアクセスできる可能性があります。
 - 安全な通信の欠如: SSL/TLS などの安全な通信プロトコルを使用しないと、機密データが盗聴や中間者攻撃にさらされる可能性があります。
 - 保護されていないストレージ: パスワードや API キーなどの機密データを、プレーンテキストや脆弱な暗号化などの安全でない方法で保存すると、認可されていないアクセスにつながる可能性があります。
-- 安全でないファイル権限: 誰でも読み取れたり、誰でも書き込める権限でアプリケーションファイルを保存します。
+- 安全でないファイルパーミッション: world-readable や world-writable のパーミッションでアプリケーションファイルを保存します。
 - セッション管理の設定ミス: 不適切なセッション管理により、セッションハイジャックを引き起こし、攻撃者が正規ユーザーになりすます可能性があります。
 
 # セキュリティ上の弱点
@@ -42,74 +42,74 @@ title: "M8: セキュリティの設定ミス (Security Misconfiguration)"
 
 **影響度 深刻**
 
-Security misconfigurations can have significant technical impacts on mobile apps, including:
+セキュリティの設定ミスはモバイルアプリに以下のような重大な技術的影響を与える可能性があります。
 
-- Unauthorized access to sensitive data: Misconfigurations may allow attackers to access sensitive information, such as user credentials, personal data, or confidential business data.
-- Account hijacking or impersonation: Weak or misconfigured authentication mechanisms can lead to account takeover or impersonation of legitimate users.
-- Data breaches: Inadequate security configurations may result in data breaches, exposing sensitive data to unauthorized individuals.
-- Compromise of backend systems: Misconfigurations in the mobile app can provide attackers with a foothold to compromise the backend systems or infrastructure.
+- 機密データへの認可されていないアクセス: 設定ミスにより、攻撃者はユーザー認証情報、個人データ、機密業務データなどの機密情報にアクセスできる可能性があります。
+- アカウントハイジャックやなりすまし: 脆弱であったり設定ミスがある認証メカニズムにより、アカウント乗っ取りや正規ユーザーのなりすましにつながる可能性があります。
+- データ侵害: 不適切なセキュリティ設定により、データ侵害が発生し、機密データが認可されていない個人に開示される可能性があります。
+- バックエンドシステムの侵害: モバイルアプリの設定ミスにより、攻撃者はバックエンドシステムやインフラストラクチャを侵害する足がかりを提供する可能性があります。
 
 # ビジネスへの影響
 
 **影響度 深刻**
 
-Security misconfigurations can have severe business impacts, including:
+セキュリティの設定ミスは以下のような深刻なビジネスへの影響をもたらす可能性があります。
 
-- Financial loss: Breaches resulting from security misconfigurations can lead to financial losses, including legal penalties, regulatory fines, and damage to the organization's reputation.
-- Data loss or theft: Misconfigurations can result in the loss or theft of sensitive data, leading to legal and financial consequences.
-- Downtime and disruption: Exploitation of security misconfigurations can lead to app downtime, service disruption, or compromised functionality, affecting user experience and business operations.
-- Damage to brand reputation: Publicly disclosed security incidents can damage the organization's reputation, leading to loss of customer trust and potential loss of business.
+- 経済的損失: セキュリティの設定ミスに起因する侵害により、法的処罰、規制上の罰金、組織の評判の低下などの経済的損失につながる可能性があります。
+- データの損失や窃取: 設定ミスにより、機密データの損失や窃取が発生し、法的影響や経済的影響につながる可能性があります。
+- ダウンタイムと中断: セキュリティの設定ミスの悪用により、アプリのダウンタイム、サービスの中断、機能の侵害につながり、ユーザーエクスペリエンスや業務運営に影響を与える可能性があります。
+- ブランドの評判へのダメージ: セキュリティインシデントが公表されると、組織の評判が傷つき、顧客の信頼を失い、ビジネスの損失につながる可能性があります。
 
 # 「セキュリティの設定ミス」の脆弱性があるか？
 
-Mobile apps are vulnerable to security misconfigurations if they have not been properly configured to follow security best practices. Common indicators of vulnerability to security misconfigurations include:
+セキュリティのベストプラクティスに従うように適切に設定されていない場合、モバイルアプリはセキュリティの設定ミスに対して脆弱になります。セキュリティの設定ミスに対する脆弱性を示す一般的な指標には以下があります。
 
-- Default settings not reviewed: Using default configurations without reviewing security settings, permissions and default credentials.
-- Lack of secure communication: Using unencrypted or weakly encrypted communication channels.
-- Weak or absent access controls: Allowing unauthorized access to sensitive functionality or data.
-- Failure to update or patch: Not applying necessary security updates or patches to the app or underlying components.
-- Improper storage of sensitive data: Storing sensitive data in plain text or weakly protected formats.
-- Insecure file provider path settings: a file content provider that was meant for internal application use is exposed to other apps or users, which could potentially compromise sensitive data or allow unauthorized access to application resources.
-- Exported activities: an activity that is meant for internal application use is exported and/or browsable, which exposes an additional attack surface.
+- レビューされていないデフォルト設定: セキュリティ設定、パーミッション、デフォルト認証情報をレビューせずにデフォルト設定を使用します。
+- 安全な通信の欠如: 暗号化されていないか、弱い暗号化での通信チャネルを使用します。
+- 脆弱または存在しないアクセス制御: 機密性の高い機能やデータへの認可されていないアクセスを許可します。
+- アップデートやパッチの不備: アプリや基盤となるコンポーネントに必要なセキュリティアップデートやパッチを適用しません。
+- 機密データの不適切な保存: 機密データをプレーンテキストや脆弱な保護形式で保存します。
+- 安全でないファイルプロバイダのパス設定: アプリケーション内部での使用を目的としたファイルコンテンツプロバイダが他のアプリやユーザーに公開されると、機密データが侵害されたり、アプリケーションリソースへの認可されていないアクセスを許可する可能性があります。
+- エクスポートされたアクティビティ: アプリケーション内部での使用を目的としたアクティビティがエクスポートや閲覧可能になると、攻撃対象領域がさらに広がります。
 
-To determine if your app is vulnerable to security misconfigurations, you should conduct a thorough security assessment, including code review, security testing, and configuration analysis.
+アプリがセキュリティの構成ミスに対して脆弱であるかどうかを判断するには、コードレビュー、セキュリティテスト、設定分析などの徹底的なセキュリティ評価を実施する必要があります。
 
 # 「セキュリティの設定ミス」を防ぐには？
 
-Preventing security misconfigurations in mobile apps requires following secure coding and configuration practices. Here are some key prevention measures:
+モバイルアプリでのセキュリティの設定ミスを防ぐには、セキュアコーディングと設定のプラクティスに従う必要があります。主な防止策は以下の通りです。
 
-- Secure default configurations: Ensure that default settings and configurations are properly secured and do not expose sensitive information or provide unnecessary permissions.
-- Default credentials: Refrain from using hardcoded default credentials.
-- Insecure permissions: Avoid storing application files with overly permissive permissions like world-readable and/or world-writable. 
-- Least privilege principle: Request only the permissions necessary for the proper functioning of the application
-- Secure network configuration: Disallow cleartext traffic and use certificate pinning when possible.
-- Disable Debugging: Disable debugging features in the production version of the app.
-- Disable backup mode (Android): By disabling backup mode on Android devices, you prevent the inclusion of app data in the device's backup, ensuring that sensitive data from the app is not stored in the device backup.
-- Limit application attack surface by only exporting activities, content providers and services that are necessary to be exported
+- 安全なデフォルト設定: デフォルト設定と構成が適切に保護されていることを確認し、機密情報を公開したり、不必要なパーミッションを提供しないようにします。
+- デフォルト認証情報: ハードコードされたデフォルト認証情報の使用を控えます。
+- 安全でないパーミッション: world-readable や world-writable のような過度に寛容なパーミッションでアプリケーションファイルを保存することを避けます。
+- 最小権限の原則: アプリケーションが適切に機能するために必要なパーミッションのみを要求します。
+- 安全なネットワーク設定: クリアテキストトラフィックを禁止し、可能であれば証明書ピン留めを使用します。
+- デバッグの無効化: アプリの製品版ではデバッグ機能を無効にします。
+- バックアップモードの無効化 (Android): Android デバイスのバックアップモードを無効にすることで、デバイスのバックアップにアプリデータが含まれないようにし、アプリの機密データがデバイスのバックアップに保存されないようにします。
+- エクスポートが必要なアクティビティ、コンテンツプロバイダ、サービスのみをエクスポートすることで、アプリケーションの攻撃対象領域を制限します。
 
 # 攻撃シナリオの例
 
-The following scenarios showcase security misconfigurations in mobile apps:
+以下のシナリオはモバイルアプリのセキュリティの設定ミスを示しています。
 
-**シナリオ #1:** Insecure default settings.
+**シナリオ #1:** 安全でないデフォルト設定
 
-A mobile app is released with default settings that have weak security configurations enabled. This includes using insecure communication protocols, leaving default usernames and passwords unchanged, and not disabling debugging features in release builds. Attackers exploit these misconfigurations to gain unauthorized access to sensitive data or perform malicious actions.
+あるモバイルアプリは脆弱なセキュリティ設定を有効にしたデフォルト設定でリリースされます。これには、安全でない通信プロトコルを使用すること、デフォルトのユーザー名とパスワードを変更しないままにすること、リリースビルドでデバッグ機能を無効にしないことなどが含まれます。攻撃者はこのような設定ミスを悪用して、機密データへの認可されていないアクセスを獲得したり、悪意のあるアクションを実行します。
 
-**シナリオ #2:** Insecure file provider path settings.
+**シナリオ #2:** 安全でないファイルプロバイダのパス設定
 
-A mobile app exposes its root path in an exported file content provider, allowing other apps to access its resources.
+あるモバイルアプリはエクスポートされたファイルコンテンツプロバイダのルートパスを公開したため、他のアプリがそのリソースにアクセスできてしまいます。
 
-**シナリオ #3:** Overly permissive storage permissions.
+**シナリオ #3:** 過度に寛容なストレージパーミッション
 
-A mobile app that stores application shared preferences with world-readable permissions, allowing other apps to read them
+あるモバイルアプリは world-readable パーミッションでアプリケーション共有プリファレンスを保存したため、他のアプリがそれらを読み取れてしまいます。
 
-**シナリオ #4:** Exported activity.
+**シナリオ #4:** エクスポートされたアクティビティ
 
-A mobile app exports some activity that is meant for internal use, giving attackers extra attack surface to the application.
+あるモバイルアプリは内部使用を目的とした一部のアクティビティをエクスポートしたため、攻撃者にアプリケーションへの余計な攻撃対象領域を与えてしまいます。
 
-**シナリオ #5:**  Unnecessary permissions.
+**シナリオ #5:**  不要なパーミッション
 
-A mobile app requests excessive permissions that are not essential for its core functionality. For instance, a simple flashlight app requesting access to the user's contacts, location, and camera. This exposes user data to unnecessary risks, as the app could potentially misuse the granted permissions or unintentionally leak sensitive information.
+あるモバイルアプリはそのコア機能に必須ではない過剰なパーミッションを要求します。たとえば、シンプルな懐中電灯アプリがユーザーの連絡先、位置情報、カメラへのアクセスを要求するようなものです。これにより、アプリが許可されたパーミッションを悪用したり、意図しない機密情報を漏洩する可能性があるため、ユーザーデータを不要なリスクにさらしてしまいます。
 
 # 参考資料
 

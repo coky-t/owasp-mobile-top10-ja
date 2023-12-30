@@ -8,17 +8,17 @@ title: "M9: 安全でないデータストレージ (Insecure Data Storage)"
 
 **アプリケーション依存**
 
-Insecure data storage in a mobile application can attract various threat agents who aim to exploit the vulnerabilities and gain unauthorised access to sensitive information. These threat agents include skilled adversaries who target mobile apps to extract valuable data, malicious insiders within the organisation or app development team who misuse their privileges, state-sponsored actors conducting cyber espionage, cybercriminals seeking financial gain through data theft or ransom, script kiddies utilising pre-built tools for simple attacks, data brokers looking to exploit insecure storage for selling personal information, competitors and industrial spies aiming to gain a competitive advantage, and activists or hacktivists with ideological motives.
+モバイルアプリケーションでの安全でないデータストレージは、脆弱性を悪用して機密情報への認可されていないアクセスを獲得することを狙うさまざまな脅威エージェントを引き寄せる可能性があります。これらの脅威エージェントには、貴重なデータを抽出するためにモバイルアプリをターゲットにする熟練した敵対者、組織またはアプリ開発チーム内の特権を悪用する悪意のある内部関係者、サイバースパイ活動を行う国家支援のアクター、データ窃取や身代金を通じて金銭的利益を狙うサイバー犯罪者、単純な攻撃のために事前構築されたツールを利用するスクリプトキディ、個人情報を販売するために安全でないストレージを悪用しようとするデータブローカー、競争上の優位性を得ようとする競合他社や産業スパイ、イデオロギー的な動機を持つアクティビストやハクティビストなどが含まれます。
 
-These threat agents exploit vulnerabilities like weak encryption, insufficient data protection, insecure data storage mechanisms, and improper handling of user credentials. It is crucial for mobile app developers and organisations to implement strong security measures, such as robust encryption, secure data storage practices, and adherence to best practices for mobile application security, to mitigate the risks associated with insecure data storage.
+これらの脅威エージェントは脆弱な暗号化、不十分なデータ保護、安全でないデータストレージメカニズム、ユーザー認証情報の不適切な処理などの脆弱性を悪用します。モバイルアプリの開発者や組織にとって、堅牢な暗号化、安全なデータストレージプラクティス、もバイアルアプリケーションセキュリティのベストプラクティスの遵守などの強力なセキュリティ対策を実施し、安全でないデータストレージに関連するリスクを軽減することが極めて重要です。
 
 # 攻撃手法
 
 **悪用難易度 容易**
 
-Insecure data storage in a mobile application exposes vulnerabilities to various attack vectors that threat actors can exploit. Attack vectors include unauthorised access to the device's file system through physical or remote means, exploiting weak encryption or lack thereof, intercepting data transmissions, and leveraging malware or malicious apps installed on the device. Additionally, rooted or jailbroken devices provide an opportunity for attackers to bypass security measures and gain direct access to sensitive data. Other attack vectors include social engineering techniques to deceive users into providing access to their data or manipulating the application's behaviour. 
+モバイルアプリケーションの安全でないデータストレージは脅威アクターが悪用できるさまざまな攻撃ベクトルに対して脆弱性をさらします。攻撃ベクトルには、物理的またはリモート手段によるデバイスのファイルシステムへの認可されていないアクセス、脆弱な暗号化やその欠如の悪用、データ送信の傍受、デバイスにインストールされているマルウェアや悪意のあるアプリの利用などが含まれます。さらに、ルート化や脱獄されたデバイスは攻撃者がセキュリティ対策を回避し、機密データへの直接アクセスを獲得する機会を提供します。他の攻撃ベクトルには、ユーザーを欺いてデータへのアクセスを提供したり、アプリケーションの動作を操作するソーシャルエンジニアリング技法があります。
 
-Overall, insecure data storage on a mobile application opens avenues for attacks ranging from direct data extraction to interception of sensitive information, emphasising the critical need for robust encryption, secure transmission protocols, and thorough security measures in mobile app development.
+全体として、モバイルアプリケーション上の安全でないデータストレージは、直接データ抽出から機密情報の傍受に至るまでの攻撃の道を開き、モバイルアプリ開発における堅牢な暗号化、安全な伝送プロトコル、徹底したセキュリティ対策の重要な必要性を強調しています。
 
 # セキュリティ上の弱点
 

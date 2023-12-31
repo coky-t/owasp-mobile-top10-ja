@@ -18,7 +18,7 @@ title: "M9: 安全でないデータストレージ (Insecure Data Storage)"
 
 モバイルアプリケーションの安全でないデータストレージは脅威アクターが悪用できるさまざまな攻撃ベクトルに対して脆弱性をさらします。攻撃ベクトルには、物理的またはリモート手段によるデバイスのファイルシステムへの認可されていないアクセス、脆弱な暗号化やその欠如の悪用、データ送信の傍受、デバイスにインストールされているマルウェアや悪意のあるアプリの利用などが含まれます。さらに、ルート化や脱獄されたデバイスは攻撃者がセキュリティ対策を回避し、機密データへの直接アクセスを獲得する機会を提供します。他の攻撃ベクトルには、ユーザーを欺いてデータへのアクセスを提供したり、アプリケーションの動作を操作するソーシャルエンジニアリング技法があります。
 
-全体として、モバイルアプリケーション上の安全でないデータストレージは、直接データ抽出から機密情報の傍受に至るまでの攻撃の道を開き、モバイルアプリ開発における堅牢な暗号化、安全な伝送プロトコル、徹底したセキュリティ対策の重要な必要性を強調しています。
+全体として、モバイルアプリケーション上の安全でないデータストレージは、直接データ抽出から機密情報の傍受に至るまでの攻撃の道を開き、モバイルアプリ開発における堅牢な暗号化、安全な伝送プロトコル、徹底したセキュリティ対策が極めて重要で必要であることを強調しています。
 
 # セキュリティ上の弱点
 
@@ -26,28 +26,28 @@ title: "M9: 安全でないデータストレージ (Insecure Data Storage)"
 
 **検出難易度 普通**
 
-Insecure data storage in a mobile application encompasses various security weaknesses that can jeopardise the confidentiality and integrity of stored information. These weaknesses include the use of weak or nonexistent encryption, allowing attackers to easily access and decipher sensitive data. Additionally, storing data in easily accessible locations within the device's filesystem, such as plain text files or unprotected databases, exposes it to unauthorised extraction or manipulation. Insufficient access controls and user authentication mechanisms further compound the problem, enabling unauthorised individuals to gain access to sensitive data. 
+モバイルアプリケーションの安全でないデータストレージは、保存されている情報の機密性と完全性を脅かす可能性があるさまざまなセキュリティ上の弱点を含んでいます。これらの弱点には脆弱な暗号化や暗号化なしでの使用が含まれ、攻撃者が機密データに容易にアクセスして解読できるようになります。さらに、プレーンテキストファイルや保護されていないデータベースなど、デバイスのファイルシステム内の簡単にアクセスできる場所にデータを保存すると、認可されていない抽出や操作にさらされます。アクセス制御とユーザー認証メカニズムが不十分であると、問題はさらに複雑になり、認可されていない個人が機密データにアクセスできるようになります。
 
-Furthermore, the absence of secure data transmission protocols leaves data vulnerable to interception during communication between the mobile app and external servers. Collectively, these security weaknesses in mobile application data storage create opportunities for data breaches, unauthorised access, and data tampering, emphasising the critical need for robust encryption, secure storage practices, and stringent access controls to mitigate these risks.
+さらに、安全なデータ転送プロトコルがないため、モバイルアプリと外部サーバー間の通信中にデータが傍受されやすくなります。モバイルアプリケーションのデータストレージにおけるこれらのセキュリティ上の弱点を総合すると、データ侵害、認可されていないアクセス、データ改竄の機会を生み出し、これらのリスクを軽減するために堅牢な暗号化、安全なストレージプラクティス、厳格なアクセス制御が極めて重要で必要であることを強調しています。
 
 
 # 技術的影響
 
 **影響度 深刻**
 
-Insecure data storage on a mobile application can have significant technical impacts that undermine the overall security and functionality of the app. These impacts include:
+モバイルアプリケーションの安全でないデータストレージは、アプリの全体的なセキュリティと機能性を損なう重大な技術的影響をもたらす可能性があります。このような影響には以下があります。
 
-**Data breaches:** Insecure data storage makes sensitive information susceptible to unauthorised access and data breaches. Attackers can exploit vulnerabilities to extract or manipulate sensitive data, leading to potential privacy violations and loss of confidential information.
+**データ侵害:** 安全でないデータストレージは機密情報を認可されていないアクセスやデータ侵害の危険にさらします。攻撃者は脆弱性を悪用して機密データを抽出や操作し、潜在的なプライバシー侵害や機密情報の損失につながる可能性があります。
 
-**Compromised user accounts:** Inadequate data storage practices can result in the compromise of user accounts. Attackers may gain access to login credentials or personal information stored insecurely, leading to unauthorised account access, identity theft, or unauthorised activities on behalf of the user.
+**ユーザーアカウントの侵害:** 不適切なデータストレージプラクティスはユーザーアカウントの侵害につながる可能性があります。攻撃者は安全に保存されていないログイン認証情報や個人情報へのアクセスを獲得して、認可されていないアカウントアクセス、個人情報窃取、ユーザーに代わって認可されていないアクティビティにつながる可能性があります。
 
-**Data tampering and integrity issues:** Without proper data protection measures, attackers can modify or tamper with the stored data. This can lead to data integrity issues, inaccurate information, or the injection of malicious content into the app's data stores.
+**データ改竄と完全性の問題:** 適切なデータ保護対策がなければ、攻撃者は保存されたデータを変更や改竄できます。これにより、データ完全性問題、不正確な情報、アプリのデータストアへの悪意のあるコンテンツの注入につながる可能性があります。
 
-**Unauthorised access to application resources:** Insecure data storage can provide attackers with the ability to gain unauthorised access to critical application resources. This includes sensitive files, configuration files, or cryptographic keys stored within the app, which can be leveraged to compromise the app's functionality or exploit its underlying systems.
+**アプリケーションリソースへの認可されていないアクセス:** 安全でないデータストレージは、攻撃者に重要なアプリケーションリソースへの認可されていないアクセスを獲得する能力を提供する可能性があります。これには、アプリ内に保存されている機密ファイル、設定ファイル、暗号鍵を含み、これらを悪用してアプリの機能を侵害したり、基盤となるシステムを悪用する可能性があります。
 
-**Reputation and trust damage:** If an app is found to have insecure data storage, it can severely damage the reputation and trust of the app developer or organisation. Users may lose confidence in the app's security, resulting in decreased user adoption and potential legal and regulatory consequences.
+**評判と信頼への損害:** アプリが安全でないデータストレージを持つことが判明すると、アプリ開発者や組織の評判や信頼を大きく損なう可能性があります。ユーザーはアプリのセキュリティに対する信頼を失い、その結果、ユーザーの利用が減少し、法的および規制上の影響を受ける可能性があります。
 
-**Compliance violations:** Insecure data storage can lead to non-compliance with industry regulations and data protection standards. App developers may be subject to penalties or legal actions if they fail to adequately protect user data and maintain secure data storage practices.
+**コンプライアンス違反:** 安全でないデータストレージは業界の規制やデータ保護標準への不遵守につながる可能性があります。アプリ開発者は、ユーザーデータを適切に保護して安全にデータストレージプラクティスを維持することができない場合には、罰則や法的措置の対象となる可能性があります。
 
 
 # ビジネスへの影響

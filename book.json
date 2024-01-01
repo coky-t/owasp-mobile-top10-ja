@@ -1,5 +1,5 @@
 {
-  "root" : "./2016-risks",
+  "root" : "./2023-risks",
   "plugins" : [ "anchors" ],
 
   "structure": {

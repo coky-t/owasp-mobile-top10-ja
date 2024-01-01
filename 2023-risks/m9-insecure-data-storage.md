@@ -54,74 +54,74 @@ title: "M9: 安全でないデータストレージ (Insecure Data Storage)"
 
 **影響度 深刻**
 
-The business impact of insecure data storage on a mobile application can be significant and wide-ranging. Here are some key business impacts:
+モバイルアプリケーションの安全でないデータストレージのビジネスへの影響は重大かつ広範囲に及ぶ可能性があります。主要なビジネスへの影響をいくつか示します。
 
-**Reputational damage**: Insecure data storage can lead to data breaches and compromised user accounts, which can severely damage the reputation and trust of the organisation. News of data breaches can spread quickly, resulting in negative publicity, customer dissatisfaction, and potential loss of business.
+**風評被害**: 安全でないデータストレージはデータ侵害やユーザーアカウントの侵害につながり、組織の評判や信頼に深刻な損害を与える可能性があります。データ侵害のニュースはすぐに広がり、悪評、顧客の不満、潜在的なビジネスの損失を引き起こす可能性があります。
 
-**Loss of customer trust**: When sensitive customer data is compromised due to insecure data storage, customers may lose trust in the organisation's ability to protect their information. This loss of trust can lead to a decrease in customer loyalty, increased customer churn, and a negative impact on overall customer satisfaction.
+**顧客信頼の喪失**: 安全でないデータストレージにより機密性の高い顧客データが侵害されると、顧客は組織の情報保護能力に対する信頼を失う可能性があります。この信頼の喪失は、顧客ロイヤルティの低下、顧客離れの増加、全体的な顧客満足度への悪影響につながる可能性があります。
 
-**Legal and regulatory consequences**: Inadequate data storage practices may result in non-compliance with industry regulations and data protection laws. Organisations may face legal repercussions, including fines, penalties, or lawsuits for failing to protect user data adequately. Compliance violations can also damage the organisation's reputation and trustworthiness in the eyes of customers and business partners.
+**法的および規制上の影響**: 不適切なデータストレージプラクティスは業界の規制やデータ保護法の不遵守につながる可能性があります。組織は、ユーザーデータを適切な保護を怠ったため、罰金、罰則、訴訟などの法的影響を受ける可能性があります。また、コンプライアンス違反は顧客やビジネスパートナーから見た組織の評判や信頼を損なう可能性もあります。
 
-**Financial implications**: Data breaches and the resulting fallout can have significant financial implications for organisations. This includes the costs associated with investigating the breach, notifying affected customers, providing identity theft protection services, potential legal settlements, and loss of business opportunities.
+**経済的影響**: データ侵害とその結果生じる影響は組織に重大な経済的影響を及ぼす可能性があります。これには、侵害の調査、影響を与える顧客への通知、個人情報盗難保護サービスの提供、潜在的な法的解決、ビジネス機会の損失などに関連するコストが含まれます。
 
-**Competitive disadvantage**: In today's highly competitive landscape, organisations that experience data breaches or have a reputation for insecure data storage can face a competitive disadvantage. Customers are increasingly concerned about the security of their data, and they may choose competitors who have a better track record of safeguarding sensitive information.
+**競争上の不利益**: 今日のような競争の激しい状況では、データ侵害を経験したり安全でないデータストレージの評判がある組織は競争上の不利な状況に直面する可能性があります。顧客はデータのセキュリティに対する懸念をますます高めており、機密情報の保護においてより優れた実績を持つ競合他社を選択するかもしれません。
 
 # 「安全でないデータストレージ」の脆弱性があるか？
 
-Insecure data storage and unintended data leakage in a mobile application can manifest in several ways, leading to potential privacy breaches and unauthorised access to sensitive information. Here are common manifestations of these issues:
+モバイルアプリケーションの安全でないデータストレージと意図しないデータ漏洩はいくつかの形で現れ、潜在的なプライバシー侵害や機密情報への認可されていないアクセスをにつながる可能性があります。このような問題のよくある兆候は以下の通りです。
 
-**Lack of Access Controls**: Insufficient access controls within the application may allow unauthorised users or attackers to gain access to sensitive data stored on the device or in the app's databases.
+**アクセス制御の欠如**: アプリケーション内の不十分なアクセス制御により、認可されていないユーザーや攻撃者がデバイスやアプリのデータベースに保存されている機密データへのアクセスを獲得できる可能性があります。
 
-**Inadequate Encryption**: Failure to properly encrypt sensitive data can result in unintended data leakage if an attacker gains access to the storage location. Without encryption, the data is easily readable and can be exploited.
+**不適切な暗号化**: 機密データを適切に暗号化しないと、攻撃者が保存場所へのアクセスを獲得した場合、意図しないデータ漏洩につながる可能性があります。暗号化しなければ、データは簡単に読み取られ、悪用される可能性があります。
 
-**Unintentional Data Exposure**: Mobile applications may inadvertently expose sensitive data through application logs, error messages, or debug features, allowing unauthorised individuals to view or capture sensitive information.
+**意図しないデータ開示**: モバイルアプリケーションはアプリケーションログ、エラーメッセージ、デバッグ機能を通じて、機密データを不注意に開示し、認可されていない個人が機密情報を閲覧や取得できる可能性があります。
 
-**Poor Session Management**: Weak session management can lead to unintended data leakage. If session tokens or user authentication information are not adequately protected or managed, they can be intercepted or manipulated, allowing unauthorised access to sensitive data.
+**不十分なセッション管理**: 脆弱なセッション管理は意図しないデータ漏洩につながる可能性があります。セッショントークンや認証情報が適切に保護や管理されていないと、それらを傍受されたり操作され、機密データへの認可されていないアクセスを許す可能性があります。
 
-**Insufficient Input Validation**: Inadequate input validation and data sanitization can lead to unintended data leakage. Attackers may exploit this weakness to inject malicious scripts or retrieve sensitive data by manipulating input fields.
+**不十分な入力バリデーション**: 不適切な入力バリデーションとデータサニタイゼーションは意図しないデータ漏洩につながる可能性があります。攻撃者はこの弱点を悪用して、入力フィールドを操作し、悪意のあるスクリプトを注入したり、機密データを取得する可能性があります。
 
-**Cloud Storage Misconfigurations**: If the mobile application uses cloud storage services for data storage and the configurations are mismanaged or misconfigured, it can result in unintended exposure or unauthorised access to stored data.
+**クラウドストレージの設定ミス**: モバイルアプリケーションがデータストレージにクラウドストレージサービスを使用する際、その設定を管理ミスや設定ミスしていると、保存データへの意図しない開示や認可されていないアクセスにつながる可能性があります。
 
-**Third-Party Library Vulnerabilities**: Insecure third-party libraries used in the mobile application may have vulnerabilities that could lead to unintended data leakage. Attackers can exploit these vulnerabilities to gain unauthorised access to sensitive information.
+**サードパーティライブラリの脆弱性**: モバイルアプリケーションで使用される安全でないサードパーティライブラリには意図しないデータ漏洩につながる脆弱性があるかもしれません。攻撃者はこのような脆弱性を悪用し、機密情報への認可されていないアクセスを獲得する可能性があります。
 
-**Unintended Data Sharing**: Improper handling of data sharing features within the application can result in unintended data leakage. If sensitive data is shared with unintended recipients or if the sharing process is not adequately secured, it can lead to privacy breaches.
+**意図しないデータ共有**: アプリケーション内のデータ共有機能の不適切な処理は意図しないデータ漏洩につながる可能性があります。機密データが意図しない受信者と共有されたり、共有プロセスが適切に保護されていないと、プライバシー侵害につながる可能性があります。
 
 
 # 「安全でないデータストレージ」を防ぐには？
 
-To prevent insecure data storage in a mobile application and ensure the protection of sensitive data, the following security measures should be implemented:
+モバイルアプリケーションの安全でないデータストレージを防ぎ、機密データを確実に保護するには、以下のセキュリティ対策を導入する必要があります。
 
-**Use Strong Encryption**: Implement robust encryption algorithms and practices to protect sensitive data both at rest and in transit. Utilise industry-standard encryption algorithms and ensure that encryption keys are securely stored and managed.
+**強力な暗号化の使用**: 堅牢な暗号化アルゴリズムとプラクティスを導入して、保存時と転送時の両方で機密データを保護します。業界標準の暗号化アルゴリズムを利用し、暗号鍵が安全に保管および管理されるように確保します。
 
-**Secure Data Transmission**: Utilise secure communication protocols (e.g., HTTPS, SSL/TLS) to protect data during transmission between the mobile application and backend servers. Avoid sending sensitive data over unsecured channels.
+**安全なデータ転送**: 安全な通信プロトコル (HTTPS, SSL/TLS など) を利用し、モバイルアプリケーションとバックエンドサーバー間の転送時のデータを保護します。機密データを安全でないチャネルで送信することは避けます。
 
-**Implement Secure Storage Mechanisms**: Store sensitive data in secure storage locations that are inaccessible to unauthorised users. Use platform-specific secure storage mechanisms provided by the mobile operating system, such as Keychain (iOS) or Keystore (Android).
+**安全なストレージメカニズムの導入**: 機密データは認可されていないユーザーがアクセスできない安全なストレージの位置に保存します。Keychain (iOS) や Keystore (Android) など、モバイルオペレーティングシステムが提供するプラットフォーム固有の安全なストレージメカニズムを使用します。
 
-**Employ Proper Access Controls**: Implement strong access controls to restrict unauthorised access to sensitive data. Authenticate users securely, enforce role-based access controls, and validate user permissions before granting access to sensitive information.
+**適切なアクセス制御の採用**: 強力なアクセス制御を導入し、機密データへの認可されていないアクセスを制限します。ユーザーを安全に認証し、ロールベースのアクセス制御を適用し、機密情報へのアクセスを付与する前にユーザーパーミッションをバリデートします。
 
-**Validate Input and Sanitize Data**: Implement input validation and data sanitization techniques to prevent injection attacks and ensure that only valid and expected data is stored. Validate user inputs to mitigate the risk of malicious code injection or unintended data leakage.
+**入力のバリデートとデータのサニタイズ**: 入力バリデーションとデータサニタイゼーション技法を実装して、インジェクション攻撃を防ぎ、有効かつ期待されるデータのみが保存されるように確保します。ユーザー入力をバリデートし、悪意のあるコードインジェクションや意図しないデータ漏洩のリスクを軽減します。
 
-**Apply Secure Session Management**: Implement secure session management techniques, such as using randomly generated session tokens, setting proper session timeouts, and securely storing session data on the client and server sides.
+**安全なセッション管理の適用**: ランダムに生成されるセッショントークンの使用、適切なセッションタイムアウト、クライアント側とサーバー側のセッションデータの安全な保存など、安全なセッション管理技法を実装します。
 
-**Regularly Update and Patch Dependencies**: Keep all libraries, frameworks, and third-party dependencies up to date, as they may contain security vulnerabilities that could lead to insecure data storage. Regularly apply security patches and updates provided by the respective vendors.
+**依存関係の定期的なアップデートとパッチ適用**: すべてのライブラリ、フレームワーク、サードパーティの依存関係には安全でないデータストレージにつながるセキュリティ脆弱性を含む可能性があるため、最新の状態に保ちます。各ベンダーが提供するセキュリティパッチやアップデートを定期的に適用します。
 
-**Stay Informed**: Stay up to date with the latest security threats and vulnerabilities in the mobile application landscape. Monitor security forums, security advisories, and mobile platform updates to ensure timely mitigation of emerging risks.
+**情報入手**: モバイルアプリケーション環境における最新のセキュリティ脅威と脆弱性に関する常に入手します。セキュリティフォーラム、セキュリティ勧告、モバイルプラットフォームのアップデートを監視して、新たに発生したリスクをタイムリーに軽減できるようにします。
 
 # 攻撃シナリオの例
 
-Few example scenarios that illustrate potential instances of insecure data storage in a mobile application:
+モバイルアプリケーションの安全でないデータストレージの潜在的なインスタンスを示すシナリオ例をいくつか示します。
 
-**Storing Passwords in Plain Text**: The mobile application stores user passwords in plain text format within a local database or file, making it easy for an attacker to retrieve and abuse these credentials if they gain unauthorized access to the device.
+**プレーンテキストでのパスワード保存**: モバイルアプリケーションはユーザーパスワードをローカルデータベースやファイルにプレーンテキスト形式で保存するため、攻撃者がデバイスへの認可されていないアクセスを獲得した場合、これらの認証情報を簡単に取得して悪用できます。
 
-**Unsecured Local Storage**: The mobile application stores sensitive user data, such as personally identifiable information (PII), locally on the device without utilizing proper access controls or encryption. This allows anyone with physical access to the device to extract and view the data.
+**安全でないローカルストレージ**: モバイルアプリケーションは、個人を識別できる情報 (PII) などの機密ユーザーデータを、適切なアクセス制御や暗号化を利用せずにデバイス上にローカルに保存します。これにより、デバイスに物理的にアクセスできる人は誰でもデータを抽出して閲覧できます。
 
-**Insecure Data Caching**: The mobile application caches sensitive data, such as user authentication tokens or session information, without implementing appropriate security measures. If an attacker gains access to the device's cache, they can obtain these credentials and impersonate the user.
+**安全でないデータキャッシュ**: モバイルアプリケーションは、ユーザー認証トークンやセッション情報などの機密データを、適切なセキュリティ対策を実装せずにキャッシュします。攻撃者がデバイスのキャッシュへのアクセスを獲得すると、これらの認証情報を取得してユーザーになりすますことができます。
 
-**Unprotected Logging**: The mobile application logs sensitive data, including user actions, API responses, or error messages, without proper security controls. This can lead to unintentional exposure of sensitive information if an attacker gains access to the device or intercepts the log files.
+**保護されていないログ記録**: モバイルアプリケーションは、ユーザーアクション、API レスポンス、エラーメッセージなどの機密データを、適切なセキュリティ制御なしでログ記録します。これにより、攻撃者がデバイスへのアクセスを獲得したり、ログファイルを傍受した場合、機密情報の意図しない開示につながる可能性があります。
 
-**Insecure Cloud Storage Configuration**: The mobile application utilizes cloud storage services to store user data but misconfigures the storage permissions, allowing unauthorized access to the stored information. This can result in data leakage or unauthorized exposure of sensitive data.
+**安全でないクラウドストレージ設定**: モバイルアプリケーションはクラウドストレージサービスを利用してユーザーデータを保存しますが、保存されている情報への認可されていないアクセスを許可しています。これにより機密データのデータ漏洩や認可されていない開示につながる可能性があります。
 
-**Improper Handling of Temporary Files**: The mobile application creates temporary files to process or store sensitive data, but fails to properly handle and delete these files afterward. This leaves sensitive information exposed and vulnerable to unauthorized access.
+**一時ファイルの不適切な処理**: モバイルアプリケーションは一時ファイルを作成し、機密データを処理または保存しますが、その後これらのファイルを適切に処理および削除しません。これにより、機密情報を開示したままとなり、認可されていないアクセスにさらされます。
 
 # 参考資料
 

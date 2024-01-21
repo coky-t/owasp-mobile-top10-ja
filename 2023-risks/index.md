@@ -1,6 +1,6 @@
 ---
 layout: col-sidebar
-title: "Top 10 Mobile Risks - OWASP Draft List 2023- Beta 3"
+title: "Top 10 Mobile Risks - OWASP Mobile Top 10 2024 - Final Release"
 ---
 
 - [M1: 不適切なクレデンシャルの使用 (Improper Credential Usage)](m1-improper-credential-usage.md)
@@ -14,11 +14,11 @@ title: "Top 10 Mobile Risks - OWASP Draft List 2023- Beta 3"
 - [M9: 安全でないデータストレージ (Insecure Data Storage)](m9-insecure-data-storage.md)
 - [M10: 不十分な暗号化 (Insufficient Cryptography)](m10-insufficient-cryptography.md)
 
-## 2016 と 2023 の比較
+## 2016 と 2024 の比較
 ![image description](https://github.com/OWASP/www-project-mobile-top-10/blob/master/2023-risks/assets/images/comparison-owasp-10.png)
 
 
-## Beta 3 Draft リストには掲載されていないが、将来的に検討される可能性がある脆弱性
+## Final Top 10 リストには掲載されていないが、将来的に検討される可能性がある脆弱性
 
 * データ漏洩 (Data Leakage)
 * ハードコードされたシークレット (Hardcoded Secrets)

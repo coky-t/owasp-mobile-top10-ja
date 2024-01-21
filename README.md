@@ -7,9 +7,9 @@ This is the unofficial Japanese translation of the [OWASP Mobile Top 10](https:/
 - Project Site - <https://owasp.org/www-project-mobile-top-10>
 - Project Repository - <https://github.com/OWASP/www-project-mobile-top-10>
 
-# OWASP モバイル Top 10 2023 (Initial Release) 日本語版
+# OWASP モバイル Top 10 2024 (Final Release) 日本語版
 
-* [Mobile Top 10 2023-Top 10](2023-risks/index.md)
+* [Mobile Top 10 2024-Top 10](2023-risks/index.md)
 * [M1: 不適切なクレデンシャルの使用 (Improper Credential Usage)](2023-risks/m1-improper-credential-usage.md)
 * [M2: 不適切なサプライチェーンセキュリティ (Inadequate Supply Chain Security)](2023-risks/m2-inadequate-supply-chain-security.md)
 * [M3: 安全でない認証と認可 (Insecure Authentication/Authorization)](2023-risks/m3-insecure-authentication-authorization.md)

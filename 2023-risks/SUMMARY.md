@@ -1,6 +1,6 @@
 # 目次
 
-- [Mobile Top 10 2023-Top 10](index.md)
+- [Mobile Top 10 2024-Top 10](index.md)
 - [M1: 不適切なクレデンシャルの使用 (Improper Credential Usage)](m1-improper-credential-usage.md)
 - [M2: 不適切なサプライチェーンセキュリティ (Inadequate Supply Chain Security)](m2-inadequate-supply-chain-security.md)
 - [M3: 安全でない認証と認可 (Insecure Authentication/Authorization)](m3-insecure-authentication-authorization.md)

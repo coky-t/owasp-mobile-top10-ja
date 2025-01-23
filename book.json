@@ -1,9 +1,9 @@
 {
-  "root" : "./2023-risks",
+  "root" : ".",
   "plugins" : [ "anchors" ],
 
   "structure": {
-    "readme": "index.md"
+    "readme": "README.md"
   }
 
 }

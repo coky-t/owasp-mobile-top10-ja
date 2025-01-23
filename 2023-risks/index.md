@@ -15,7 +15,7 @@ title: "Top 10 Mobile Risks - OWASP Mobile Top 10 2024 - Final Release"
 - [M10: 不十分な暗号化 (Insufficient Cryptography)](m10-insufficient-cryptography.md)
 
 ## 2016 と 2024 の比較
-![image description](https://github.com/OWASP/www-project-mobile-top-10/blob/master/2023-risks/assets/images/comparison-owasp-10.png)
+![image description](https://raw.githubusercontent.com/OWASP/www-project-mobile-top-10/refs/heads/master/2023-risks/assets/images/comparison-owasp-10.png)
 
 
 ## Final Top 10 リストには掲載されていないが、将来的に検討される可能性がある脆弱性

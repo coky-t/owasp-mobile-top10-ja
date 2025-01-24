@@ -1,6 +1,8 @@
-# 目次
+# OWASP Mobile Top 10 ja
 
-- [OWASP モバイル Top 10 日本語版](README.md)
+- [OWASP Mobile Top 10 ja](README.md)
+
+## OWASP モバイル Top 10 日本語版
 
 - [Mobile Top 10 2024-Top 10](2023-risks/index.md)
   - [M1: 不適切なクレデンシャルの使用 (Improper Credential Usage)](2023-risks/m1-improper-credential-usage.md)

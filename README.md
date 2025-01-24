@@ -7,7 +7,7 @@ This is the unofficial Japanese translation of the [OWASP Mobile Top 10](https:/
 - Project Site - <https://owasp.org/www-project-mobile-top-10>
 - Project Repository - <https://github.com/OWASP/www-project-mobile-top-10>
 
-# OWASP モバイル Top 10 2024 (Final Release) 日本語版
+## OWASP モバイル Top 10 2024 (Final Release) 日本語版
 
 * [Mobile Top 10 2024-Top 10](2023-risks/index.md)
 * [M1: 不適切なクレデンシャルの使用 (Improper Credential Usage)](2023-risks/m1-improper-credential-usage.md)
@@ -21,7 +21,7 @@ This is the unofficial Japanese translation of the [OWASP Mobile Top 10](https:/
 * [M9: 安全でないデータストレージ (Insecure Data Storage)](2023-risks/m9-insecure-data-storage.md)
 * [M10: 不十分な暗号化 (Insufficient Cryptography)](2023-risks/m10-insufficient-cryptography.md)
 
-# OWASP モバイル Top 10 2016 日本語版
+## OWASP モバイル Top 10 2016 日本語版
 
 * [Mobile Top 10 2016-Top 10](2016-risks/index.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-Top_10.html)
 * [M1 - 不適切なプラットフォームの利用](2016-risks/m1-improper-platform-usage.md) [(html)](https://coky-t.github.io/owasp-mobile-top10-2016-ja/Mobile_Top_10_2016-M1-Improper_Platform_Usage.html)
